@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+			body{
+				background: black;
+				margin: 0;
+				overflow: hidden;
+			}
+			
+			canvas{
+				width: 100%;
+			    image-rendering: optimizeSpeed;
+			    image-rendering: -moz-crisp-edges;
+			    image-rendering: -webkit-optimize-contrast;
+			    image-rendering: -o-crisp-edges;
+			    image-rendering: optimize-contrast;
+			    -ms-interpolation-mode: nearest-neighbor;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		
+		<script>
+			var canvas = document.getElementById('myCanvas'),
+				ctx = myCanvas.getContext('2d'),
+				spritesheet = new Image(),
+				bg = new Image(),
+				sky = new Image(),
+				hill1 = new Image(),
+				hill2 = new Image(),
+				hill3 = new Image(),
+				clouds = new Image(),
+				pattern,
+				skyPattern,
+				cloudPattern,
+				loadcount = 0,
+				delta = 0,
+				speed = 10,
+				frame = 0,
+				columns = 2,
+				rows = 2,
+				frameWidth = 135,
+				frameHeight = 265,
+				offsetX = 0,
+				offsetY = 0,
+				_x,
+				_y,
+				forward = true,
+				showSheet = true;
+			
+			resize();
+			window.addEventListener('resize', resize);
+			
+			spritesheet.src = "mario_sprite.png";
+			spritesheet.addEventListener('load', handle_LOAD);
+			
+			bg.src = "ground.png";
+			bg.addEventListener('load', handle_LOAD);
+			
+			sky.src = "sky.png";
+			sky.addEventListener('load', handle_LOAD);
+			
+			hill1.src = "hill1.png";
+			hill1.addEventListener('load', handle_LOAD);
+			
+			hill2.src = "hill2.png";
+			hill2.addEventListener('load', handle_LOAD);
+			
+			hill3.src = "hill3.png";
+			hill3.addEventListener('load', handle_LOAD);
+			
+			clouds.src = "clouds.png";
+			clouds.addEventListener('load', handle_LOAD);
+			
+			function resize() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+				_x = (canvas.width / 2) - (frameWidth / 2);
+				_y = (canvas.height / 2) - (frameHeight / 2);
+			}
+			
+			function animate() {
+				
+				_bottom = _y - 250 + 90;
+				
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				ctx.webkitImageSmoothingEnabled = false;
+				ctx.imageSmoothingEnabled = false;
+
+				if (forward !== true) {
+					offsetX -= frameWidth;
+					
+					if (offsetX < 0) {
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 1);
+						
+						if (offsetY < 0) {
+							forward = true;
+							offsetX = 0;
+							offsetY += frameHeight;
+						}
+					}
+				} 
+				
+				if (forward !== false) {
+					offsetX += frameWidth;
+					
+					if (offsetX / frameWidth > columns - 1) {
+						offsetX = 0;
+						offsetY += frameHeight;
+					}
+					
+					if (offsetY / frameHeight > rows - 1) {
+						forward = false;
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 2);
+					}
+				}
+				
+				//sky
+				ctx.beginPath();		
+				ctx.fillStyle = skyPattern;
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				ctx.fill();
+				ctx.closePath();
+				
+				//hill1
+				_offsetSpeed = delta * 2;
+				drawImage(hill1, 0 - _offsetSpeed % hill1.width);
+				drawImage(hill1, hill1.width - _offsetSpeed % hill1.width);
+				drawImage(hill1, hill1.width * 2 - _offsetSpeed % hill1.width);
+				drawImage(hill1, hill1.width * 3 - _offsetSpeed % hill1.width);
+
+				//hill2
+				_offsetSpeed = delta * 3;
+				drawImage(hill2, 0 - _offsetSpeed % hill2.width);
+				drawImage(hill2, hill2.width - _offsetSpeed % hill2.width);
+				drawImage(hill2, hill2.width * 2 - _offsetSpeed % hill2.width);
+				drawImage(hill2, hill2.width * 3 - _offsetSpeed % hill2.width);
+				drawImage(hill2, hill2.width * 4 - _offsetSpeed % hill2.width);
+
+				//hill3
+				_offsetSpeed = delta * 5;
+				drawImage(hill3, 0 - _offsetSpeed % hill3.width);
+				drawImage(hill3, hill3.width - _offsetSpeed % hill3.width);
+				drawImage(hill3, hill3.width * 2 - _offsetSpeed % hill3.width);
+				drawImage(hill3, hill3.width * 3 - _offsetSpeed % hill3.width);
+
+				//clouds
+				ctx.translate(-delta, _bottom - 100);
+				ctx.beginPath();		
+				ctx.fillStyle = cloudPattern;
+				ctx.fillRect(delta, -_bottom + 100, canvas.width, canvas.height);
+				ctx.fill();
+				ctx.closePath();
+				ctx.translate(delta, -_bottom + 100);
+				
+				//ground
+				ctx.translate(-delta * speed, _bottom);
+				ctx.beginPath();		
+				ctx.fillStyle = pattern;
+				ctx.fillRect(delta * speed, -_bottom, canvas.width, canvas.height);
+				ctx.fill();
+				ctx.closePath();
+				ctx.translate(delta * speed, -_bottom);
+				
+				ctx.drawImage(spritesheet, offsetX, offsetY, frameWidth, frameHeight, _x, _y, frameWidth, frameHeight);	
+
+				frame += 1;
+				delta += 1;
+				
+				setTimeout(animate, 50);
+			}
+			
+			function drawImage(img, x) {
+				ctx.drawImage(img, 0, 0, img.width, img.height, x, _bottom, img.width, img.height);	
+			}
+
+			function handle_LOAD() {
+				loadcount += 1;
+				
+				if (loadcount == 7) {
+					pattern = ctx.createPattern(bg, 'repeat-x');
+					skyPattern = ctx.createPattern(sky, 'repeat');
+					cloudPattern = ctx.createPattern(clouds, 'repeat-x');
+										
+					animate();
+				}
+			}
+
+		</script>
+	</body>
+</html>

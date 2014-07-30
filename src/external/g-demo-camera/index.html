@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+			body{
+				background: black;
+				margin: 0;
+				overflow: hidden;
+			}
+			
+			canvas{
+				width: 100%;
+			    image-rendering: optimizeSpeed;
+			    image-rendering: -moz-crisp-edges;
+			    image-rendering: -webkit-optimize-contrast;
+			    image-rendering: -o-crisp-edges;
+			    image-rendering: optimize-contrast;
+			    -ms-interpolation-mode: nearest-neighbor;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		
+		<script>
+			var canvas = document.getElementById('myCanvas'),
+				ctx = myCanvas.getContext('2d'),
+				spritesheet = new Image(),
+				bg = new Image(),
+				pattern,
+				loadcount = 0,
+				delta = 0,
+				speed = 10,
+				frame = 0,
+				columns = 2,
+				rows = 2,
+				frameWidth = 135,
+				frameHeight = 265,
+				offsetX = 0,
+				offsetY = 0,
+				_x,
+				_y,
+				forward = true,
+				showSheet = true;
+			
+			resize();
+			window.addEventListener('resize', resize);
+			
+			spritesheet.src = "mario_sprite.png";
+			spritesheet.addEventListener('load', handle_LOAD);
+			
+			bg.src = "bg1.png";
+			bg.addEventListener('load', handle_LOAD);
+			
+			function resize() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+				_x = (canvas.width / 2) - (frameWidth / 2);
+				_y = (canvas.height / 2) - (frameHeight / 2);
+			}
+			
+			function animate() {
+				
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				ctx.webkitImageSmoothingEnabled = false;
+				ctx.imageSmoothingEnabled = false;
+
+				if (forward !== true) {
+					offsetX -= frameWidth;
+					
+					if (offsetX < 0) {
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 1);
+						
+						if (offsetY < 0) {
+							forward = true;
+							offsetX = 0;
+							offsetY += frameHeight;
+						}
+					}
+				} 
+				
+				if (forward !== false) {
+					offsetX += frameWidth;
+					
+					if (offsetX / frameWidth > columns - 1) {
+						offsetX = 0;
+						offsetY += frameHeight;
+					}
+					
+					if (offsetY / frameHeight > rows - 1) {
+						forward = false;
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 2);
+					}
+				}
+						
+				ctx.translate(-delta * speed, _y - 250 + 90);
+				ctx.beginPath();		
+				ctx.fillStyle = pattern;
+				ctx.fillRect(delta * speed, -_y + 250 - 90, canvas.width, canvas.height);
+				ctx.fill();
+				ctx.closePath();
+				ctx.translate(delta * speed, -_y + 250 - 90);
+				
+				ctx.drawImage(spritesheet, offsetX, offsetY, frameWidth, frameHeight, _x, _y, frameWidth, frameHeight);	
+
+				frame += 1;
+				delta += 1;
+				
+				setTimeout(animate, 50);
+			}
+
+			function handle_LOAD() {
+				loadcount += 1;
+				
+				if (loadcount == 2) {
+					pattern = ctx.createPattern(bg, 'repeat-x');					
+					animate();
+				}
+			}
+
+		</script>
+	</body>
+</html>

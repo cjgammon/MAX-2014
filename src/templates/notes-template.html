@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+        
+        <style>
+
+            body{
+				margin: 0;
+				padding: 0;
+                background: #efefef;
+                color: #333;
+                font-family: sans-serif;
+                font-size: 2rem;
+				font-weight: bold;
+				height: 100%;
+            }
+			
+			#container{
+				/*
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				*/
+			}
+
+            .slide{
+               /* position: absolute;*/
+                display: none;
+				box-sizing: border-box;
+				margin: 1em;
+				/*
+                width: 100%;
+                height: 100%;
+				*/
+            }
+
+            .slide.in{
+                display: block;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+			iframe{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1024px;
+				height: 768px;
+				-webkit-transform-origin: left top;
+				-webkit-transform: scale(0.5);
+			}
+			
+			#float{
+				margin-right: 1em;
+				margin-bottom: 1em;
+				width: 512px;
+				height: 384px;
+				float: left;
+			}
+        </style>
+	</head>
+    <body>
+		<iframe id="iframe" src=""></iframe>
+		<div id="float"></div>
+        <div id="container"></div>
+
+        <script>
+            var container = document.getElementById('container'),
+				iframe = document.getElementById('iframe'),
+				urls = [];
+
+            window.populateSlides = function (slideArray) {
+                var i,
+                    d;
+
+                for (i = 0; i < slideArray.length; i += 1) {
+                    d = document.createElement('div');
+                    d.className = 'slide';
+					
+					if (slideArray[i].text) {
+						d.innerHTML = slideArray[i].text;
+					}
+					
+					urls.push(slideArray[i].url);
+					
+                    container.appendChild(d);
+                }
+            }
+
+            window.gotoSlide = function (num) {
+                var slides = container.getElementsByClassName('slide'),
+                    i;
+
+                if (slides) {
+                    for (i = 0; i < slides.length; i += 1) {
+                        if (i !== num) {
+                            slides[i].className = 'slide';
+                        } else {
+                            slides[i].className = 'slide in';
+							iframe.src = urls[i];
+                        }
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
+

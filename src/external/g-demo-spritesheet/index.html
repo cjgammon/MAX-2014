@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+			body{
+				background: black;
+				margin: 0;
+				overflow: hidden;
+			}
+			
+			#container{
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			canvas{
+			    image-rendering: optimizeSpeed;
+			    image-rendering: -moz-crisp-edges;
+			    image-rendering: -webkit-optimize-contrast;
+			    image-rendering: -o-crisp-edges;
+			    image-rendering: optimize-contrast;
+			    -ms-interpolation-mode: nearest-neighbor;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<canvas id="myCanvas" width="370" height="630"></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById('myCanvas'),
+				ctx = canvas.getContext('2d'),
+				spritesheet = new Image(),
+				frame = 0,
+				columns = 2,
+				rows = 2,
+				frameWidth = 135,
+				frameHeight = 265,
+				offsetX = 0,
+				offsetY = 0,
+				_x,
+				_y,
+				forward = true,
+				showSheet = true;
+			
+			resize();
+			window.addEventListener('resize', resize);
+			
+			spritesheet.src = "mario_sprite.png";
+			spritesheet.addEventListener('load', handle_LOAD);
+			
+			function resize() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+				_x = (canvas.width / 2) - (frameWidth / 2);
+				_y = (canvas.height / 2) - (frameHeight / 2);
+			}
+			
+			function animate() {
+				
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				ctx.webkitImageSmoothingEnabled = false;
+				ctx.imageSmoothingEnabled = false;
+
+				if (forward !== true) {
+					offsetX -= frameWidth;
+					
+					if (offsetX < 0) {
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 1);
+						
+						if (offsetY < 0) {
+							forward = true;
+							offsetX = 0;
+							offsetY += frameHeight;
+						}
+					}
+				} 
+				
+				if (forward !== false) {
+					offsetX += frameWidth;
+					
+					if (offsetX / frameWidth > columns - 1) {
+						offsetX = 0;
+						offsetY += frameHeight;
+					}
+					
+					if (offsetY / frameHeight > rows - 1) {
+						forward = false;
+						offsetY -= frameHeight;
+						offsetX = frameWidth * (columns - 2);
+					}
+				}
+
+				ctx.globalAlpha = 0.2;
+				ctx.drawImage(spritesheet, 0, 0, spritesheet.width, spritesheet.height, _x - offsetX, _y - offsetY, spritesheet.width, spritesheet.height);	
+
+				ctx.globalAlpha = 1;
+				
+				ctx.drawImage(spritesheet, offsetX, offsetY, frameWidth, frameHeight, _x, _y, frameWidth, frameHeight);	
+
+				ctx.beginPath();
+				ctx.strokeStyle = "#333333";
+				ctx.lineWidth = 5;
+				ctx.rect(_x, _y, frameWidth, frameHeight);
+				ctx.stroke();
+				ctx.closePath();
+				
+				setTimeout(animate, 300);
+			}
+
+			function handle_LOAD() {
+				animate();
+			}
+
+		</script>
+	</body>
+</html>
