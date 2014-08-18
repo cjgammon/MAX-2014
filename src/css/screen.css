@@ -942,26 +942,22 @@ code {
 }
 
 /* line 163, ../sass/screen.scss */
-.slide--orange {
-  background: #F1953C;
-}
-
-/* line 167, ../sass/screen.scss */
-.slide--orange-swirl {
-  background-image: url(../assets/images/patterns/wild-sea.png);
-}
-
-/* line 171, ../sass/screen.scss */
 .slide--black {
   color: white;
   background: #222;
 }
 
-/* line 176, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
+.slide--blue {
+  color: white;
+  background: blue;
+}
+
+/* line 173, ../sass/screen.scss */
 .slide--iframe {
   background: #f2f2f2;
 }
-/* line 179, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .slide--iframe h2 {
   position: absolute;
   top: 0;
@@ -973,24 +969,24 @@ code {
   color: white;
   z-index: 2;
 }
-/* line 191, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 .slide--iframe header {
   color: black;
 }
-/* line 195, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 .slide--iframe a {
   color: #0cb4a8;
 }
-/* line 197, ../sass/screen.scss */
+/* line 194, ../sass/screen.scss */
 .slide--iframe a:hover {
   color: black;
 }
 
-/* line 203, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 .slide--full {
   padding: 0;
 }
-/* line 206, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 .slide--full iframe {
   width: 100vw;
   height: 100vh;
@@ -998,7 +994,7 @@ code {
   background-color: black;
 }
 
-/* line 214, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
 .slide--namecard.visible {
   justify-content: flex-end;
   -webkit-justify-content: flex-end;
@@ -1007,12 +1003,12 @@ code {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 222, ../sass/screen.scss */
+/* line 219, ../sass/screen.scss */
 .slide--namecard.visible .name, .slide--namecard.visible .handle {
   text-transform: none;
 }
 
-/* line 227, ../sass/screen.scss */
+/* line 224, ../sass/screen.scss */
 #fixed a {
   font-family: 'avenir', serif;
   font-weight: 100;
@@ -1020,14 +1016,14 @@ code {
   text-transform: lowercase;
 }
 
-/* line 234, ../sass/screen.scss */
+/* line 231, ../sass/screen.scss */
 #cover {
-  background-image: url(../assets/images/cover.jpg);
+  background-color: blue;
   background-size: cover;
   background-position: center;
 }
 
-/* line 244, ../sass/screen.scss */
+/* line 237, ../sass/screen.scss */
 #hi {
   background-image: url(../assets/images/yosemite.jpg);
   background-size: cover;
@@ -1036,307 +1032,16 @@ code {
   font-weight: bold;
 }
 
-/* line 254, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .head-shot {
   width: 200px;
   margin-bottom: 1em;
   border-radius: 50%;
+  border: 10px solid white;
   -webkit-clip-path: ellipse(50%, 50%, 50%, 50%);
 }
 
-/* line 261, ../sass/screen.scss */
-#rich {
-  background-image: url(../assets/images/invaders.png);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 267, ../sass/screen.scss */
-#definition {
-  background-color: #394466;
-}
-
-/* line 271, ../sass/screen.scss */
-#video-games {
-  background-image: url(../assets/images/pacman.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 277, ../sass/screen.scss */
-#myst {
-  background-image: url(../assets/images/myst.jpeg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 283, ../sass/screen.scss */
-#achievement {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-top: 1em;
-  margin-left: -150px;
-  padding: 1em 1.5em;
-  padding-bottom: 0;
-  border-radius: 3em;
-  font-size: 1rem;
-  font-weight: normal;
-  font-family: helvetica, sans-serif;
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  -webkit-transition-delay: 1s;
-  -moz-transition: -webkit-transform 0.2s ease-out 1s;
-  -o-transition: -webkit-transform 0.2s ease-out 1s;
-  transition: -webkit-transform 0.2s ease-out 1s;
-  -webkit-transform: translateY(-100px);
-  -moz-transform: translateY(-100px);
-  -ms-transform: translateY(-100px);
-  -o-transform: translateY(-100px);
-  transform: translateY(-100px);
-}
-/* line 299, ../sass/screen.scss */
-#achievement svg {
-  display: inline-block;
-  float: left;
-  margin-top: -0.75em;
-  margin-left: -1em;
-}
-/* line 306, ../sass/screen.scss */
-#achievement .achievement-text {
-  float: left;
-}
-/* line 310, ../sass/screen.scss */
-#achievement em {
-  display: block;
-  margin-bottom: 0.5em;
-  font-weight: 100;
-  font-style: normal;
-}
-/* line 317, ../sass/screen.scss */
-#achievement.in {
-  -webkit-transform: translateY(0px);
-  -moz-transform: translateY(0px);
-  -ms-transform: translateY(0px);
-  -o-transform: translateY(0px);
-  transform: translateY(0px);
-}
-
-/* line 322, ../sass/screen.scss */
-#gamification {
-  background-image: url(../assets/images/game.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 328, ../sass/screen.scss */
-#history {
-  background-image: url(../assets/images/patterns/wallpaper_orange.jpg);
-  background-position: center;
-}
-
-/* line 333, ../sass/screen.scss */
-#web {
-  background: white;
-}
-/* line 334, ../sass/screen.scss */
-#web h2 {
-  color: black;
-  font-family: serif;
-}
-
-/* line 342, ../sass/screen.scss */
-#mobile {
-  background-image: url(../assets/images/mobile.jpg);
-  background-size: cover;
-  background-position: center;
-}
-/* line 347, ../sass/screen.scss */
-#mobile h2 {
-  color: white;
-}
-
-/* line 352, ../sass/screen.scss */
-#html5 {
-  background-image: url(../assets/images/patterns/wallpaper_purple.jpg);
-  background-position: center;
-}
-/* line 356, ../sass/screen.scss */
-#html5 h2, #html5 h4 {
-  text-shadow: 0px 0px 5px black;
-}
-
-/* line 361, ../sass/screen.scss */
-#caniuse {
-  background-image: url(../assets/images/caniuse.jpg);
-  background-size: cover;
-  background-position: center;
-  box-sizing: border-box;
-}
-
-/* line 368, ../sass/screen.scss */
-#filters {
-  background-image: url(../assets/images/filters.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 374, ../sass/screen.scss */
-#masks {
-  background-image: url(../assets/images/mask.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 380, ../sass/screen.scss */
-#clip {
-  background-image: url(../assets/images/clippath.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 386, ../sass/screen.scss */
-#blend {
-  background-image: url(../assets/images/blend.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 392, ../sass/screen.scss */
-#snap {
-  background-color: white;
-  background-image: url(../assets/images/snap-croc.svg);
-  background-size: auto 100%;
-  background-position: bottom left;
-  background-repeat: no-repeat;
-}
-/* line 399, ../sass/screen.scss */
-#snap h2 {
-  color: #333;
-}
-
-/* line 404, ../sass/screen.scss */
-#generative {
-  background-color: white;
-  background-image: url(../assets/images/patterns/square-pattern.svg);
-  background-repeat: repeat;
-}
-/* line 409, ../sass/screen.scss */
-#generative h2 {
-  color: #333;
-}
-
-/* line 414, ../sass/screen.scss */
-#pixi {
-  background: #101228;
-}
-
-/* line 418, ../sass/screen.scss */
-#canvas-blend {
-  background-image: url(../assets/images/blend.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 424, ../sass/screen.scss */
-#dynamic-mask {
-  background-image: url(../assets/images/maskdynamic.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 430, ../sass/screen.scss */
-#dynamic-mask-demo {
-  background-image: url(../assets/images/cupcakes.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 437, ../sass/screen.scss */
-#video video {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-/* line 443, ../sass/screen.scss */
-#video h2 {
-  color: #e81e6f;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* line 449, ../sass/screen.scss */
-#semantics {
-  background-image: url(../assets/images/wes2.jpg);
-  background-size: cover;
-  background-position: center bottom;
-}
-/* line 454, ../sass/screen.scss */
-#semantics h2 {
-  padding: .25em;
-  width: 100%;
-  color: white;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-/* line 462, ../sass/screen.scss */
-#workflows {
-  background-image: url(../assets/images/workflows.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 468, ../sass/screen.scss */
-#camera-tool {
-  background-image: url(../assets/images/cameratool.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 474, ../sass/screen.scss */
-#generator {
-  background-image: url(../assets/images/creativecloud.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* line 480, ../sass/screen.scss */
-#unicorn-chart {
-  background: white;
-}
-/* line 483, ../sass/screen.scss */
-#unicorn-chart iframe {
-  background: white;
-}
-
-/* line 488, ../sass/screen.scss */
-#word-girl {
-  background-image: url(../assets/images/wordgirl.jpg);
-  background-size: cover;
-  background-position: center;
-}
-/* line 493, ../sass/screen.scss */
-#word-girl a, #word-girl h2 {
-  color: black;
-}
-
-/* line 498, ../sass/screen.scss */
-#word-girl-psd {
-  background-color: #ccc;
-  background-image: url(../assets/images/wordgirl-psd.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-/* line 505, ../sass/screen.scss */
-#word-girl-psd a, #word-girl-psd h2 {
-  color: black;
-}
-
-/* line 510, ../sass/screen.scss */
+/* line 253, ../sass/screen.scss */
 h2.top-left {
   position: absolute;
   top: 3rem;
@@ -1348,25 +1053,25 @@ h2.top-left {
   font-size: 4rem;
 }
 
-/* line 521, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 #resources {
   font-size: 1rem;
 }
-/* line 524, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 #resources h2 {
   font-size: 3rem;
 }
-/* line 528, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 #resources h3 {
   font-size: 2rem;
 }
 
-/* line 533, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 #warning {
   display: none;
 }
 
-/* line 538, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .no-flexbox #warning {
   position: absolute;
   display: block;
@@ -1379,7 +1084,7 @@ h2.top-left {
   text-align: center;
   z-index: 10000;
 }
-/* line 550, ../sass/screen.scss */
+/* line 293, ../sass/screen.scss */
 .no-flexbox #warning p {
   display: block;
   margin: 100px auto;
@@ -1387,17 +1092,17 @@ h2.top-left {
   line-height: 1.5;
 }
 
-/* line 560, ../sass/screen.scss */
+/* line 303, ../sass/screen.scss */
 .touch #preloader {
   display: none;
 }
-/* line 564, ../sass/screen.scss */
+/* line 307, ../sass/screen.scss */
 .touch #deck {
   position: static;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* line 570, ../sass/screen.scss */
+/* line 313, ../sass/screen.scss */
 .touch .slide {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -1417,26 +1122,26 @@ h2.top-left {
   opacity: 1;
   pointer-events: auto;
 }
-/* line 579, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 .touch .slide--iframe {
   display: none;
 }
-/* line 583, ../sass/screen.scss */
+/* line 326, ../sass/screen.scss */
 .touch #ui-button-css .ui-button-css-side, .touch #ui-button-css, .touch #ui-button-css-mask, .touch #ui-button-css-blend {
   width: 100px;
   height: 100px;
 }
-/* line 588, ../sass/screen.scss */
+/* line 331, ../sass/screen.scss */
 .touch #filter-list-image {
   width: 200px;
 }
-/* line 592, ../sass/screen.scss */
+/* line 335, ../sass/screen.scss */
 .touch .mask-item, .touch .mask-dynamic-item {
   height: 100px;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 598, ../sass/screen.scss */
+  /* line 341, ../sass/screen.scss */
   html {
     font-size: .3em;
   }
