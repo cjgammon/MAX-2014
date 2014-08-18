@@ -416,12 +416,11 @@ aside {
   font-weight: 600;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 1s, -moz-transform 1s;
-  -moz-transition: -webkit-transform 1s, -moz-transform 1s;
-  -o-transition: -webkit-transform 1s, -moz-transform 1s;
-  transition: -webkit-transform 1s, -moz-transform 1s;
+  -webkit-transition: -webkit-transform 1s;
+  -moz-tranition: -moz-transform 1s;
+  transition: transform 1s;
 }
-/* line 40, ../sass/components/_buttons.scss */
+/* line 42, ../sass/components/_buttons.scss */
 #ui-button-css .ui-button-css-front {
   background: white;
   color: black;
@@ -431,7 +430,7 @@ aside {
   -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
-/* line 46, ../sass/components/_buttons.scss */
+/* line 48, ../sass/components/_buttons.scss */
 #ui-button-css .ui-button-css-back {
   background: black;
   color: white;
@@ -441,7 +440,7 @@ aside {
   -o-transform: rotateX(-180deg);
   transform: rotateX(-180deg);
 }
-/* line 53, ../sass/components/_buttons.scss */
+/* line 55, ../sass/components/_buttons.scss */
 #ui-button-css:hover .ui-button-css-front {
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
@@ -449,7 +448,7 @@ aside {
   -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
-/* line 57, ../sass/components/_buttons.scss */
+/* line 59, ../sass/components/_buttons.scss */
 #ui-button-css:hover .ui-button-css-back {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -458,7 +457,7 @@ aside {
   transform: rotateX(0deg);
 }
 
-/* line 63, ../sass/components/_buttons.scss */
+/* line 65, ../sass/components/_buttons.scss */
 #ui-button-css-mask {
   margin-top: 10px;
   width: 200px;
@@ -468,30 +467,22 @@ aside {
   background-position: center center;
   cursor: pointer;
   outline: 0px rgba(255, 255, 255, 0.5) solid;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-  -webkit-transition: box-shadow 0.7s, -webkit-transform 0.7s ease-in-out, -moz-transform 0.7s ease-in-out, outline 0.2s ease-out, background-position 1s, background-size 1s, -webkit-filter 1s;
-  -moz-transition: box-shadow 0.7s, -webkit-transform 0.7s ease-in-out, -moz-transform 0.7s ease-in-out, outline 0.2s ease-out, background-position 1s, background-size 1s, -webkit-filter 1s;
-  -o-transition: box-shadow 0.7s, -webkit-transform 0.7s ease-in-out, -moz-transform 0.7s ease-in-out, outline 0.2s ease-out, background-position 1s, background-size 1s, -webkit-filter 1s;
-  transition: box-shadow 0.7s, -webkit-transform 0.7s ease-in-out, -moz-transform 0.7s ease-in-out, outline 0.2s ease-out, background-position 1s, background-size 1s, -webkit-filter 1s;
+  -webkit-transition: -webkit-transform .7s ease-in-out, outline .2s ease-out, background-position 1s, background-size 1s, -webkit-filter 1s;
+  -moz-transition: -moz-transform .7s ease-in-out, outline .2s ease-out, background-position 1s, background-size 1s;
+  transition: transform .7s ease-in-out, outline .2s ease-out, background-position 1s, background-size 1s, filter 1s;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-/* line 76, ../sass/components/_buttons.scss */
+/* line 79, ../sass/components/_buttons.scss */
 #ui-button-css-mask:hover {
   outline: 10px rgba(225, 225, 225, 0.75) solid;
   -webkit-filter: sepia(0.5) saturate(1) contrast(1.7);
-  -webkit-transform: scale(1.1) translateZ(0);
-  -moz-transform: scale(1.1) translateZ(0);
-  -ms-transform: scale(1.1) translateZ(0);
-  -o-transform: scale(1.1) translateZ(0);
-  transform: scale(1.1) translateZ(0);
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* line 84, ../sass/components/_buttons.scss */
+/* line 85, ../sass/components/_buttons.scss */
 #ui-button-css-blend {
   width: 200px;
   height: 200px;
@@ -507,34 +498,34 @@ aside {
   -o-transition: background-color 1s, background-position 1s;
   transition: background-color 1s, background-position 1s;
 }
-/* line 96, ../sass/components/_buttons.scss */
+/* line 97, ../sass/components/_buttons.scss */
 #ui-button-css-blend:hover {
   background-color: #eaeaea;
   background-position: center center;
 }
 
-/* line 102, ../sass/components/_buttons.scss */
+/* line 103, ../sass/components/_buttons.scss */
 #ui-button-svg {
   display: none;
   width: 200px;
   height: 200px;
   cursor: pointer;
 }
-/* line 108, ../sass/components/_buttons.scss */
+/* line 109, ../sass/components/_buttons.scss */
 #ui-button-svg .ui-button-svg-bg {
   -webkit-transition: fill 0.6s;
   -moz-transition: fill 0.6s;
   -o-transition: fill 0.6s;
   transition: fill 0.6s;
 }
-/* line 112, ../sass/components/_buttons.scss */
+/* line 113, ../sass/components/_buttons.scss */
 #ui-button-svg .ui-button-svg-stroke {
   -webkit-transition: stroke 0.4s, stroke-width 0.4s;
   -moz-transition: stroke 0.4s, stroke-width 0.4s;
   -o-transition: stroke 0.4s, stroke-width 0.4s;
   transition: stroke 0.4s, stroke-width 0.4s;
 }
-/* line 116, ../sass/components/_buttons.scss */
+/* line 117, ../sass/components/_buttons.scss */
 #ui-button-svg .ui-button-svg-icon {
   -webkit-transition: fill 0.2s, -webkit-transform 0.2s ease-in;
   -moz-transition: fill 0.2s, -webkit-transform 0.2s ease-in;
@@ -551,16 +542,16 @@ aside {
   -o-transform-origin: center center;
   transform-origin: center center;
 }
-/* line 123, ../sass/components/_buttons.scss */
+/* line 124, ../sass/components/_buttons.scss */
 #ui-button-svg:hover .ui-button-svg-bg {
   fill: #939393;
 }
-/* line 127, ../sass/components/_buttons.scss */
+/* line 128, ../sass/components/_buttons.scss */
 #ui-button-svg:hover .ui-button-svg-stroke {
   stroke: #E96231;
   stroke-width: 3;
 }
-/* line 132, ../sass/components/_buttons.scss */
+/* line 133, ../sass/components/_buttons.scss */
 #ui-button-svg:hover .ui-button-svg-icon {
   fill: white;
   -webkit-transform: scale(0.5);
@@ -571,39 +562,39 @@ aside {
 }
 
 @-webkit-keyframes rotate {
-  /* line 140, ../sass/components/_buttons.scss */
+  /* line 141, ../sass/components/_buttons.scss */
   from {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 144, ../sass/components/_buttons.scss */
+  /* line 145, ../sass/components/_buttons.scss */
   to {
     -webkit-transform: rotate(360deg);
   }
 }
 
-/* line 149, ../sass/components/_buttons.scss */
+/* line 150, ../sass/components/_buttons.scss */
 #ui-button-svg-1 {
   display: none;
   width: 200px;
   height: 200px;
   cursor: pointer;
 }
-/* line 155, ../sass/components/_buttons.scss */
+/* line 156, ../sass/components/_buttons.scss */
 #ui-button-svg-1 .ui-button-svg-bg {
   -webkit-transition: fill 2s;
   -moz-transition: fill 2s;
   -o-transition: fill 2s;
   transition: fill 2s;
 }
-/* line 159, ../sass/components/_buttons.scss */
+/* line 160, ../sass/components/_buttons.scss */
 #ui-button-svg-1 .ui-button-svg-stroke {
   -webkit-transition: stroke 0.4s, stroke-width 0.4s;
   -moz-transition: stroke 0.4s, stroke-width 0.4s;
   -o-transition: stroke 0.4s, stroke-width 0.4s;
   transition: stroke 0.4s, stroke-width 0.4s;
 }
-/* line 163, ../sass/components/_buttons.scss */
+/* line 164, ../sass/components/_buttons.scss */
 #ui-button-svg-1 .ui-button-svg-icon {
   -webkit-transition: fill 0.2s;
   -moz-transition: fill 0.2s;
@@ -615,7 +606,7 @@ aside {
   -o-transform-origin: center center;
   transform-origin: center center;
 }
-/* line 168, ../sass/components/_buttons.scss */
+/* line 169, ../sass/components/_buttons.scss */
 #ui-button-svg-1 .ui-button-svg-group {
   -webkit-transform-origin: center center;
   -moz-transform-origin: center center;
@@ -623,44 +614,44 @@ aside {
   -o-transform-origin: center center;
   transform-origin: center center;
 }
-/* line 173, ../sass/components/_buttons.scss */
+/* line 174, ../sass/components/_buttons.scss */
 #ui-button-svg-1:hover .ui-button-svg-bg {
   fill: #333;
 }
-/* line 177, ../sass/components/_buttons.scss */
+/* line 178, ../sass/components/_buttons.scss */
 #ui-button-svg-1:hover .ui-button-svg-stroke {
   stroke: #E96231;
   stroke-width: 3;
 }
-/* line 182, ../sass/components/_buttons.scss */
+/* line 183, ../sass/components/_buttons.scss */
 #ui-button-svg-1:hover .ui-button-svg-icon {
   fill: white;
 }
 
-/* line 192, ../sass/components/_buttons.scss */
+/* line 193, ../sass/components/_buttons.scss */
 #ui-button-svg-2 {
   width: 200px;
   height: 200px;
   cursor: pointer;
 }
-/* line 197, ../sass/components/_buttons.scss */
+/* line 198, ../sass/components/_buttons.scss */
 #ui-button-svg-2 svg {
   pointer-events: none;
 }
-/* line 201, ../sass/components/_buttons.scss */
+/* line 202, ../sass/components/_buttons.scss */
 #ui-button-svg-2 circle:nth-child(3) {
   -webkit-transition: fill 1s;
   -moz-transition: fill 1s;
   -o-transition: fill 1s;
   transition: fill 1s;
 }
-/* line 206, ../sass/components/_buttons.scss */
+/* line 207, ../sass/components/_buttons.scss */
 #ui-button-svg-2:hover circle:nth-child(3) {
   fill: #ccc;
   stroke: none;
 }
 
-/* line 213, ../sass/components/_buttons.scss */
+/* line 214, ../sass/components/_buttons.scss */
 #ui-button-canvas {
   width: 200px;
   height: 200px;
@@ -668,7 +659,7 @@ aside {
   opacity: 0;
 }
 
-/* line 220, ../sass/components/_buttons.scss */
+/* line 221, ../sass/components/_buttons.scss */
 #ui-button-canvas-blend {
   width: 200px;
   height: 200px;
@@ -676,7 +667,7 @@ aside {
   opacity: 0;
 }
 
-/* line 227, ../sass/components/_buttons.scss */
+/* line 228, ../sass/components/_buttons.scss */
 #ui-button-canvas-video {
   width: 200px;
   height: 200px;
@@ -684,7 +675,7 @@ aside {
   opacity: 0;
 }
 
-/* line 234, ../sass/components/_buttons.scss */
+/* line 235, ../sass/components/_buttons.scss */
 #ui-button-webgl {
   width: 200px;
   height: 200px;
@@ -693,7 +684,7 @@ aside {
   opacity: 0;
 }
 
-/* line 242, ../sass/components/_buttons.scss */
+/* line 243, ../sass/components/_buttons.scss */
 #ui-button-webgl-light {
   width: 200px;
   height: 200px;
@@ -702,7 +693,7 @@ aside {
   opacity: 0;
 }
 
-/* line 250, ../sass/components/_buttons.scss */
+/* line 251, ../sass/components/_buttons.scss */
 #ui-button-webgl-shader {
   background: white;
   width: 200px;
@@ -711,13 +702,13 @@ aside {
   opacity: 0;
 }
 
-/* line 258, ../sass/components/_buttons.scss */
+/* line 259, ../sass/components/_buttons.scss */
 #ui-button-vert-shader, #ui-button-frag-shader {
   display: block;
   margin: auto;
 }
 
-/* line 263, ../sass/components/_buttons.scss */
+/* line 264, ../sass/components/_buttons.scss */
 .button_base {
   margin: 0;
   border: 0;
@@ -733,7 +724,7 @@ aside {
   cursor: default;
 }
 
-/* line 278, ../sass/components/_buttons.scss */
+/* line 279, ../sass/components/_buttons.scss */
 .button_base:hover {
   cursor: pointer;
 }
@@ -884,6 +875,7 @@ header {
   position: absolute;
   margin-top: 2rem;
   top: 0;
+  left: 0;
   width: 100%;
   text-align: center;
   text-transform: uppercase;
@@ -891,12 +883,12 @@ header {
   font-size: 1.2rem;
   line-height: 1.5;
 }
-/* line 110, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 header small {
   font-size: .8rem;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 footer {
   position: absolute;
   margin-bottom: 1rem;
@@ -909,7 +901,7 @@ footer {
   line-height: 1.5;
 }
 
-/* line 127, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 blockquote {
   padding: 1em;
   font-size: 4rem;
@@ -917,14 +909,14 @@ blockquote {
   line-height: 1.5;
 }
 
-/* line 134, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 em {
   font-weight: bold;
   font-style: italic;
   color: #fff;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 code {
   display: block;
   background: white;
@@ -937,39 +929,39 @@ code {
   white-space: pre;
 }
 
-/* line 152, ../sass/screen.scss */
+/* line 153, ../sass/screen.scss */
 .code-red {
   font-weight: bold;
   color: #cc0000;
 }
 
-/* line 157, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .slide {
   -webkit-box-sizing: border-box;
   padding: 1rem;
 }
 
-/* line 162, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 .slide--orange {
   background: #F1953C;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 .slide--orange-swirl {
   background-image: url(../assets/images/patterns/wild-sea.png);
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 171, ../sass/screen.scss */
 .slide--black {
   color: white;
   background: #222;
 }
 
-/* line 175, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .slide--iframe {
   background: #f2f2f2;
 }
-/* line 178, ../sass/screen.scss */
+/* line 179, ../sass/screen.scss */
 .slide--iframe h2 {
   position: absolute;
   top: 0;
@@ -981,24 +973,24 @@ code {
   color: white;
   z-index: 2;
 }
-/* line 190, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 .slide--iframe header {
   color: black;
 }
-/* line 194, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .slide--iframe a {
   color: #0cb4a8;
 }
-/* line 196, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .slide--iframe a:hover {
   color: black;
 }
 
-/* line 202, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 .slide--full {
   padding: 0;
 }
-/* line 205, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 .slide--full iframe {
   width: 100vw;
   height: 100vh;
@@ -1006,7 +998,7 @@ code {
   background-color: black;
 }
 
-/* line 213, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .slide--namecard.visible {
   justify-content: flex-end;
   -webkit-justify-content: flex-end;
@@ -1015,12 +1007,12 @@ code {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 221, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 .slide--namecard.visible .name, .slide--namecard.visible .handle {
   text-transform: none;
 }
 
-/* line 226, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 #fixed a {
   font-family: 'avenir', serif;
   font-weight: 100;
@@ -1028,14 +1020,14 @@ code {
   text-transform: lowercase;
 }
 
-/* line 233, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 #cover {
   background-image: url(../assets/images/cover.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 243, ../sass/screen.scss */
+/* line 244, ../sass/screen.scss */
 #hi {
   background-image: url(../assets/images/yosemite.jpg);
   background-size: cover;
@@ -1044,40 +1036,41 @@ code {
   font-weight: bold;
 }
 
-/* line 253, ../sass/screen.scss */
+/* line 254, ../sass/screen.scss */
 .head-shot {
   width: 200px;
   margin-bottom: 1em;
+  border-radius: 50%;
   -webkit-clip-path: ellipse(50%, 50%, 50%, 50%);
 }
 
-/* line 259, ../sass/screen.scss */
+/* line 261, ../sass/screen.scss */
 #rich {
   background-image: url(../assets/images/invaders.png);
   background-size: cover;
   background-position: center;
 }
 
-/* line 265, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 #definition {
   background-color: #394466;
 }
 
-/* line 269, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 #video-games {
   background-image: url(../assets/images/pacman.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 275, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 #myst {
   background-image: url(../assets/images/myst.jpeg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 281, ../sass/screen.scss */
+/* line 283, ../sass/screen.scss */
 #achievement {
   position: absolute;
   top: 0;
@@ -1102,25 +1095,25 @@ code {
   -o-transform: translateY(-100px);
   transform: translateY(-100px);
 }
-/* line 297, ../sass/screen.scss */
+/* line 299, ../sass/screen.scss */
 #achievement svg {
   display: inline-block;
   float: left;
   margin-top: -0.75em;
   margin-left: -1em;
 }
-/* line 304, ../sass/screen.scss */
+/* line 306, ../sass/screen.scss */
 #achievement .achievement-text {
   float: left;
 }
-/* line 308, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 #achievement em {
   display: block;
   margin-bottom: 0.5em;
   font-weight: 100;
   font-style: normal;
 }
-/* line 315, ../sass/screen.scss */
+/* line 317, ../sass/screen.scss */
 #achievement.in {
   -webkit-transform: translateY(0px);
   -moz-transform: translateY(0px);
@@ -1129,86 +1122,87 @@ code {
   transform: translateY(0px);
 }
 
-/* line 320, ../sass/screen.scss */
+/* line 322, ../sass/screen.scss */
 #gamification {
   background-image: url(../assets/images/game.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 326, ../sass/screen.scss */
+/* line 328, ../sass/screen.scss */
 #history {
   background-image: url(../assets/images/patterns/wallpaper_orange.jpg);
   background-position: center;
 }
 
-/* line 331, ../sass/screen.scss */
+/* line 333, ../sass/screen.scss */
 #web {
   background: white;
 }
-/* line 332, ../sass/screen.scss */
+/* line 334, ../sass/screen.scss */
 #web h2 {
   color: black;
   font-family: serif;
 }
 
-/* line 340, ../sass/screen.scss */
+/* line 342, ../sass/screen.scss */
 #mobile {
   background-image: url(../assets/images/mobile.jpg);
   background-size: cover;
   background-position: center;
 }
-/* line 345, ../sass/screen.scss */
+/* line 347, ../sass/screen.scss */
 #mobile h2 {
   color: white;
 }
 
-/* line 350, ../sass/screen.scss */
+/* line 352, ../sass/screen.scss */
 #html5 {
   background-image: url(../assets/images/patterns/wallpaper_purple.jpg);
   background-position: center;
 }
-/* line 354, ../sass/screen.scss */
+/* line 356, ../sass/screen.scss */
 #html5 h2, #html5 h4 {
   text-shadow: 0px 0px 5px black;
 }
 
-/* line 359, ../sass/screen.scss */
+/* line 361, ../sass/screen.scss */
 #caniuse {
   background-image: url(../assets/images/caniuse.jpg);
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
 }
 
-/* line 365, ../sass/screen.scss */
+/* line 368, ../sass/screen.scss */
 #filters {
   background-image: url(../assets/images/filters.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 371, ../sass/screen.scss */
+/* line 374, ../sass/screen.scss */
 #masks {
   background-image: url(../assets/images/mask.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 377, ../sass/screen.scss */
+/* line 380, ../sass/screen.scss */
 #clip {
   background-image: url(../assets/images/clippath.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 383, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
 #blend {
   background-image: url(../assets/images/blend.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 389, ../sass/screen.scss */
+/* line 392, ../sass/screen.scss */
 #snap {
   background-color: white;
   background-image: url(../assets/images/snap-croc.svg);
@@ -1216,55 +1210,55 @@ code {
   background-position: bottom left;
   background-repeat: no-repeat;
 }
-/* line 396, ../sass/screen.scss */
+/* line 399, ../sass/screen.scss */
 #snap h2 {
   color: #333;
 }
 
-/* line 401, ../sass/screen.scss */
+/* line 404, ../sass/screen.scss */
 #generative {
   background-color: white;
   background-image: url(../assets/images/patterns/square-pattern.svg);
   background-repeat: repeat;
 }
-/* line 406, ../sass/screen.scss */
+/* line 409, ../sass/screen.scss */
 #generative h2 {
   color: #333;
 }
 
-/* line 411, ../sass/screen.scss */
+/* line 414, ../sass/screen.scss */
 #pixi {
   background: #101228;
 }
 
-/* line 415, ../sass/screen.scss */
+/* line 418, ../sass/screen.scss */
 #canvas-blend {
   background-image: url(../assets/images/blend.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 421, ../sass/screen.scss */
+/* line 424, ../sass/screen.scss */
 #dynamic-mask {
   background-image: url(../assets/images/maskdynamic.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 427, ../sass/screen.scss */
+/* line 430, ../sass/screen.scss */
 #dynamic-mask-demo {
   background-image: url(../assets/images/cupcakes.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 434, ../sass/screen.scss */
+/* line 437, ../sass/screen.scss */
 #video video {
   position: absolute;
   top: 0;
   left: 0;
 }
-/* line 440, ../sass/screen.scss */
+/* line 443, ../sass/screen.scss */
 #video h2 {
   color: #e81e6f;
   -webkit-transform: translateZ(0);
@@ -1274,50 +1268,62 @@ code {
   transform: translateZ(0);
 }
 
-/* line 446, ../sass/screen.scss */
+/* line 449, ../sass/screen.scss */
 #semantics {
   background-image: url(../assets/images/wes2.jpg);
   background-size: cover;
   background-position: center bottom;
 }
-/* line 451, ../sass/screen.scss */
+/* line 454, ../sass/screen.scss */
 #semantics h2 {
-  color: #a2380e;
+  padding: .25em;
+  width: 100%;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
 }
 
-/* line 457, ../sass/screen.scss */
+/* line 462, ../sass/screen.scss */
 #workflows {
   background-image: url(../assets/images/workflows.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 463, ../sass/screen.scss */
+/* line 468, ../sass/screen.scss */
 #camera-tool {
   background-image: url(../assets/images/cameratool.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 469, ../sass/screen.scss */
+/* line 474, ../sass/screen.scss */
 #generator {
   background-image: url(../assets/images/creativecloud.jpg);
   background-size: cover;
   background-position: center;
 }
 
-/* line 475, ../sass/screen.scss */
+/* line 480, ../sass/screen.scss */
+#unicorn-chart {
+  background: white;
+}
+/* line 483, ../sass/screen.scss */
+#unicorn-chart iframe {
+  background: white;
+}
+
+/* line 488, ../sass/screen.scss */
 #word-girl {
   background-image: url(../assets/images/wordgirl.jpg);
   background-size: cover;
   background-position: center;
 }
-/* line 480, ../sass/screen.scss */
-#word-girl h2 {
+/* line 493, ../sass/screen.scss */
+#word-girl a, #word-girl h2 {
   color: black;
 }
 
-/* line 485, ../sass/screen.scss */
+/* line 498, ../sass/screen.scss */
 #word-girl-psd {
   background-color: #ccc;
   background-image: url(../assets/images/wordgirl-psd.png);
@@ -1325,12 +1331,12 @@ code {
   background-size: contain;
   background-position: center;
 }
-/* line 492, ../sass/screen.scss */
-#word-girl-psd a {
+/* line 505, ../sass/screen.scss */
+#word-girl-psd a, #word-girl-psd h2 {
   color: black;
 }
 
-/* line 497, ../sass/screen.scss */
+/* line 510, ../sass/screen.scss */
 h2.top-left {
   position: absolute;
   top: 3rem;
@@ -1342,25 +1348,25 @@ h2.top-left {
   font-size: 4rem;
 }
 
-/* line 508, ../sass/screen.scss */
+/* line 521, ../sass/screen.scss */
 #resources {
   font-size: 1rem;
 }
-/* line 511, ../sass/screen.scss */
+/* line 524, ../sass/screen.scss */
 #resources h2 {
   font-size: 3rem;
 }
-/* line 515, ../sass/screen.scss */
+/* line 528, ../sass/screen.scss */
 #resources h3 {
   font-size: 2rem;
 }
 
-/* line 520, ../sass/screen.scss */
+/* line 533, ../sass/screen.scss */
 #warning {
   display: none;
 }
 
-/* line 525, ../sass/screen.scss */
+/* line 538, ../sass/screen.scss */
 .no-flexbox #warning {
   position: absolute;
   display: block;
@@ -1373,7 +1379,7 @@ h2.top-left {
   text-align: center;
   z-index: 10000;
 }
-/* line 537, ../sass/screen.scss */
+/* line 550, ../sass/screen.scss */
 .no-flexbox #warning p {
   display: block;
   margin: 100px auto;
@@ -1381,17 +1387,17 @@ h2.top-left {
   line-height: 1.5;
 }
 
-/* line 547, ../sass/screen.scss */
+/* line 560, ../sass/screen.scss */
 .touch #preloader {
   display: none;
 }
-/* line 551, ../sass/screen.scss */
+/* line 564, ../sass/screen.scss */
 .touch #deck {
   position: static;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* line 557, ../sass/screen.scss */
+/* line 570, ../sass/screen.scss */
 .touch .slide {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -1411,26 +1417,26 @@ h2.top-left {
   opacity: 1;
   pointer-events: auto;
 }
-/* line 566, ../sass/screen.scss */
+/* line 579, ../sass/screen.scss */
 .touch .slide--iframe {
   display: none;
 }
-/* line 570, ../sass/screen.scss */
+/* line 583, ../sass/screen.scss */
 .touch #ui-button-css .ui-button-css-side, .touch #ui-button-css, .touch #ui-button-css-mask, .touch #ui-button-css-blend {
   width: 100px;
   height: 100px;
 }
-/* line 575, ../sass/screen.scss */
+/* line 588, ../sass/screen.scss */
 .touch #filter-list-image {
   width: 200px;
 }
-/* line 579, ../sass/screen.scss */
+/* line 592, ../sass/screen.scss */
 .touch .mask-item, .touch .mask-dynamic-item {
   height: 100px;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 585, ../sass/screen.scss */
+  /* line 598, ../sass/screen.scss */
   html {
     font-size: .3em;
   }
