@@ -17,11 +17,11 @@ define(function (require) {
 		
 		initialize: function () {
 			this.$el = $('#deck');	
-			UserEvent.on('resize', this.resize, this);		
+			//UserEvent.on('resize', this.resize, this);		
 		},
 		
 		render: function () {
-			this.renderer.render(this.scene, Camera);
+			//this.renderer.render(this.scene, Camera);
 		},
 		
 		resolve: function () {
@@ -51,9 +51,10 @@ define(function (require) {
 			
 			this._slides = slides;
 			
-			CameraPath.initialize();
+			//CameraPath.initialize();
 			
 			//create scene
+			/*
 			this.renderer = new THREE.CSS3DRenderer();
 			this.renderer.setSize(window.innerWidth, window.innerHeight);
 			this.renderer.domElement.id = "css-renderer";
@@ -70,7 +71,7 @@ define(function (require) {
 					slideElement = new THREE.CSS3DObject(view.el);
 					
 					pos = view.$el.data('pos');
-					CameraPath.positionElement(slideElement, pos);
+					//CameraPath.positionElement(slideElement, pos);
 					
 					slideElement.scale.set(0.04, 0.04, 0.04);
 					
@@ -80,12 +81,12 @@ define(function (require) {
 				}
 
 			}
-			
+			*/
 		},
 		
 		resize: function () {
-			this.renderer.setSize(window.innerWidth, window.innerHeight);
-			this.renderer.render(this.scene, Camera);
+			//this.renderer.setSize(window.innerWidth, window.innerHeight);
+			//this.renderer.render(this.scene, Camera);
 		}
 	});
 	

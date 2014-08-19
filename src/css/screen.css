@@ -121,7 +121,7 @@ aside {
 }
 
 /* line 36, ../sass/pres/_pres.scss */
-#ground {
+#bg {
   position: fixed;
   pointer-events: none;
 }
@@ -1018,7 +1018,7 @@ code {
 
 /* line 231, ../sass/screen.scss */
 #cover {
-  background-color: blue;
+  background-color: transparent;
   background-size: cover;
   background-position: center;
 }

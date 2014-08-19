@@ -10,32 +10,14 @@ define(function (require) {
 		SlideBasicView = require('app/views/slide-basic-view'),
 		IframeView = require('app/views/iframe-view'),
 		IframeFullView = require('app/views/iframe-full-view'),
-		GameView = require('app/views/game-view'),
-		VideoView = require('app/views/video-view'),
-		GamificationView = require('app/views/gamification-view'),
-        FilterDemoView = require('app/views/filter-demo-view'),
-		UIButtonSVGView = require('app/views/ui-button-svg-view'),
-		UIButtonCanvasView = require('app/views/ui-button-canvas-view'),
-		UIButtonWebglView = require('app/views/ui-button-webgl-view'),
-		UIButtonShaderView = require('app/views/ui-button-shader-view'),
-		DDView = require('app/views/dd-view'),
         AppBase = require('pres/views/app-base');
 
     App = AppBase.extend({
 		BASE_VIEW: SlideBasicView,
 		
 		SLIDEVIEW_LIST: [
-			{id: 'gaming', view: GameView},
 			{cl: 'iframe-full', view: IframeFullView},
-			{cl: 'iframe', view: IframeView},
-			{id: 'svg', view: UIButtonSVGView},
-			{id: 'canvas', view: UIButtonCanvasView},
-			{id: 'webgl', view: UIButtonWebglView},
-			{id: 'webgl-shader', view: UIButtonShaderView},
-            {id: 'filters-demo', view: FilterDemoView},
-            {id: 'gamification', view: GamificationView},
-            {id: 'video', view: VideoView},
-            {id: 'unicorn-chart', view: DDView}
+			{cl: 'iframe', view: IframeView}
 		],
 	
         initialize: function () {
@@ -48,7 +30,7 @@ define(function (require) {
             this.notesView = new NotesView();
 
 			this.bg = new BgView();
-			this.render();				
+			this.render();
         },
 
 		passTest: function () {	
@@ -70,6 +52,7 @@ define(function (require) {
 	
             AppBase.prototype.render.call(this);
 
+			//TODO:: check if should be visible based on slide having position data
             if (this.bg) {
 			    this.bg.render();
             }

@@ -20,7 +20,7 @@ define(function (require) {
 			var splineVectors = [],
 				i,
 				spline;
-						
+			
 			vertices = JSON.parse(path).vertices;
 			path = new THREE.CurvePath();
 
@@ -32,13 +32,16 @@ define(function (require) {
 			path.add(spline);
 			
 			geometry = new THREE.TubeGeometry(path, vertices.length * 20, 3, 20, false, false);
+		
+			splineVectors = null;
+			spline = null;
 		};
 		
 		this.positionCamera = function (camera) {
 
 			var t, 
 				lookAt, 
-				pos, 
+				position, 
 				dir, 
 				normal,
 				binormal,
@@ -73,6 +76,18 @@ define(function (require) {
 
 			camera.matrix.lookAt(camera.position, lookAt, normal);
 			camera.rotation.setFromRotationMatrix(camera.matrix, camera.rotation.order);
+		
+			t = null;
+			lookAt = null;
+			position = null;
+			dir = null;
+			normal = null;
+			binormal = null;
+			segments = null;
+			pickt = null;
+			pick = null;
+			pickNext = null;
+			pathLength = null;
 		};
 		
 		this.positionElement = function (element, t) {
@@ -116,7 +131,19 @@ define(function (require) {
 			element.rotation.setFromRotationMatrix(element.matrix, element.rotation.order);
 			
 			element.position = geometry.path.getPointAt(point);		
-			//TODO:: need to alter positioning to be correctly cenetered	
+			//TODO:: need to alter positioning to be correctly cenetered
+			
+			position = null;
+			dir = null;
+			pickt = null;
+			pick = null;
+			pickNext = null;
+			binormal = null;
+			normal = null;
+			pathLength = null;
+			point = null;
+			point2 = null;
+			lookAt = null;	
 		};
 		
 		this.length = function () {

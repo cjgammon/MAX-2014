@@ -12,13 +12,11 @@ define(function (require) {
 		AppRouter = require('app-router'), 
 		Vars = require('pres/models/vars'), 
 		HudView = require('pres/views/hud-view'), 
-		DeckView = require('pres/views/deck-view'), 
 		SlideView = require('pres/views/slide-view'), 
 		Slides = require('pres/collections/slides'),
 		Slide = require('pres/models/slide'),
 		ProgressBar = require('pres/views/progress-bar'),
 		CameraPath = require('app/models/camera-path'),
-		Camera = require('pres/models/camera'),
 		UserEvent = require('pres/events/user-event'),
 		AppEvent = require('pres/events/app-event');
 
@@ -39,18 +37,14 @@ define(function (require) {
 			this.router = new AppRouter();
 			Vars.set({'router': this.router});
 			
-			this.deck = new DeckView();
 			this.hud = new HudView();
-			
-			this.deck.setCamera(this.camera);
-			
+						
 			this.addSlides();
 			this.addEventListeners();
-
-			this.deck.setSlides();
 						
             this.progressBar = new ProgressBar();
 			
+			CameraPath.initialize();
             Backbone.history.start();
 			
             $('li').css('opacity', '0');
@@ -62,16 +56,16 @@ define(function (require) {
 			var i,
 				view;
 			
-			CameraPath.positionCamera(Camera);
+			//console.log('render!!');
             this.progressBar.render();
-			this.deck.render();
         },
 
         handle_ROUTER: function () {
             var uri = Backbone.history.fragment === '' ? 'slide/cover' : Backbone.history.fragment,
 				view,
-				slide;
-			
+				slide,
+				pos;
+						
 			slide = this.slides.findWhere({url: uri});
 			view = slide.get('view');
 			Vars.set({'currentSlide': slide.get('id')});
@@ -82,14 +76,16 @@ define(function (require) {
 			
 			AppEvent.trigger('desolve');
 			
-			if (typeof(slide.get('pos')) !== 'undefined') {
+			pos = slide.get('view').$el.data('pos');
+			
+			if (typeof(pos) !== 'undefined') {
 				
 				if (this.first === true) {
-					CameraPath.delta = slide.get('pos');
+					CameraPath.delta = parseFloat(pos);
 					AppEvent.trigger('resolve');
 				} else {
 					new TweenMax.to(CameraPath, 4, {
-						delta: slide.get('pos'),
+						delta: parseFloat(pos),
 						onUpdate: function () {
 							AppEvent.trigger('animate');
 						},
@@ -150,18 +146,6 @@ define(function (require) {
                 $el = view.$el,
                 video = $el.find('video'),
                 list = $el.find('li');
-            
-			/*
-            if (this.deck.getPosition() % Vars.get('transitionTime') !== 0) {
-				AppEvent.trigger('tween', this.currentSlide);
-            } else if (list.length > 0) {
-                this.triggerList($el);
-            } else if (video.length > 0) {
-                this.triggerVideo($el);
-            } else {
-            	view.trigger();
-            }
-			*/
 			
 			if (list.length > 0) {
                 this.triggerList($el);
@@ -206,53 +190,11 @@ define(function (require) {
             this.next();
         },
 
-        /**
-         * update visibility to prepare for animating in
-         *
-         */
-		/*
-        updateVisibility: function () {
-            var i, s, $el;
-
-            for (i = 0; i < this.slides.length; i += 1) {
-                s = this.slides.get(i);
-                $el = s.get('view').$el;
-                
-                if (i < this.currentSlide - 2 || i > this.currentSlide + 2) {
-                    $el.removeClass('visible');
-                } else {
-                    $el.addClass('visible');
-                }
-                
-                if (i !== this.currentSlide) {
-                    $el.removeClass('current');
-                } else {
-                    $el.addClass('current');
-                }
-            }
-        },
-		*/
-		
         /*
-		* manage visibility of slides
+		* transition to slide complete
 		*/
         resolve: function () {
-		/*
-			var i,
-                slide,
-				$el;
-
-			for (i = 0; i < this.slides.length; i += 1) {
-				slide = this.slides.get(i);
-				$el = slide.get('view').$el;
-				
-				if (i !== this.currentSlide) {
-					$el.removeClass('visible');
-				} else {
-					$el.addClass('visible');
-				}
-			}
-		*/
+			this.render();
 		},
 
         /**
