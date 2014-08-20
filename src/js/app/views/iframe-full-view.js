@@ -16,8 +16,9 @@ define(function (require) {
 			
 			if (view == this) {	
 				this.active = true;
-				this.iframe = this.$el.find('iframe');
-				this.iframe.attr('src', this.iframe.data('src'));
+				this.iframe = $('<iframe>');
+				view.$el.append(this.iframe);
+				this.iframe.attr('src', view.$el.data('src'));
 
 				AppEvent.trigger('stopanimation');
 			}
@@ -26,7 +27,7 @@ define(function (require) {
 		desolve: function () {
 			if (this.active) {
 				this.active = false;
-			    this.iframe.attr('src', 'about:blank');
+				this.iframe.remove();
 				AppEvent.trigger('startanimation');
 			}
 		}

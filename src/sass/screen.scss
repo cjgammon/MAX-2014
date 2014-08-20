@@ -3,10 +3,9 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-$yellowish: #f1bc04;
-$orangeish: #d77604;
-$yellow: #eed932;
-$teal: #0cb4a8;
+$orange: #ff9c00;
+$yellow: #ff4800;
+$teal: #00a4ae;
 $navy: #020d17;
 
 
@@ -16,9 +15,9 @@ $menu-item-primed-color: darken($teal, 15%);
 $menu-item-color: darken($teal, 30%);
 $menu-input-text-color: $teal;
 $menu-input-bg-color: white;
-$progress-holder-color: $navy;
-$progress-bar-color: lighten($navy, 20%);
-$hud-bg-color: $navy;
+$progress-holder-color: $teal;
+$progress-bar-color: lighten($teal, 20%);
+$hud-bg-color: #222;
 $spinner-color: $teal;
 
 @mixin flexbox{
@@ -162,12 +161,15 @@ code{
 
 .slide--black{
 	color: white;
-	background: #222;
+	background: black;
 }
 
-.slide--blue{
-	color: white;
-	background: blue;
+.slide--orange{
+	background: $orange;
+}
+
+.slide--green{
+	background: $teal;
 }
 
 .slide--iframe{

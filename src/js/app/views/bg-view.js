@@ -109,7 +109,6 @@ define(function (require) {
 
 		resize: function () {
 			this.renderer.setSize(window.innerWidth, window.innerHeight);
-			this.render();
 		}
 	});
 		
