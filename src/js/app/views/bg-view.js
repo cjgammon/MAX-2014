@@ -22,7 +22,8 @@ define(function (require) {
 		initialize: function () {
 			BG_LIST = [
 				{id: 'cover', view: CoverBg},
-				{id: 'film', view: TestBg}
+				{id: 'film', view: TestBg},
+				{id: 'digital', view: CoverBg}
 			];
 				
 			this.$el = $('#bg');
@@ -66,6 +67,7 @@ define(function (require) {
 
 				currentSlide = Vars.get('currentSlide');
 
+				currentBg = null;
 				currentBg = new TerrainBg();
 				currentBg.init(this.renderer);
 				isTerrain = true;
@@ -85,6 +87,7 @@ define(function (require) {
 			currentView = this.getCurrentView(slide);
 			
 			if (currentView) {
+				currentBg = null;
 				currentBg = new currentView();
 				currentBg.init(this.renderer);
 			} else {

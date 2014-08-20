@@ -1,16 +1,15 @@
 define(function (require) {
 	
 	var WebglBg = require('app/views/bg/terrain-webgl-bg'),
-		DomBg = require('app/views/bg/terrain-dom-bg');
+		DomBg = require('app/views/bg/terrain-dom-bg'),
+		BgTerrain;
 	
 	require('three');
 
-	var BgTerrain = function () {
+	BgTerrain = function () {
 		var instance = this;
 		
-		instance.init = function (renderer) {
-			console.log('---terrain-init!');
-			
+		instance.init = function (renderer) {			
 			instance.renderer = renderer;			
 			instance.alive = true;
 			
@@ -28,8 +27,6 @@ define(function (require) {
 		};
 		
 		instance.render = function () {
-			//console.log('---terrain-render!');
-
 			if (instance.alive) {
 				instance.domView.render();
 				instance.webglView.render();
@@ -49,10 +46,7 @@ define(function (require) {
 						
 			instance.init = null;
 			instance.render = null;
-			instance.setup = null;
-			
-			
-			console.log('---terrain-destroy!');
+			instance.setup = null;			
 		};
 	}
 	

@@ -9,16 +9,14 @@ define(function (require) {
 	
 	CameraPath = function () {
 		
-		var delta,
-			vertices,
-			geometry,
-			position;
+		var geometry;
 		
 		this.delta = 0;
 		
 		this.initialize = function () {
 			var splineVectors = [],
 				i,
+				vertices,
 				spline;
 			
 			vertices = JSON.parse(path).vertices;
@@ -31,10 +29,12 @@ define(function (require) {
 			spline = new THREE.SplineCurve3(splineVectors);
 			path.add(spline);
 			
-			geometry = new THREE.TubeGeometry(path, vertices.length * 20, 3, 20, false, false);
+			geometry = new THREE.TubeGeometry(path, vertices.length * 20, 1, 1, false, false);
 		
 			splineVectors = null;
 			spline = null;
+			path = null;
+			vertices = null;
 		};
 		
 		this.positionCamera = function (camera) {

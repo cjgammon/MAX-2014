@@ -7,7 +7,8 @@ define(function (require) {
 	require('vendor/CSS3DRenderer');
 	
 	BgView = function () {
-		var instance = this;
+		var instance = this,
+			slides = [];
 	
 		instance.init = function (camera) {			
 			instance.camera = camera;
@@ -44,8 +45,7 @@ define(function (require) {
 					
 					slideElement.scale.set(0.04, 0.04, 0.04);
 					
-					//instance._slides.at(i).set('pos', pos);
-					//instance._slides.at(i).set('sceneObject', slideElement);
+					slides.push(slideElement);
 					instance.scene.add(slideElement);
 				}
 			}
@@ -65,9 +65,21 @@ define(function (require) {
 		
 		instance.destroy = function () {
 			
-			//remove scene objects
+			for (i = 0; i < slides.length; i += 1) {
+				instance.scene.remove(slides[i]);
+				slides[i] = null;
+			}
+			
+			slides = null;
 			
 			document.body.removeChild(instance.renderer.domElement);
+			
+			instance.scene = null;
+			instance.renderer = null;
+			
+			instance.init = null;
+			instance.setup = null;
+			instance.render = null;
 		};
 	}
 

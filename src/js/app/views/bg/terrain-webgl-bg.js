@@ -3,22 +3,21 @@ define(function (require) {
 	
 	var UserEvent = require('pres/events/user-event'),
 		AppEvent = require('pres/events/app-event'),
-		blenderModel = require('text!app/data/island1.js'),
-		cloudModel = require('text!app/data/cloud1.js'),
-		Camera = require('pres/models/camera'),
 		CameraPath = require('app/models/camera-path'),
-		BgView,
-        directionalLight,
-        water,
-        waterGeometry;
+		BgView;
 	
-	require('tweenmax');
 	require('three');
 	require('vendor/Mirror');
 	require('vendor/WaterShader');
 
 	BgView = function () {
-		var instance = this;
+		var instance = this,
+			water,
+			waterNormals,
+			lights = [],
+			materialObjs = [],
+			blenderModel = require('text!app/data/island1.js'),
+			cloudModel = require('text!app/data/cloud1.js');
 		
 		instance.init = function (renderer, camera) {
 			instance.renderer = renderer;
@@ -37,25 +36,31 @@ define(function (require) {
 			directionalLight = new THREE.DirectionalLight(0xff9966);
 			directionalLight.position.set(1, 0, 1);
 			instance.scene.add(directionalLight);
+			lights.push(directionalLight);
 			
 			light = new THREE.DirectionalLight(0xcc9966);
 			light.position.set(1, 0, -1);
 			instance.scene.add(light);
+			lights.push(light);
 			
 			light = new THREE.SpotLight(0xcc6633);
 			light.position.set(1000, 0, 1000);
 			instance.scene.add(light);
+			lights.push(light);
 			
 			light = new THREE.SpotLight(0x336699);
 			light.position.set(-1000, 0, -1000);
 			instance.scene.add(light);
+			lights.push(light);
 			
 			light = new THREE.SpotLight(0xcc9966);
 			light.position.set(-1000, 0, 1000);
 			instance.scene.add(light);
+			lights.push(light);
 			
 			light = new THREE.AmbientLight(0x333333);
 			instance.scene.add(light);
+			lights.push(light);
 			
 			instance.addSky();
 			instance.addModel();
@@ -70,11 +75,10 @@ define(function (require) {
 		
 		instance.addModel = function () {
 			var i,
-                mesh,
+                model,
 				content,
 				loader,
-				model,
-                mapTexture;
+				model;
 			
 			content = JSON.parse(blenderModel);
 			loader = new THREE.JSONLoader();
@@ -85,15 +89,20 @@ define(function (require) {
 				model.materials[i].side = THREE.DoubleSide;
 			}
 
-			mesh = new THREE.Mesh(model.geometry, new THREE.MeshFaceMaterial(model.materials));
-			mesh.scale.set(40, 40, 40);
-			instance.scene.add(mesh);
+			model = new THREE.Mesh(model.geometry, new THREE.MeshFaceMaterial(model.materials));
+			model.scale.set(40, 40, 40);
+			instance.scene.add(model);
+			materialObjs.push(model);
+
+			instance.terrain = model;
 			
-			instance.terrain = mesh;
+			content = null;
+			loader = null;
+			model = null;
 		};
 		
 		instance.addSky = function () {
-			var mesh,
+			var sky,
 				geo,
 				mat;
 			
@@ -103,12 +112,14 @@ define(function (require) {
 				side: THREE.BackSide
 			});
 			
-			mesh = new THREE.Mesh(geo, mat);
-			instance.scene.add(mesh);
+			sky = new THREE.Mesh(geo, mat);
+			instance.scene.add(sky);
+			materialObjs.push(sky);
 		};
 		
 		instance.addWater = function () {
             var i,
+				waterGeometry,
 				mirrorMesh,
                 parameters = {
                     width: 7000,
@@ -118,8 +129,9 @@ define(function (require) {
                     depth: 1500,
                     param: 4,
                     filterparam: 1
-                },
-                waterNormals = new THREE.ImageUtils.loadTexture('assets/images/textures/waternormals.jpg');
+                };
+            
+			waterNormals = new THREE.ImageUtils.loadTexture('assets/images/textures/waternormals.jpg');
             
             waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
             waterGeometry = new THREE.PlaneGeometry(parameters.width * 500, parameters.height * 500, 50, 50);
@@ -139,6 +151,11 @@ define(function (require) {
             mirrorMesh.rotation.x = - Math.PI * 0.5;
             
             instance.scene.add(mirrorMesh);
+			materialObjs.push(mirrorMesh);
+
+			waterGeometry = null;
+			parameters = null;
+			mirrorMesh = null;
         };
 
 		instance.addClouds = function () {
@@ -165,9 +182,16 @@ define(function (require) {
 				mesh.scale.set(scale, scale, scale);
 				mesh.rotation.set(0, rotation, 0);
 				mesh.position.set(-3500 + Math.random() * 7000, 200 + Math.random() * 200, -3500 + Math.random() * 7000);
-				instance.scene.add(mesh);			
+				instance.scene.add(mesh);
+				materialObjs.push(mesh);
 			}
-
+			
+			content = null;
+			loader = null;
+			model = null;
+			scale = null;
+			rotation = null;
+			mesh = null;
 		};
 		
 		instance.render = function () {
@@ -180,7 +204,51 @@ define(function (require) {
 		};
 		
 		instance.destroy = function () {
+			var i,
+				j;
+				
+			for (i = 0; i < lights.length; i += 1) {
+				instance.scene.remove(lights[i]);
+				lights[i] = null;
+			}
 			
+			lights = null;
+			
+			for (i = 0; i < materialObjs.length; i += 1) {
+				materialObjs[i].geometry.dispose();
+				
+				if (materialObjs[i].material.dispose) {
+					materialObjs[i].material.dispose();
+				} else {
+					for (j = 0; j < materialObjs[i].material.materials.length; j += 1) {
+						materialObjs[i].material.materials[j].dispose();
+					}
+				}
+				
+				instance.scene.remove(materialObjs[i]);
+				materialObjs[i] = null;
+			}
+			
+			materialObjs = null;
+			
+			waterNormals.dispose();
+			waterNormals = null;
+			
+			water = null;
+			
+			blenderModel = null;
+			cloudModel = null;
+			instance.terrain = null;
+			
+			instance.scene = null;
+			
+			instance.init = null;
+			instance.addScene = null;
+			instance.addClouds = null;
+			instance.addSky = null;
+			instance.addWater = null;
+			instance.addModel = null;
+			instance.render = null;
 		};
 	};
 		

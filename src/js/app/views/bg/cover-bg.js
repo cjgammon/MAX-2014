@@ -11,7 +11,6 @@ define(function (require) {
 			container;
 		
 		instance.init = function (renderer) {
-			console.log('---init!');
 			
 			instance.renderer = renderer;			
 			instance.renderer.sortObjects = false;
@@ -76,7 +75,6 @@ define(function (require) {
 		};
 		
 		instance.render = function () {
-			console.log('---render!');
 
 			if (instance.alive) {
 				delta += 0.01;
@@ -119,10 +117,7 @@ define(function (require) {
 			
 			instance.init = null;
 			instance.render = null;
-			instance.createScene = null;
-			
-			
-			console.log('---destroy!');
+			instance.createScene = null;			
 		};
 	}
 	
