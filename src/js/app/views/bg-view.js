@@ -21,9 +21,7 @@ define(function (require) {
 
 		initialize: function () {
 			BG_LIST = [
-				{id: 'cover', view: CoverBg},
-				{id: 'film', view: TestBg},
-				{id: 'digital', view: CoverBg}
+				{id: 'cover', view: CoverBg}
 			];
 				
 			this.$el = $('#bg');

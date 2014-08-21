@@ -4,7 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 $orange: #ff9c00;
-$yellow: #ff4800;
+$red: #ff4800;
 $teal: #00a4ae;
 $navy: #020d17;
 
@@ -15,8 +15,8 @@ $menu-item-primed-color: darken($teal, 15%);
 $menu-item-color: darken($teal, 30%);
 $menu-input-text-color: $teal;
 $menu-input-bg-color: white;
-$progress-holder-color: $teal;
-$progress-bar-color: lighten($teal, 20%);
+$progress-holder-color: black;
+$progress-bar-color: #444;
 $hud-bg-color: #222;
 $spinner-color: $teal;
 
@@ -50,7 +50,7 @@ body{
 	color: white;
 }
 
-h2, h3, h4{
+b, h2, h3, h4{
 	position: relative;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -125,10 +125,12 @@ footer{
 }
 
 blockquote{
-	padding: 1em;
 	font-size: 4rem;
-	color: #ccc;
-	line-height: 1.5;
+	font-weight: bold;
+	color: white;
+	font-style: italic;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 em{
@@ -161,11 +163,31 @@ code{
 
 .slide--black{
 	color: white;
-	background: black;
+	background: #333;
+}
+
+.slide--teal{
+	background: $teal;
+	background-image: url(../assets/images/bg_teal.png);
+	background-position: center;
 }
 
 .slide--orange{
 	background: $orange;
+	background-image: url(../assets/images/bg_orange.png);
+	background-position: center;
+}
+
+.slide--orange-2{
+	background: $orange;
+	background-image: url(../assets/images/bg_orange2.png);
+	background-position: center;
+}
+
+.slide--orange-3{
+	background: $orange;
+	background-image: url(../assets/images/bg_orange3.png);
+	background-position: center;
 }
 
 .slide--green{
@@ -261,6 +283,40 @@ h2.top-left{
     max-width: 50%;
     text-align: left;
     font-size: 4rem;
+}
+
+#film{
+	background-image: url(../assets/images/animation.gif);
+	background-size: cover;
+}
+
+#games{
+	background-image: url(../assets/images/game.png);
+	background-size: cover;
+}
+
+#games-2d{
+	background-image: url(../assets/images/pacman.jpg);
+	background-size: cover;
+}
+
+#myst{
+	background-image: url(../assets/images/myst.jpeg);
+	background-size: cover;	
+}
+
+#caniuse{
+	background-image: url(../assets/images/caniuse.png);
+	background-size: cover;
+	background-position: center;
+	justify-content: flex-end;
+	padding: 100px;
+}
+
+#semantics{
+	background-image: url(../assets/images/wes.png);
+	background-size: cover;
+	background-position: center;
 }
 
 #resources{
