@@ -7,6 +7,8 @@ define(function (require) {
 		AppEvent = require('pres/events/app-event'),
 		Camera = require('pres/models/camera'),
 		CoverBg = require('app/views/bg/cover-bg'),
+		MeshBg = require('app/views/bg/mesh-bg'),
+		EvolutionBg = require('app/views/bg/evolution-bg'),
 		TerrainBg = require('app/views/bg/terrain-bg'),
 		TestBg = require('app/views/bg/test-bg'),
 		isTerrain,
@@ -20,8 +22,10 @@ define(function (require) {
 	BgView = Backbone.View.extend({
 
 		initialize: function () {
+			
 			BG_LIST = [
-				{id: 'cover', view: CoverBg}
+				{id: 'cover', view: CoverBg},
+				{id: 'evolution', view: EvolutionBg}
 			];
 				
 			this.$el = $('#bg');
@@ -53,8 +57,7 @@ define(function (require) {
 		
 			if (currentBg) {
 				currentBg.render();
-			}
-						
+			}		
 		},
 
 		handleTerrainSlide: function () {
@@ -101,6 +104,8 @@ define(function (require) {
 			for (i = 0; i < BG_LIST.length; i += 1) {
 				if (BG_LIST[i].id == slide.get('name')) {
 					return BG_LIST[i].view;
+				} else if (slide.get('view').$el.data('color')) {
+					return MeshBg;
 				}
 			}
 		},

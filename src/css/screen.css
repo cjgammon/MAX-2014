@@ -903,6 +903,7 @@ footer {
 
 /* line 127, ../sass/screen.scss */
 blockquote {
+  padding: 100px;
   font-size: 4rem;
   font-weight: bold;
   color: white;
@@ -911,14 +912,14 @@ blockquote {
   text-transform: uppercase;
 }
 
-/* line 136, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 em {
   font-weight: bold;
   font-style: italic;
   color: #fff;
 }
 
-/* line 142, ../sass/screen.scss */
+/* line 143, ../sass/screen.scss */
 code {
   display: block;
   background: white;
@@ -931,62 +932,29 @@ code {
   white-space: pre;
 }
 
-/* line 154, ../sass/screen.scss */
+/* line 155, ../sass/screen.scss */
 .code-red {
   font-weight: bold;
   color: #cc0000;
 }
 
-/* line 159, ../sass/screen.scss */
+/* line 160, ../sass/screen.scss */
 .slide {
   -webkit-box-sizing: border-box;
   padding: 1rem;
 }
 
-/* line 164, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 .slide--black {
   color: white;
   background: #333;
 }
 
-/* line 169, ../sass/screen.scss */
-.slide--teal {
-  background: #00a4ae;
-  background-image: url(../assets/images/bg_teal.png);
-  background-position: center;
-}
-
-/* line 175, ../sass/screen.scss */
-.slide--orange {
-  background: #ff9c00;
-  background-image: url(../assets/images/bg_orange.png);
-  background-position: center;
-}
-
-/* line 181, ../sass/screen.scss */
-.slide--orange-2 {
-  background: #ff9c00;
-  background-image: url(../assets/images/bg_orange2.png);
-  background-position: center;
-}
-
-/* line 187, ../sass/screen.scss */
-.slide--orange-3 {
-  background: #ff9c00;
-  background-image: url(../assets/images/bg_orange3.png);
-  background-position: center;
-}
-
-/* line 193, ../sass/screen.scss */
-.slide--green {
-  background: #00a4ae;
-}
-
-/* line 197, ../sass/screen.scss */
+/* line 170, ../sass/screen.scss */
 .slide--iframe {
   background: #f2f2f2;
 }
-/* line 200, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .slide--iframe h2 {
   position: absolute;
   top: 0;
@@ -998,24 +966,24 @@ code {
   color: white;
   z-index: 2;
 }
-/* line 212, ../sass/screen.scss */
+/* line 185, ../sass/screen.scss */
 .slide--iframe header {
   color: black;
 }
-/* line 216, ../sass/screen.scss */
+/* line 189, ../sass/screen.scss */
 .slide--iframe a {
   color: #00a4ae;
 }
-/* line 218, ../sass/screen.scss */
+/* line 191, ../sass/screen.scss */
 .slide--iframe a:hover {
   color: black;
 }
 
-/* line 224, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .slide--full {
   padding: 0;
 }
-/* line 227, ../sass/screen.scss */
+/* line 200, ../sass/screen.scss */
 .slide--full iframe {
   width: 100vw;
   height: 100vh;
@@ -1023,7 +991,7 @@ code {
   background-color: black;
 }
 
-/* line 235, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 .slide--namecard.visible {
   justify-content: flex-end;
   -webkit-justify-content: flex-end;
@@ -1032,12 +1000,12 @@ code {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 243, ../sass/screen.scss */
+/* line 216, ../sass/screen.scss */
 .slide--namecard.visible .name, .slide--namecard.visible .handle {
   text-transform: none;
 }
 
-/* line 248, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 #fixed a {
   font-family: 'avenir', serif;
   font-weight: 100;
@@ -1045,23 +1013,23 @@ code {
   text-transform: lowercase;
 }
 
-/* line 255, ../sass/screen.scss */
+/* line 228, ../sass/screen.scss */
 #cover {
   background-color: transparent;
   background-size: cover;
   background-position: center;
 }
 
-/* line 261, ../sass/screen.scss */
+/* line 234, ../sass/screen.scss */
 #hi {
-  background-image: url(../assets/images/yosemite.jpg);
+  background-image: url(../assets/images/yosemite.png);
   background-size: cover;
   background-position: center;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-/* line 269, ../sass/screen.scss */
+/* line 242, ../sass/screen.scss */
 .head-shot {
   width: 200px;
   margin-bottom: 1em;
@@ -1070,7 +1038,7 @@ code {
   -webkit-clip-path: ellipse(50%, 50%, 50%, 50%);
 }
 
-/* line 277, ../sass/screen.scss */
+/* line 250, ../sass/screen.scss */
 h2.top-left {
   position: absolute;
   top: 3rem;
@@ -1082,31 +1050,44 @@ h2.top-left {
   font-size: 4rem;
 }
 
-/* line 288, ../sass/screen.scss */
-#film {
-  background-image: url(../assets/images/animation.gif);
+/* line 262, ../sass/screen.scss */
+#quote blockquote {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  padding: 20px;
+}
+
+/* line 269, ../sass/screen.scss */
+#digital-example-ff {
+  background-image: url(../assets/images/digital_ff.png);
   background-size: cover;
 }
 
-/* line 293, ../sass/screen.scss */
-#games {
-  background-image: url(../assets/images/game.png);
+/* line 274, ../sass/screen.scss */
+#digital-example-avatar {
+  background-image: url(../assets/images/digital_avatar.png);
   background-size: cover;
 }
 
-/* line 298, ../sass/screen.scss */
+/* line 279, ../sass/screen.scss */
 #games-2d {
-  background-image: url(../assets/images/pacman.jpg);
+  background-image: url(../assets/images/pacman.png);
   background-size: cover;
 }
 
-/* line 303, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 #myst {
-  background-image: url(../assets/images/myst.jpeg);
+  background-image: url(../assets/images/myst.png);
   background-size: cover;
 }
 
-/* line 308, ../sass/screen.scss */
+/* line 289, ../sass/screen.scss */
+#games-3d {
+  background-image: url(../assets/images/game_3d.png);
+  background-size: cover;
+}
+
+/* line 294, ../sass/screen.scss */
 #caniuse {
   background-image: url(../assets/images/caniuse.png);
   background-size: cover;
@@ -1115,32 +1096,32 @@ h2.top-left {
   padding: 100px;
 }
 
-/* line 316, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 #semantics {
   background-image: url(../assets/images/wes.png);
   background-size: cover;
   background-position: center;
 }
 
-/* line 322, ../sass/screen.scss */
+/* line 308, ../sass/screen.scss */
 #resources {
   font-size: 1rem;
 }
-/* line 325, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
 #resources h2 {
   font-size: 3rem;
 }
-/* line 329, ../sass/screen.scss */
+/* line 315, ../sass/screen.scss */
 #resources h3 {
   font-size: 2rem;
 }
 
-/* line 334, ../sass/screen.scss */
+/* line 320, ../sass/screen.scss */
 #warning {
   display: none;
 }
 
-/* line 339, ../sass/screen.scss */
+/* line 325, ../sass/screen.scss */
 .no-flexbox #warning {
   position: absolute;
   display: block;
@@ -1153,7 +1134,7 @@ h2.top-left {
   text-align: center;
   z-index: 10000;
 }
-/* line 351, ../sass/screen.scss */
+/* line 337, ../sass/screen.scss */
 .no-flexbox #warning p {
   display: block;
   margin: 100px auto;
@@ -1161,17 +1142,17 @@ h2.top-left {
   line-height: 1.5;
 }
 
-/* line 361, ../sass/screen.scss */
+/* line 347, ../sass/screen.scss */
 .touch #preloader {
   display: none;
 }
-/* line 365, ../sass/screen.scss */
+/* line 351, ../sass/screen.scss */
 .touch #deck {
   position: static;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* line 371, ../sass/screen.scss */
+/* line 357, ../sass/screen.scss */
 .touch .slide {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -1191,26 +1172,26 @@ h2.top-left {
   opacity: 1;
   pointer-events: auto;
 }
-/* line 380, ../sass/screen.scss */
+/* line 366, ../sass/screen.scss */
 .touch .slide--iframe {
   display: none;
 }
-/* line 384, ../sass/screen.scss */
+/* line 370, ../sass/screen.scss */
 .touch #ui-button-css .ui-button-css-side, .touch #ui-button-css, .touch #ui-button-css-mask, .touch #ui-button-css-blend {
   width: 100px;
   height: 100px;
 }
-/* line 389, ../sass/screen.scss */
+/* line 375, ../sass/screen.scss */
 .touch #filter-list-image {
   width: 200px;
 }
-/* line 393, ../sass/screen.scss */
+/* line 379, ../sass/screen.scss */
 .touch .mask-item, .touch .mask-dynamic-item {
   height: 100px;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 399, ../sass/screen.scss */
+  /* line 385, ../sass/screen.scss */
   html {
     font-size: .3em;
   }

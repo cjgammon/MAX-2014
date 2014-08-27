@@ -125,6 +125,7 @@ footer{
 }
 
 blockquote{
+	padding: 100px;
 	font-size: 4rem;
 	font-weight: bold;
 	color: white;
@@ -164,34 +165,6 @@ code{
 .slide--black{
 	color: white;
 	background: #333;
-}
-
-.slide--teal{
-	background: $teal;
-	background-image: url(../assets/images/bg_teal.png);
-	background-position: center;
-}
-
-.slide--orange{
-	background: $orange;
-	background-image: url(../assets/images/bg_orange.png);
-	background-position: center;
-}
-
-.slide--orange-2{
-	background: $orange;
-	background-image: url(../assets/images/bg_orange2.png);
-	background-position: center;
-}
-
-.slide--orange-3{
-	background: $orange;
-	background-image: url(../assets/images/bg_orange3.png);
-	background-position: center;
-}
-
-.slide--green{
-	background: $teal;
 }
 
 .slide--iframe{
@@ -259,7 +232,7 @@ code{
 }
 
 #hi{
-    background-image: url(../assets/images/yosemite.jpg);
+    background-image: url(../assets/images/yosemite.png);
 	background-size: cover;
 	background-position: center;
 	text-transform: uppercase;
@@ -285,24 +258,37 @@ h2.top-left{
     font-size: 4rem;
 }
 
-#film{
-	background-image: url(../assets/images/animation.gif);
+#quote{
+	blockquote{
+		font-size: 2.5rem;
+		line-height: 1.2;
+		padding: 20px;
+	}
+}
+
+#digital-example-ff{
+	background-image: url(../assets/images/digital_ff.png);
 	background-size: cover;
 }
 
-#games{
-	background-image: url(../assets/images/game.png);
+#digital-example-avatar{
+	background-image: url(../assets/images/digital_avatar.png);
 	background-size: cover;
 }
 
 #games-2d{
-	background-image: url(../assets/images/pacman.jpg);
+	background-image: url(../assets/images/pacman.png);
 	background-size: cover;
 }
 
 #myst{
-	background-image: url(../assets/images/myst.jpeg);
+	background-image: url(../assets/images/myst.png);
 	background-size: cover;	
+}
+
+#games-3d{
+	background-image: url(../assets/images/game_3d.png);
+	background-size: cover;
 }
 
 #caniuse{

@@ -51,13 +51,16 @@ define(function (require) {
 						blending: THREE.AdditiveBlending,
 						opacity: 0.3, 
 						transparent: true, 
+						shading: THREE.FlatShading,
 						side: THREE.DoubleSide
 					});
 					geometry = new THREE.CubeGeometry(50, 50, length);
+					//geometry = new THREE.CylinderGeometry(0, 30, length, 4, 4);
 					cube = new THREE.Mesh(geometry, material);
 					cube.position.x = x;
 					cube.position.y = y;
 					cube.position.z = length / 2;
+					//cube.rotation.x = Math.PI / 2;
 					
 					cubes.push(cube);
 					container.add(cube);
