@@ -1,0 +1,81 @@
+@-webkit-keyframes leafA{
+	0%{
+		-webkit-transform: translateX(0px);
+	}
+
+	20%{
+		-webkit-transform: translateX(1px) translateY(1px);
+	}
+
+	40%{
+		-webkit-transform: translateX(-.5px) translateY(.5px);
+	}
+
+	60%{
+		-webkit-transform: translateX(-1px) translateY(-1px);
+	}
+
+	80%{
+		-webkit-transform: translateX(-1px) translateY(0px);
+	}
+
+	100%{
+		-webkit-transform: translateX(0px);
+	}
+}
+
+.leafA{
+	-webkit-animation-duration: 3s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.leafB{
+	-webkit-animation-duration: 4s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.leafC{
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.cloudA{
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.cloudB{
+	-webkit-animation-duration: 4s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.cloudC{
+	-webkit-animation-duration: 3s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}
+
+.cloudD{
+	-webkit-animation-duration: 6s;
+	-webkit-animation-name: leafA;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+ 	-webkit-animation-timing-function: ease-in-out;
+}

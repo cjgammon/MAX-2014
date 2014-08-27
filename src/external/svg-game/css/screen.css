@@ -1,0 +1,443 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@-webkit-keyframes mouthmove {
+  /* line 2, ../sass/screen/_character.scss */
+  from {
+    -webkit-transform: scaleY(1);
+  }
+
+  /* line 6, ../sass/screen/_character.scss */
+  to {
+    -webkit-transform: scaleY(0.5);
+  }
+}
+
+@-webkit-keyframes blink {
+  /* line 12, ../sass/screen/_character.scss */
+  43% {
+    -webkit-transform: scaleY(1);
+  }
+
+  /* line 13, ../sass/screen/_character.scss */
+  50% {
+    -webkit-transform: scaleY(0);
+  }
+
+  /* line 14, ../sass/screen/_character.scss */
+  57% {
+    -webkit-transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes retina {
+  /* line 18, ../sass/screen/_character.scss */
+  0% {
+    -webkit-transform: translateX(0px);
+  }
+
+  /* line 19, ../sass/screen/_character.scss */
+  30% {
+    -webkit-transform: translateX(1px) translateY(0.5px);
+  }
+
+  /* line 20, ../sass/screen/_character.scss */
+  50% {
+    -webkit-transform: translateX(0px) translateY(-0.5px);
+  }
+
+  /* line 21, ../sass/screen/_character.scss */
+  80% {
+    -webkit-transform: translateX(1px);
+  }
+
+  /* line 22, ../sass/screen/_character.scss */
+  100% {
+    -webkit-transform: translateX(0px);
+  }
+}
+
+/* line 25, ../sass/screen/_character.scss */
+.mouth {
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: scaleY(0.5);
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -o-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  	/*
+  	-webkit-animation-duration: 3s;
+  	-webkit-animation-name: mouthmove;
+    	-webkit-animation-iteration-count: infinite;
+   	-webkit-animation-direction: alternate;
+  	*/
+}
+
+/* line 37, ../sass/screen/_character.scss */
+.eye {
+  -webkit-transform-origin: center bottom;
+  -moz-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  -o-transform-origin: center bottom;
+  transform-origin: center bottom;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+}
+
+/* line 44, ../sass/screen/_character.scss */
+.retina {
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-name: retina;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes leafA {
+  /* line 2, ../sass/screen/_scenery.scss */
+  0% {
+    -webkit-transform: translateX(0px);
+  }
+
+  /* line 6, ../sass/screen/_scenery.scss */
+  20% {
+    -webkit-transform: translateX(1px) translateY(1px);
+  }
+
+  /* line 10, ../sass/screen/_scenery.scss */
+  40% {
+    -webkit-transform: translateX(-0.5px) translateY(0.5px);
+  }
+
+  /* line 14, ../sass/screen/_scenery.scss */
+  60% {
+    -webkit-transform: translateX(-1px) translateY(-1px);
+  }
+
+  /* line 18, ../sass/screen/_scenery.scss */
+  80% {
+    -webkit-transform: translateX(-1px) translateY(0px);
+  }
+
+  /* line 22, ../sass/screen/_scenery.scss */
+  100% {
+    -webkit-transform: translateX(0px);
+  }
+}
+
+/* line 27, ../sass/screen/_scenery.scss */
+.leafA {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 35, ../sass/screen/_scenery.scss */
+.leafB {
+  -webkit-animation-duration: 4s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 43, ../sass/screen/_scenery.scss */
+.leafC {
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 51, ../sass/screen/_scenery.scss */
+.cloudA {
+  -webkit-animation-duration: 5s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 59, ../sass/screen/_scenery.scss */
+.cloudB {
+  -webkit-animation-duration: 4s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 67, ../sass/screen/_scenery.scss */
+.cloudC {
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 75, ../sass/screen/_scenery.scss */
+.cloudD {
+  -webkit-animation-duration: 6s;
+  -webkit-animation-name: leafA;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* line 1, ../sass/screen/_level1.scss */
+.level1 {
+  background-image: url(../assets/images/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #178A9C;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+/* line 10, ../sass/screen/_level1.scss */
+.level1 b {
+  font-weight: 600;
+}
+
+/* line 15, ../sass/screen/_level1.scss */
+#text1A {
+  top: 450px;
+  left: 390px;
+  width: 200px;
+  height: 300px;
+  -webkit-shape-inside: polygon(15.661px 25.641px, 18.333px 149.471px, 32.839px 180.314px, 53.002px 198.059px, 77.669px 202.641px, 121.667px 202.641px, 122.667px 169.641px, 99.667px 156.976px, 111.667px 133.641px, 110.667px 113.207px, 128.667px 80.641px, 144.667px 57.138px, 124.334px 35.641px, 69.667px 35.641px, 46.336px 16.641px);
+}
+
+/* line 23, ../sass/screen/_level1.scss */
+#text1B {
+  top: 440px;
+  left: 890px;
+  width: 300px;
+  height: 300px;
+  -webkit-shape-inside: polygon(9.057px 150.829px, 35.762px 137.701px, 41.782px 117.428px, 63.077px 98.026px, 115.077px 98.026px, 145.519px 71.389px, 146.733px 42.165px, 135.077px 13.026px, 212.077px 13.026px, 211.077px 64.026px, 194.077px 93.026px, 191.077px 107.026px, 249.077px 107.026px, 261.077px 135.026px, 249.077px 157.026px, 217.077px 189.173px, 217.077px 223.026px, 161.077px 223.026px, 139.22px 244.882px, 71.077px 217.129px, 61.077px 193.026px, 19.077px 183.026px);
+}
+
+/* line 32, ../sass/screen/_level1.scss */
+#text1C {
+  top: 670px;
+  left: 1250px;
+  width: 300px;
+  height: 300px;
+  -webkit-shape-inside: polygon(141.685px 29.695px, 169.895px 9.653px, 228.92px 64.04px, 202.933px 99.091px, 181.187px 198.101px, 154.944px 199.361px, 154.944px 232.111px, 37.944px 232.111px, 8.944px 199.111px, 59.998px 148.111px, 91.944px 141.111px, 93.944px 106.111px, 138.944px 106.111px, 149.468px 60.981px);
+}
+
+/* line 40, ../sass/screen/_level1.scss */
+#text1D {
+  top: 780px;
+  left: 900px;
+  width: 300px;
+  height: 300px;
+  -webkit-shape-inside: polygon(37.253px 13.819px, 123.253px 13.819px, 162.152px 31.819px, 166.253px 48.819px, 227.253px 48.819px, 239.323px 84.819px, 205.253px 112.653px, 214.253px 137.819px, 198.267px 150.246px, 88.253px 168.298px, 64.253px 152.259px, 56.253px 119.82px, 11.806px 84.819px, 61.253px 55.819px, 36.253px 41.819px);
+}
+
+/* line 48, ../sass/screen/_level1.scss */
+#text1E {
+  top: 1040px;
+  left: 1290px;
+  width: 300px;
+  height: 300px;
+  -webkit-shape-inside: polygon(10.337px 39.979px, 48.504px 12.451px, 137.392px 12.02px, 166.13px 30.638px, 183.337px 65.341px, 183.337px 160.253px, 158.762px 178.253px, 59.337px 178.253px, 65.339px 141.692px, 40.672px 131.269px, 30.672px 110.066px, 40.672px 83.59px, 13.373px 76.923px);
+}
+
+/* line 56, ../sass/screen/_level1.scss */
+#text1F {
+  top: 1200px;
+  left: 1620px;
+  width: 300px;
+  height: 300px;
+  -webkit-shape-inside: polygon(39.024px 115.98px, 11.276px 91.505px, 53.024px 33.515px, 117.42px 9.769px, 141.024px 26.543px, 177.024px 23.53px, 177.024px 78.53px, 192.822px 98.005px, 211.024px 114.883px, 204.024px 129.53px, 219.088px 144.595px, 218.711px 178.131px, 204.024px 196.918px, 150.024px 198.53px, 99.024px 219.866px, 71.024px 219.53px, 38.024px 194.041px, 52.024px 167.53px);
+}
+
+/* line 12, ../sass/screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #C8E3E2;
+  font-family: open-sans;
+  -webkit-text-size-adjust: auto;
+}
+
+/* line 23, ../sass/screen.scss */
+#gameView {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* line 30, ../sass/screen.scss */
+#svgPhysics {
+  display: none;
+}
+
+/* line 34, ../sass/screen.scss */
+svg, .level, .text-area, .star, #debugCanvas {
+  position: absolute;
+}
+
+/* line 38, ../sass/screen.scss */
+.level {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 43, ../sass/screen.scss */
+.panel {
+  position: absolute;
+  display: -webkit-flex;
+  width: 100%;
+  height: 100%;
+  color: #302D2D;
+  background-color: rgba(255, 255, 255, 0.6);
+  pointer-events: auto;
+  -webkit-flex-align: center;
+  -webkit-flex-pack: center;
+}
+/* line 54, ../sass/screen.scss */
+.panel .titleElement {
+  position: relative;
+  margin: auto;
+  width: 758px;
+  height: 400px;
+}
+/* line 61, ../sass/screen.scss */
+.panel .titleContent {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+/* line 66, ../sass/screen.scss */
+.panel .titleContent.in {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+/* line 72, ../sass/screen.scss */
+.panel p {
+  position: absolute;
+  top: 220px;
+  left: 50px;
+  width: 500px;
+  height: 300px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  -webkit-shape-inside: polygon(50px 50px, 100px 0px, 250px 0px, 300px 50px, 200px 100px, 80px 100px);
+}
+/* line 84, ../sass/screen.scss */
+.panel a {
+  display: block;
+  position: absolute;
+  top: 320px;
+  left: 570px;
+  width: 200px;
+  font-weight: bold;
+  font-size: 40px;
+  font-family: chango;
+  text-decoration: none;
+  color: #178a9c;
+}
+/* line 96, ../sass/screen.scss */
+.panel a:hover {
+  color: #0a3f44;
+}
+/* line 101, ../sass/screen.scss */
+.panel svg {
+  pointer-events: none;
+}

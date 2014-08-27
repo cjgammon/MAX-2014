@@ -46,10 +46,11 @@ var MainView = Backbone.View.extend({
 			this.treeFaces.push(tree);
 		}
 		
+		/*
 		this.cube = document.getElementById('cube');
 		var $cubeHitArea = document.getElementById('cube-hitarea');
 		$cubeHitArea.addEventListener('click', this.handle_ROLL.bind(this));
-		
+		*/
 		setTimeout(this.animate.bind(this), 3000);
     },
 

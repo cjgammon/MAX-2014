@@ -1,0 +1,104 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "screen/character";
+@import "screen/scenery";
+@import "screen/level1";
+
+html, body{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background: #C8E3E2;
+	font-family: open-sans;
+	-webkit-text-size-adjust: auto;
+}
+
+#gameView{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+#svgPhysics{
+	display: none;
+}
+
+svg, .level, .text-area, .star, #debugCanvas{
+	position: absolute;
+}
+
+.level{
+	width: 100%;
+	height: 100%;
+}
+
+.panel{
+	position: absolute;
+	display: -webkit-flex;
+	width: 100%;
+	height: 100%;
+	color: #302D2D;
+	background-color: rgba(255, 255, 255, .6);
+	pointer-events: auto;
+	-webkit-flex-align: center;
+	-webkit-flex-pack: center;
+
+	.titleElement{
+		position: relative;
+		margin: auto;
+		width: 758px;
+		height: 400px;
+	}
+
+	.titleContent{
+		opacity: 0;
+		@include transform(scale(0));
+		@include transition(all 1s ease-out);
+
+		&.in{
+			opacity: 1;
+			@include transform(scale(1));
+		}	
+	}
+
+	p{
+		position: absolute;
+		top: 220px;
+		left: 50px;
+		width: 500px;
+		height: 300px;
+		font-size: 18px;
+		line-height: 1.5;
+		text-align: center;
+		-webkit-shape-inside: polygon(50px 50px, 100px 0px, 250px 0px, 300px 50px, 200px 100px, 80px 100px);
+	}
+
+	a{
+		display: block;
+		position: absolute;
+		top: 320px;
+		left: 570px;
+		width: 200px;
+		font-weight: bold;
+		font-size: 40px;
+		font-family: chango;
+		text-decoration: none;
+		color: #178a9c;
+
+		&:hover{
+			color: #0a3f44;
+		}
+	}
+
+	svg{
+		pointer-events: none;
+	}
+}
