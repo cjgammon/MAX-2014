@@ -329,7 +329,7 @@ drawClouds();</pre></code>
 				
 			<section id="masking-css-code" class="slide" data-class="basic" data-color="0x333333">
 				<h3>CSS Masks</h3>
-				<code><pre>mask: <span>url(...)</span>;
+				<code><pre><em>mask: <span>url(...)</span>;</em>
 mask-image: url(...);
 mask-size: 100%;
 mask-position: center;
@@ -338,6 +338,7 @@ mask-composite: source-over;</pre></code>
 
 			<section id="masking-css-composite" class="slide" data-class="basic" data-color="0x333333">
 				<h3>CSS COMPOSITING</h3>
+				<p>list composite operations</p>
 			</section>
 
 			<section id="masking-css-composite-1" class="slide slide--iframe" data-class="iframe" data-color="0x333333" data-src="external/d-mask-2/index.html">
@@ -346,8 +347,14 @@ mask-composite: source-over;</pre></code>
 			<section id="masking-css-composite-2" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask/index.html">
 			</section>
 			
+			<section id="masking-canvas-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-canvas/index.html">
+			</section>
+			
 			<section id="masking-canvas" class="slide" data-class="basic" data-color="0x333333">
 				<h3>Masking Canvas</h3>
+				<code><pre>drawClouds();
+<em>ctx.globalCompositeOperation = "destination-in";
+<span>ctx.drawImage(maskImg, 0, 0);</span></em></pre></code>
 			</section>
 			
 			<section id="masking-webgl" class="slide" data-class="basic" data-color="0x333333">
