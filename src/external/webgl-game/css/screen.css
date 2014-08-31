@@ -1,0 +1,325 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+@-webkit-keyframes rotate {
+  /* line 10, ../sass/screen.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 13, ../sass/screen.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* line 18, ../sass/screen.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 24, ../sass/screen.scss */
+body {
+  -webkit-perspective-origin: center center;
+  -webkit-perspective: 100;
+  -webkit-transform-style: preserve-3d;
+  font-family: 'open-sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+/* line 32, ../sass/screen.scss */
+h2 {
+  font-family: 'open-sans-condensed', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  max-width: 80%;
+}
+
+/* line 42, ../sass/screen.scss */
+a {
+  color: #739fbd;
+  text-decoration: none;
+  font-weight: 800;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+/* line 48, ../sass/screen.scss */
+a:hover {
+  color: #739fbd;
+}
+
+/* line 53, ../sass/screen.scss */
+#progressHolder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: #111;
+}
+
+/* line 62, ../sass/screen.scss */
+#progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background: #333;
+}
+
+/* line 70, ../sass/screen.scss */
+#dust, #sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 76, ../sass/screen.scss */
+#ground {
+  position: fixed;
+  z-index: 0;
+}
+
+/* line 81, ../sass/screen.scss */
+#deck {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-perspective-origin: center center;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* line 89, ../sass/screen.scss */
+#hud {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* line 97, ../sass/screen.scss */
+#preloader {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+}
+
+/* line 108, ../sass/screen.scss */
+.spinner {
+  width: 50px;
+  height: 50px;
+  background: #333;
+  border-radius: 50px;
+  -webkit-animation: rotate 0.5s infinite linear;
+}
+
+/* line 116, ../sass/screen.scss */
+.slide {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #efefef;
+  text-shadow: 0px 10px 50px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  /*
+  &:after{
+  	content: " ";
+  	position: relative;
+  	top: 40%;
+  	width: 50%;
+  	height: 20px;
+  	background: rgba(1, 1, 1, 0.75);
+  	pointer-events: none;
+  	@include filter(blur(20px));
+  };
+  */
+}
+
+/* line 142, ../sass/screen.scss */
+.hud-input {
+  position: absolute;
+  top: 0;
+  height: 5rem;
+  width: 100%;
+  padding: .5rem;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 5rem;
+  color: #333;
+  background-color: #efefef;
+  z-index: 20;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  -webkit-transform: translateZ(0) rotateX(-90deg);
+  -moz-transform: translateZ(0) rotateX(-90deg);
+  -ms-transform: translateZ(0) rotateX(-90deg);
+  -o-transform: translateZ(0) rotateX(-90deg);
+  transform: translateZ(0) rotateX(-90deg);
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  -o-transform-origin: top center;
+  transform-origin: top center;
+}
+/* line 158, ../sass/screen.scss */
+.hud-input.in {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* line 163, ../sass/screen.scss */
+.hud-list {
+  position: relative;
+  -webkit-perspective: 10000;
+  z-index: 0;
+}
+
+/* line 169, ../sass/screen.scss */
+.hud-list-item {
+  position: relative;
+  padding: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 100;
+  color: white;
+  font-family: 'open-sans-condensed', sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  z-index: 1;
+}
+/* line 185, ../sass/screen.scss */
+.hud-list-item.prev {
+  -webkit-transform: scale(1) rotateX(60deg);
+  -moz-transform: scale(1) rotateX(60deg);
+  -ms-transform: scale(1) rotateX(60deg);
+  -o-transform: scale(1) rotateX(60deg);
+  transform: scale(1) rotateX(60deg);
+}
+/* line 189, ../sass/screen.scss */
+.hud-list-item.next {
+  -webkit-transform: scale(1) rotateX(-60deg);
+  -moz-transform: scale(1) rotateX(-60deg);
+  -ms-transform: scale(1) rotateX(-60deg);
+  -o-transform: scale(1) rotateX(-60deg);
+  transform: scale(1) rotateX(-60deg);
+}
+/* line 193, ../sass/screen.scss */
+.hud-list-item.primed {
+  background-color: rgba(155, 0, 0, 0.5);
+  z-index: 5;
+}
+/* line 198, ../sass/screen.scss */
+.hud-list-item.selected {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+  background-color: rgba(255, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* line 205, ../sass/screen.scss */
+.addthis_toolbox {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}

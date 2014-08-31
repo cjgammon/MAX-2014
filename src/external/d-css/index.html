@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>no styling</title>
+		<style>
+			*{
+				-webkit-transition: all 1s;
+			}
+			
+			body{
+				background: white;
+			}
+			
+			.one{
+				margin: 0;
+			}
+			
+			.one header{
+				font-family: sans-serif;
+				padding: 1rem;
+				border-bottom: 1px solid black;
+				background-color: #fcf0f0;
+			}
+			
+			.one header h1{
+				text-align: center;
+				color: #ea4d6c;
+			}
+			
+			.one b{
+				color: #ea4d6c;
+			}
+			
+			.one header ul{
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: .8rem;
+				list-style: none;
+			}
+			
+			.one section{
+				max-width: 32rem;
+				margin: auto;
+				padding: 1rem;
+			}
+			
+			.one article{
+				margin-bottom: 3rem;
+			}
+			
+			.one h2{
+				font-family: sans-serif;
+				display: inline-block;
+				margin-right: 1em;
+			}
+			
+			.one date{
+				display: inline-block;
+				font-size: .8rem;
+			}
+			
+			.one p{
+				line-height: 1.4;
+			}
+			
+			.two{
+				margin: 0;
+				font-family: 'Open Sans';
+				overflow-x: hidden;
+				
+				background: #f2f5f6; /* Old browsers */
+				background: -moz-radial-gradient(center, ellipse cover,  #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6+ */
+				background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f2f5f6), color-stop(37%,#e3eaed), color-stop(100%,#c8d7dc)); /* Chrome,Safari4+ */
+				background: -webkit-radial-gradient(center, ellipse cover,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-radial-gradient(center, ellipse cover,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* Opera 12+ */
+				background: -ms-radial-gradient(center, ellipse cover,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* IE10+ */
+				background: radial-gradient(ellipse at center,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+				
+			}
+			
+			.two header{
+				padding: 1em;
+				background: #e00434; /* Old browsers */
+				background: -moz-linear-gradient(top,  #e00434 0%, #aa0025 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e00434), color-stop(100%,#aa0025)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #e00434 0%,#aa0025 100%); /* W3C */
+				border-bottom: 1px solid red;
+				margin-bottom: 300px;
+			}
+			
+			.two h1{
+				margin: 0;
+				font-weight: 100;
+				font-size: 1rem;
+				color: white;
+				text-align: center;
+			}
+			
+			.two ul{
+				display: block;
+				position: absolute;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				-webkit-perspective: 300;
+				z-index: -2;
+			}
+			
+			.two b{
+				display: block;
+				margin: 1rem auto 3rem;
+				width: 100%;
+				font-family: "Open Sans Condensed";
+				font-weight: 100;
+				font-size: 4rem;
+				text-transform: uppercase;
+				text-align: center;
+				
+				background: #e00434; /* Old browsers */
+				background: -moz-linear-gradient(top,  #e00434 0%, #ea4d6c 47%, #ea0032 49%, #aa0025 97%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e00434), color-stop(47%,#ea4d6c), color-stop(49%,#ea0032), color-stop(97%,#aa0025)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #e00434 0%,#ea4d6c 47%,#ea0032 49%,#aa0025 97%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #e00434 0%,#ea4d6c 47%,#ea0032 49%,#aa0025 97%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #e00434 0%,#ea4d6c 47%,#ea0032 49%,#aa0025 97%); /* IE10+ */
+				background: linear-gradient(to bottom,  #e00434 0%,#ea4d6c 47%,#ea0032 49%,#aa0025 97%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e00434', endColorstr='#aa0025',GradientType=0 ); /* IE6-9 */
+				
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			
+			.two li{
+				position: absolute;
+				display: block;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				padding-top: 100px;
+				opacity: 0;
+			}
+			
+			.two li:after{
+				display: block;
+				position: relative;
+				content: "";
+				top: 20px;
+				width: 120px;
+				height: 10px;
+				background-color: rgba(0, 0, 0, 0.3);
+				-webkit-filter: blur(12px);
+			}
+			
+			@-webkit-keyframes slide {
+				0% { 
+					opacity: 0;
+					transform: translateZ(-600px) translateY(100px);
+					z-index: 0;
+				}
+			
+				40% { 
+					opacity: 1;
+					transform: translateZ(0px) translateY(-50px);
+					z-index: 1;
+				}
+				
+				100% { 
+					opacity: 0;
+					transform: translateZ(600px) translateY(50px);
+				}
+			}
+			
+			.two li:nth-child(2) {
+				left: 50%;
+				margin-left: -66px;
+				-webkit-transform: translateZ(-600px);
+				-webkit-animation: slide 9s infinite linear; 
+			}
+			
+			.two li:nth-child(3) {
+				left: 50%;
+				margin-left: -66px;
+				-webkit-transform: translateZ(-300px);
+				-webkit-animation: slide 9s infinite linear 3s; 			    
+			}
+			
+			.two li:nth-child(4) {
+				left: 50%;
+				margin-left: -66px;
+				-webkit-transform: translateZ(0px);
+				-webkit-animation: slide 9s infinite linear 6s; 
+			}
+			
+			.two .label{
+				position: absolute;
+				display: block;
+				width: 100%;
+				margin-top: 2rem;
+				text-align: center;
+			}
+			
+			.two section{
+				background: #efefef;
+				border-top: 1px solid white;
+			}
+			
+			.two article{
+				margin: auto;
+				max-width: 32rem;
+				margin-bottom: 3rem;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+			}
+			
+			.two date{
+				position: absolute;
+				left: 0;
+				margin-top: -55px;
+				width: calc(((100% - 32rem) / 2) - 50px);
+				padding: .5rem 1rem;
+				color: white;
+				text-align: right;
+				
+				background: #e00434; /* Old browsers */
+				background: -moz-linear-gradient(top,  #e00434 0%, #aa0025 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e00434), color-stop(100%,#aa0025)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #e00434 0%,#aa0025 100%); /* W3C */
+			}
+			
+			.two h2{
+				font-weight: 100;
+			}
+			
+			.two footer{
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				padding: .5rem;
+				color: white;
+				font-size: .5rem;
+				z-index: 100;
+				
+				background: #e00434; /* Old browsers */
+				background: -moz-linear-gradient(top,  #e00434 0%, #aa0025 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e00434), color-stop(100%,#aa0025)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  #e00434 0%,#aa0025 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  #e00434 0%,#aa0025 100%); /* W3C */
+			}
+			
+			.two .icon {
+			  width: 72px;
+			  height: 48px;
+			  position: absolute;
+			  top: 0;
+			  margin: 30px;
+			  display: inline-block;
+			  box-shadow: 0 3px 0 0 rgba(0,0,0,0.2);
+			  vertical-align: middle;
+			}
+			
+			 .two .icon:before,
+			 .two .icon:after{
+			    content:'';
+			    display: block;
+			    position: absolute;
+			  }
+			
+			.two #clock{
+			  height: calc(72px - 8px); /* 64/2 = 32 */ 
+			  width: calc(72px - 8px);
+			  border-radius: 100%;
+			  box-shadow: 
+			    inset 0 2px 0 2px #d3d3d3,
+			    inset 0 0 0 27px #f3f3f3,
+			    0 0 0 7px #8bb153,
+			    0 3px 0 7px rgba(0,0,0,0.2);
+			  background: #706e6d;
+			}
+			
+			 .two #clock:before,
+			 .two #clock:after{
+			    left: 50%;
+			    background: #706e6d;
+			  }
+
+			  /* Hand one */
+			  .two #clock:before{
+			    width: 4px;
+			    height: 20px;
+			    top: 12px; /* 32- 20*/
+			    -webkit-transform-origin: 2px 100%;
+			    margin: 0 0 0 -2px;
+			    -webkit-animation: rotate 45s infinite linear; 
+			  }  
+
+			  .two #clock:after{
+			    width: 2px;
+			    height: 28px;
+			    top: 4px; /* 32- 28*/
+			    -webkit-transform-origin: 1px 100%;
+			    margin: 0 0 0 -1px;
+			    -webkit-animation: rotate 15s infinite linear; 
+			  }
+
+			@-webkit-keyframes rotate {
+			  100% { transform: rotate(360deg);}
+			}
+			
+			.two #calendar {
+			  width: 52px;
+			  height: 10px;
+			  border-top: 20px solid #e05e5f;
+			  background: rgba(0,0,0,0.2);
+			  top: 23px;
+			  border-style: solid;
+			  border-width: 20px 20px 0px 0px;
+			  border-color: #f0f0f0 transparent transparent transparent;
+			  box-shadow: 0 -20px 0 0 #f0f0f0,
+			              0 -40px 0 0 #e05e5f;
+			}
+			
+			  /* Fold */
+			.two #calendar:after{
+			    top: -20px;
+			    right: -20px;
+			    width: 0px;
+			    height: 0px;
+			    border-style: solid;
+			    border-width: 20px 20px 0 0;
+			    border-color: #e0e0e0 transparent transparent transparent;
+			    background: #c8c6ba;
+			  }
+
+			  /* Holes */
+			.two #calendar:before{
+			    content:'01';
+			    position: relative;
+			    font: 1.75em/2.25em bold 'Open Sans';
+			    text-indent: 0.31em;
+			    background: #552827;
+			    border-radius: 100%;
+			    height: 8px;
+			    width: 8px;
+			    top: -54px;
+			    left: 12px;
+			    box-shadow:40px 0 0 #552827;
+			  }
+			
+			.two #location{
+			    width: 66px;
+			    height: calc(48px + 14px);
+			    top: 5px;
+			    border: 3px solid #fff;
+			    box-shadow:
+			      inset 22px 0 0 0 #6fb0b6,  
+			      inset 44px 0 0 0 #85d2d9,  
+			      inset 66px 0 0 0 #6fb0b6,  
+			      0 3px 0 0 rgba(0,0,0,0.2);
+			}
+			
+			  .two #location:before,
+			  .two #location:after{
+			    left: 0; right: 0; margin: auto;
+			    transform: rotate(45deg);
+			  }
+			
+			  /* Left */
+			.two #location:before{
+			    width: 20px;
+			    height: 20px;
+			    border-style: solid;
+			    border-width: 10px;
+			    border-color: #bb4546 #bb4546 #e05e5f #e05e5f;
+			    border-radius: 100%;
+			    top:-22px;
+			  }
+			  /* Bottom */
+			  .two #location:after{
+			    top: 4px;
+			    height: 0;
+			    width: 0;
+			    border-style: solid;
+			    border-width: 6px 12px 12px 6px;
+			    border-color: transparent #bb4546 #e05e5f transparent;
+			  }
+		</style>
+	</head>
+	<body class="">
+		<header>
+			<h1>My Running Diary</h1>			
+			<ul>
+				<b>Records</b>				
+				<li><span id="clock" class="icon"></span><span class="label">PR: 20:05</span></li>
+				<li><span id="location" class="icon"></span><span class="label">Distance: 20:05</span></li>
+				<li><span id="calendar" class="icon"></span><span class="label">Days: 100</span></li>
+			</ul>
+		</header>
+		
+		<section>
+			<article>
+				<h2>Today's Run</h2>
+				<date>Today</date>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit dictum mattis. Morbi vel odio consequat, euismod odio vitae, euismod elit. Sed turpis libero, hendrerit id quam eget, imperdiet interdum augue. Sed mollis est ullamcorper augue dignissim, at iaculis leo dictum. Ut vehicula ligula nec erat laoreet, sit amet sodales mi faucibus. Nam dictum, enim vel pellentesque ultricies, lacus erat consectetur risus, nec rhoncus diam mauris vitae orci. In sit amet pretium est, ut ultricies risus. In mi augue, pellentesque vel vulputate at, ultrices rutrum orci. Pellentesque at ex non lectus laoreet lacinia. Proin eu elit ut arcu interdum sagittis. Pellentesque finibus interdum maximus.				</p>
+				<p>
+					Quisque ultricies purus sed sollicitudin vulputate. Phasellus non laoreet nulla. In quis risus ac odio suscipit tincidunt ac sed elit. Aliquam quis volutpat nisi. Ut pulvinar eros bibendum nisi ultricies, et efficitur ligula blandit. Cras non ipsum in felis bibendum ullamcorper eu maximus mauris. Quisque id ante sed lacus porttitor cursus nec nec eros. Nunc sed est id leo lobortis pellentesque. Aenean cursus magna sed commodo maximus. Morbi quis dapibus sapien. Quisque iaculis elementum nibh, quis pharetra sapien lacinia ac. Nulla vel urna sit amet risus rutrum viverra quis eget ligula. Vestibulum consectetur ut dolor sit amet ultricies. Nunc venenatis justo in sem volutpat placerat. In sed laoreet neque. Mauris laoreet nulla ut lorem ultricies convallis.
+				</p>
+				<p>
+					Vivamus sit amet suscipit libero. Aenean dolor mauris, feugiat sit amet odio id, pulvinar faucibus metus. Vivamus egestas ultricies mollis. Phasellus condimentum sem egestas, dapibus sapien at, luctus lorem. Fusce pellentesque facilisis eros, non sagittis tellus varius sed. Pellentesque pretium nunc sit amet lectus finibus, lobortis placerat mauris faucibus. Nulla non lorem vitae ipsum consectetur tempor. Phasellus vitae eros convallis arcu molestie lobortis posuere quis lorem.
+				</p>
+			</article>
+			<article>
+				<h2>Yesterday's Run</h2>
+				<date>Yesterday</date>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit dictum mattis. Morbi vel odio consequat, euismod odio vitae, euismod elit. Sed turpis libero, hendrerit id quam eget, imperdiet interdum augue. Sed mollis est ullamcorper augue dignissim, at iaculis leo dictum. Ut vehicula ligula nec erat laoreet, sit amet sodales mi faucibus. Nam dictum, enim vel pellentesque ultricies, lacus erat consectetur risus, nec rhoncus diam mauris vitae orci. In sit amet pretium est, ut ultricies risus. In mi augue, pellentesque vel vulputate at, ultrices rutrum orci. Pellentesque at ex non lectus laoreet lacinia. Proin eu elit ut arcu interdum sagittis. Pellentesque finibus interdum maximus.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit dictum mattis. Morbi vel odio consequat, euismod odio vitae, euismod elit. Sed turpis libero, hendrerit id quam eget, imperdiet interdum augue. Sed mollis est ullamcorper augue dignissim, at iaculis leo dictum. Ut vehicula ligula nec erat laoreet, sit amet sodales mi faucibus. Nam dictum, enim vel pellentesque ultricies, lacus erat consectetur risus, nec rhoncus diam mauris vitae orci. In sit amet pretium est, ut ultricies risus. In mi augue, pellentesque vel vulputate at, ultrices rutrum orci. Pellentesque at ex non lectus laoreet lacinia. Proin eu elit ut arcu interdum sagittis. Pellentesque finibus interdum maximus.
+				</p>
+			</article>
+			<article>
+				<h2>Day Before's Run</h2>
+				<date>Day Before</date>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit dictum mattis. Morbi vel odio consequat, euismod odio vitae, euismod elit. Sed turpis libero, hendrerit id quam eget, imperdiet interdum augue. Sed mollis est ullamcorper augue dignissim, at iaculis leo dictum. Ut vehicula ligula nec erat laoreet, sit amet sodales mi faucibus. Nam dictum, enim vel pellentesque ultricies, lacus erat consectetur risus, nec rhoncus diam mauris vitae orci. In sit amet pretium est, ut ultricies risus. In mi augue, pellentesque vel vulputate at, ultrices rutrum orci. Pellentesque at ex non lectus laoreet lacinia. Proin eu elit ut arcu interdum sagittis. Pellentesque finibus interdum maximus.
+				</p>
+			</article>
+		</section>
+		<footer>
+			Thanks for reading!
+		</footer>
+		
+		<script>
+			var current = 0,
+				classes = [
+					{name: "", time: 3000},
+					{name: "one", time: 6000},
+					{name: "two", time: 20000}
+				];
+			
+		
+			function next() {
+				current = current < classes.length - 1 ? current += 1 : 0;
+				document.body.className = classes[current].name;
+				setTimeout(next, classes[current].time);
+			}
+			
+			setTimeout(next, classes[current].time);
+		</script>
+	</body>
+</html>

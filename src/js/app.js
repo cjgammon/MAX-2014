@@ -8,8 +8,13 @@ define(function (require) {
 		NotesView = require('pres/views/notes-view'),
 		SlideBlurView = require('app/views/slide-blur-view'),
 		SlideBasicView = require('app/views/slide-basic-view'),
+		VideoView = require('app/views/video-view'),
 		IframeView = require('app/views/iframe-view'),
 		IframeFullView = require('app/views/iframe-full-view'),
+		UIButtonSVGView = require('app/views/ui-button-svg-view'),
+		UIButtonCanvasView = require('app/views/ui-button-canvas-view'),
+		UIButtonWebglView = require('app/views/ui-button-webgl-view'),
+		UIButtonShaderView = require('app/views/ui-button-shader-view'),
         AppBase = require('pres/views/app-base');
 
     App = AppBase.extend({
@@ -17,7 +22,12 @@ define(function (require) {
 		
 		SLIDEVIEW_LIST: [
 			{cl: 'iframe-full', view: IframeFullView},
-			{cl: 'iframe', view: IframeView}
+			{cl: 'iframe', view: IframeView},
+			{cl: 'video', view: VideoView},
+			{id: 'svg', view: UIButtonSVGView},
+			{id: 'canvas', view: UIButtonCanvasView},
+			{id: 'webgl', view: UIButtonWebglView},
+			{id: 'webgl-shader', view: UIButtonShaderView}
 		],
 	
         initialize: function () {

@@ -1,0 +1,539 @@
+/* Welcome to Compass.
+* In this file you should write your main styles. (or centralize your imports)
+* Import this file using the following HTML or equivalent: * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "mixins";
+
+/* ---------------------------------------------------------
+	Basic
+------------------------------------------------------------ */
+
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	overflow-x: hidden;
+	@include body-font;
+}
+
+/* ---------------------------------------------------------
+	Text
+------------------------------------------------------------ */
+
+p {
+	line-height: 1.5;
+	margin-bottom: 2em;
+	font-size: 1.1em;
+}
+
+figure {
+	margin: 2em 0;
+	@include perspective(800);
+	@include perspective-origin(bottom);
+	-webkit-transform-style: preserve-3d;
+	-webkit-perspective-origin: center bottom;
+
+	img {
+		width: 100%;
+	}
+}
+
+figcaption {
+	margin: 1em 0;
+	font-size: 0.8rem;
+	font-weight: 100;
+	text-align: center;
+}
+
+.title, .subtitle {
+	@include title-font;
+	text-align: left;
+	color: $color-a;
+}
+
+.title {
+	text-transform: capitalize;
+}
+
+.subtitle {
+	@include subtitle-font;
+}
+
+h2, h3, h4, h5, h6 {
+	@include header-font;
+	line-height: 1.5em;
+	margin-bottom: 0.4em;
+}
+
+h2 {
+	font-size: 2.4rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.6rem;
+}
+
+h5 {
+	font-size: 1.4rem;
+}
+
+h6 {
+	font-size: 1.2rem;
+}
+
+
+/* ---------------------------------------------------------
+	List
+------------------------------------------------------------ */
+
+ul, ol {
+	margin: 1.5em;
+	margin-left: 0;
+	line-height: 1.5;
+	counter-reset: i 0;
+}
+
+ul {	
+	li{
+		&:before {
+	    	content: '•';    
+			font-size: 1.2rem;
+		}
+		
+		&.large{
+			&:before{
+				@include transform(scale(1.8));
+			}
+		}
+	}
+}
+
+ol {	
+	li{	
+		&:before {
+	    	content: counter(i)'.';    
+	    	counter-increment: i;
+		}
+		
+		&.large{
+			&:before{
+				@include transform(scale(1.3));
+			}
+		}
+	}
+}
+
+ol li, ul li{
+	list-style: none;
+	opacity: 0;
+	margin-left: 1em;
+	@include transition(opacity .2s ease-out, margin .2s ease-out);
+	
+	&:before {
+		display: inline-block;
+    	padding-right: 0.5em;
+    	color: $color-c;
+		font-size: 1rem;
+		font-weight: bold;
+		@include header-font;
+		@include transform(scale(0));
+		@include transform-origin(3px, center);
+		@include transition(-webkit-transform .4s cubic-bezier(0.240, 1.115, 0.710, 1.650) .2s);
+	}
+	
+	&.large{
+		margin-left: 0;
+		opacity: 1;
+	}
+}
+
+/* ---------------------------------------------------------
+	Layout - Covers
+------------------------------------------------------------ */
+
+.overlay, .relative-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-size: cover !important; 
+	z-index: -2;
+	height: 100%;
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		background: rgba(110, 160, 167, 0.4);
+	}
+}
+
+.relative.overlay {
+	position: relative;
+}
+
+.section-title {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+	overflow: hidden;
+}
+
+.section-quote {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	@include perspective(2000);
+	@include transform(translateZ(0));
+	
+	img {
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		width: 100vw;
+	}
+}
+
+.section-window-back {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	z-index: -1;
+
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.column{
+	padding: 2em 0;
+	margin: auto;
+	width: 35em;
+}
+
+/* ---------------------------------------------------------
+	Layout - Article
+------------------------------------------------------------ */
+
+#main{
+	position: relative;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body{
+	color: $color-a;	
+}
+
+p{
+	line-height: 1.7;
+}
+
+.title{
+	font-size: 5.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h1.title{
+	color: $color-a;
+	letter-spacing: 0.05em;
+	line-height: 0.8;
+	text-align: center;
+	margin-bottom: 0.2em;
+	margin-top: 0.6em;
+	
+	@include transform(translateZ(0));
+}
+
+.title-small{
+	position: relative;
+	color: $color-a;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 1;
+	@include perspective(2000);
+	@include transform(translateZ(0));
+	
+	.letter{
+		display: inline-block;
+		@include transform-origin(center, bottom);
+	}
+}
+
+hr{
+	margin: 0;
+	height: 5px;
+	background: $color-a;
+	width: 100%;
+	border: none;
+}
+
+.subtitle{
+	font-size: 2rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 0.4em 1em;
+}
+
+.subtitle-mask{
+	overflow: hidden;
+}
+
+.img-holder{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.figcaption{
+	box-sizing: border-box;
+	position: relative;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: $color-e;
+	background: $color-d;
+	width: 475px;
+	margin: auto;
+	padding: 0.5em;
+	overflow: hidden;
+	
+	div{
+		position: relative;
+	}
+}
+
+.section-title{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+	
+	img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: -2;
+	}
+}
+
+.blockquote{
+	display: flex;
+	top: 0px;
+	left: 0px;	
+	line-height: 1.4;
+	color: $color-e;
+	text-transform: uppercase;
+	text-align: left;
+	font-weight: bold;
+	font-size: 2rem;
+	width: 50%;
+	height: 100%;
+	padding: 1em;
+	background: $color-d;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	@include header-font;
+
+	div{
+		@include transform-origin(left, center);
+	}
+}
+
+.section-column, .section-window, .section-strip {
+	background: $color-e;
+}
+
+.quote{
+	position: relative;
+	margin: -2em 0 0;
+	padding: 1em 20%;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	color: $color-e;
+	
+	blockquote{
+		position: relative;
+	}
+}
+
+.section-strip {
+	position: relative;
+	text-align: left;
+	background: $color-b;
+
+	.title-small {
+		margin: 0;
+		margin-bottom: 0.3em;
+		line-height: 1;
+		color: $color-d;
+	}
+
+	blockquote {
+		font-weight: 100;
+		font-size: 1.2em;
+		color: $color-d;
+	}
+	
+	&:before{
+		display: block;
+		content: '';
+		background: $color-b;
+		height: 100%;
+		width: 1000px;
+		position: absolute;
+		top: 0;
+		right: 100%;
+	};
+	
+	&:after{
+		display: block;
+		content: '';
+		background: $color-b;
+		height: 100%;
+		width: 1000px;
+		position: absolute;
+		top: 0;
+		left: 100%;
+	};
+}
+
+.section-split {
+	display: flex;
+	position: relative;
+
+	section {
+		width: 50%;
+		overflow: hidden;
+	}
+
+	.section-column {
+		margin-left: 50%;
+	}
+	
+	.quote{
+		padding: 2em;
+	}
+	
+	.column{
+		padding: 2em 10% 2em;
+		width: auto;
+	}
+
+	.section-gallery {
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		img {
+			top: 0;
+			left: 0;
+			position: absolute;
+			height: 100vh
+		}
+	}
+}
+
+.section-cards {
+	position: relative;
+	padding: 2em;
+	overflow: hidden;
+	padding: 2em 3em;
+
+	&>img {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+	}
+}
+
+.card-holder{
+	@include perspective(2000);
+	@include transform(translateZ(0));
+}
+
+.card {
+	width: 500px;
+	padding: 2em 3em;
+	margin: 2em;
+	background: $color-e;
+	@include transform-origin(0%);	
+}
+
+.svg-transition{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.figure-svg{
+	@include transform(translateZ(0));
+}
+
+.quote-svg, .strip-svg, .quote-large-svg, .full-svg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	@include transform(translateZ(0));
+}
+
+.red{
+	fill: $color-c;
+}
+
+.black{
+	fill: $color-e;
+}
+
+.white{
+	fill: $color-a;
+}
+
+.stroke{
+	stroke: $color-a;
+}
+
+.stroke-red{
+	stroke: $color-c;
+}
+
+.stroke-blue{
+	stroke: $color-d;
+}
+
+.dark-red-lines{
+	fill: none; 
+	stroke: #88222c; 
+	stroke-width: 1;
+}

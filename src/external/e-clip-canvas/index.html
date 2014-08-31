@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+		body{
+			margin: 0;
+			overflow: hidden;
+		}
+		
+		h3{
+			font-size: 2rem;
+			color: #efefef;
+			font-family: 'Open Sans', sans-serif;
+			text-align: center;	
+		}
+		
+		section{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			display: -webkit-flex;
+			display: -moz-flex;
+			justify-content: center;
+			-webkit-justify-content: center;
+			-moz-justify-content: center;
+			align-items: center;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+		}
+		
+		canvas{
+			width: 350px;
+			height: 250px;
+			image-rendering: -webkit-optimize-contrast;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<section>
+			
+		<div class="item">
+			<h3>CANVAS</h3>
+			<canvas id="canvas-1" width="700" height="500"></canvas>
+		</div>
+			
+		<div class="item">
+			<h3>CLIP-PATH</h3>
+			<canvas id="canvas-2" width="700" height="500"></canvas>
+		</div>
+		
+		<div class="item">
+			<h3>RESULT</h3>
+			<canvas id="canvas-3" width="700" height="500"></canvas>
+		</div>
+		
+		</section>
+		<script>
+			var delta = 100,
+				radius = 0,
+				canvas1 = document.getElementById('canvas-1'),
+				canvas2 = document.getElementById('canvas-2'),
+				canvas3 = document.getElementById('canvas-3'),
+				ctx1 = canvas1.getContext('2d'),
+				ctx2 = canvas2.getContext('2d'),
+				ctx3 = canvas3.getContext('2d'),
+				cloud = new Image(),
+				cloudcount = 20,
+				frames = 17,
+				clouds = [],
+				_w,
+				_h;
+			
+			cloud.src = "cloud.png";
+			cloud.onload = function () {
+				_w = cloud.width / frames;
+				_h = cloud.height;
+				
+				for (i = 0; i < cloudcount; i += 1) {
+					clouds.push({
+						x: Math.random() * (canvas1.width / 2), 
+						y: Math.random() * (canvas1.height / 2),
+						frame: Math.floor(Math.random() * frames),
+						s: 0.2 + Math.random() * 0.2
+					});
+				}
+				
+				requestAnimationFrame(animate);
+				setInterval(loop, 240);
+			}
+			
+			function loop() {
+				for (i = 0; i < clouds.length; i += 1) {
+					clouds[i].frame = clouds[i].frame < frames-1 ? clouds[i].frame + 1 : 0;
+				}
+			}
+			
+			function animate() {
+				delta += 0.05;
+				radius = 80 + Math.sin(delta) * 30;
+				
+				ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+				ctx2.clearRect(0, 0, canvas1.width, canvas1.height);
+				ctx3.clearRect(0, 0, canvas1.width, canvas1.height);
+				
+				drawSky(ctx1);
+				drawClouds(ctx1);
+				
+				ctx2.strokeStyle = "white";
+				drawPath(ctx2);
+				
+				ctx3.strokeStyle = "transparent";
+				ctx3.save();
+				drawPath(ctx3);
+				ctx3.clip();
+				drawSky(ctx3);
+				drawClouds(ctx3);
+				ctx3.restore();
+				
+				requestAnimationFrame(animate);
+			}
+			
+			function drawSky(ctx) {
+				ctx.beginPath();
+				ctx.fillStyle = "#4aa6fc";
+				ctx.rect(0, 0, canvas1.width, canvas1.height);
+				ctx.fill();
+				ctx.closePath();
+			}
+			
+			function drawClouds(ctx) {
+				var scale = 2,
+					x,
+					y;
+				
+				for (i = 0; i < clouds.length; i += 1) {
+					x = clouds[i].x + Math.sin((delta / 10) / clouds[i].s / 0.4) * 50;
+					y = clouds[i].y + Math.cos((delta / 10) / clouds[i].s / 0.4) * 50;
+					ctx.drawImage(cloud, clouds[i].frame * _w, 0, _w, _h, x, y, _w * scale, _h * scale);
+				}
+			}
+			
+			function drawPath(ctx) {
+				var count = 30,
+					i,
+					k = 0;
+								
+				ctx.beginPath();
+				ctx.lineWidth = 4;
+				
+				for (i = 0; i < count; i += 1) {
+	
+					if (i % 2 === 0) {
+						radius = 140 + Math.sin(delta) * 40;
+					} else {
+						radius = 200 + Math.cos(delta) * 20;	
+					}
+
+					k += (Math.PI * 2) / count;
+					
+					x1 = (canvas1.width / 2) + Math.sin(k) * radius;
+					y1 = (canvas1.height / 2) + Math.cos(k) * radius;
+					
+					ctx.lineTo(x1, y1);	
+				}
+				
+				ctx.closePath();
+				ctx.stroke();
+				
+			}
+		</script>
+	</body>
+</html>

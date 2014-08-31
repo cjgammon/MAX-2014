@@ -136,8 +136,6 @@ blockquote{
 
 em{
 	font-weight: bold;
-	font-style: italic;
-	color: #fff;
 }
 
 code{
@@ -148,13 +146,18 @@ code{
 	max-width: 100%;
 	color: black;
 	line-height: 1.5;
-	font-family: courier, monospace;
+	font-size: 1.3rem;
+	font-family: 'source code pro', courier, monospace;
 	white-space: pre;
-}
-
-.code-red{
-	font-weight: bold;
-	color: #cc0000;
+	
+	em{
+		color: #cc0000;
+	}
+	
+	span{
+		font-weight: bold;
+		color: #660066;
+	}
 }
 
 .slide{
@@ -165,6 +168,12 @@ code{
 .slide--black{
 	color: white;
 	background: #333;
+}
+
+.slide--video{
+	video{
+		position: absolute;
+	}
 }
 
 .slide--iframe{
@@ -291,12 +300,54 @@ h2.top-left{
 	background-size: cover;
 }
 
+#mobile{
+	
+	img{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 500px;
+		margin-left: -250px;
+		pointer-events: none;
+	}
+	
+	iframe{
+		position: absolute;
+		top: 210px;
+		left: 50%;
+		margin-left: -150px;
+		width: 300px;
+		height: 425px;
+		z-index: -1;
+		pointer-events: auto;
+		outline: none;
+	}
+}
+
 #caniuse{
 	background-image: url(../assets/images/caniuse.png);
 	background-size: cover;
 	background-position: center;
 	justify-content: flex-end;
 	padding: 100px;
+}
+
+#masking-vector{
+	background-image: url(../assets/images/clippath.jpg);
+	background-size: cover;
+}
+
+#masking-alpha{
+	background-image: url(../assets/images/mask.jpg);
+	background-size: cover;
+}
+
+#masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example{
+	background: transparent;
+	
+	iframe{
+		background: transparent;
+	}
 }
 
 #semantics{

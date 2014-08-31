@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+		body{
+			margin: 0;
+			overflow: hidden;
+		}
+		
+		canvas{
+			width: 100%;
+			height: 100%;
+			image-rendering: -webkit-optimize-contrast;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas-1"></canvas>
+		
+		<script>
+			var delta = 100,
+				radius = 0,
+				canvas1 = document.getElementById('canvas-1'),
+				ctx1 = canvas1.getContext('2d'),
+				cloud = new Image(),
+				cloudcount = 4000,
+				frames = 17,
+				clouds = [],
+				_w,
+				_h;
+			
+			canvas1.width = window.innerWidth;
+			canvas1.height = window.innerHeight;
+
+			cloud.src = "cloud.png";
+			cloud.onload = function () {
+				_w = cloud.width / frames;
+				_h = cloud.height;
+				
+				clouds.push({
+					x: (canvas1.width / 2) - (_w / 2), 
+					y: (canvas1.height / 2) - (_h / 2),
+					frame: Math.floor(Math.random() * frames),
+					s: 0.2,
+					scale: 1
+				});
+								
+				requestAnimationFrame(animate);
+				setInterval(loop, 240);
+				setTimeout(add, 5000);
+			}
+			
+			function add() {
+				addCloud();
+				
+				if (clouds.length < 2000) {
+					setTimeout(add, 5);
+				}
+			}
+			
+			function addCloud() {
+				clouds.push({
+					x: Math.random() * canvas1.width - (_w / 2), 
+					y: Math.random() * canvas1.height - (_h / 2),
+					frame: Math.floor(Math.random() * frames),
+					s: 0.2 + Math.random() * 0.2,
+					scale: 0.5 + Math.random()
+				});				
+			}
+			
+			function loop() {
+				for (i = 0; i < clouds.length; i += 1) {
+					clouds[i].frame = clouds[i].frame < frames-1 ? clouds[i].frame + 1 : 0;
+				}
+			}
+			
+			function animate() {
+				delta += 0.05;
+				radius = 80 + Math.sin(delta) * 30;
+				
+				ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
+				
+				drawSky(ctx1);
+				drawClouds(ctx1);
+				
+				ctx1.font = "120px Source Code Pro";
+				ctx1.fillStyle = "#666";
+				ctx1.textAlign = "center";
+				ctx1.fillText(clouds.length, window.innerWidth / 2, window.innerHeight / 2);
+				
+				requestAnimationFrame(animate);
+			}
+			
+			function drawSky(ctx) {
+				ctx.beginPath();
+				ctx.fillStyle = "#4aa6fc";
+				ctx.rect(0, 0, canvas1.width, canvas1.height);
+				ctx.fill();
+				ctx.closePath();
+			}
+			
+			function drawClouds(ctx) {
+				var x,
+					y;
+				
+				for (i = 0; i < clouds.length; i += 1) {
+					scale = clouds[i].scale;
+					clouds[i].x = clouds[i].x > -_w * clouds[i].scale ? clouds[i].x - 1 : window.innerWidth;
+					x = clouds[i].x;
+					y = clouds[i].y + Math.cos((delta / 10) / clouds[i].s / 0.4) * 50;
+					ctx.drawImage(cloud, clouds[i].frame * _w, 0, _w, _h, x, y, _w * scale, _h * scale);
+				}
+			}
+			
+			function drawPath(ctx) {
+				var count = 30,
+					i,
+					k = 0;
+								
+				ctx.beginPath();
+				ctx.lineWidth = 4;
+				
+				for (i = 0; i < count; i += 1) {
+	
+					if (i % 2 === 0) {
+						radius = 140 + Math.sin(delta) * 40;
+					} else {
+						radius = 200 + Math.cos(delta) * 20;	
+					}
+
+					k += (Math.PI * 2) / count;
+					
+					x1 = (canvas1.width / 2) + Math.sin(k) * radius;
+					y1 = (canvas1.height / 2) + Math.cos(k) * radius;
+					
+					ctx.lineTo(x1, y1);	
+				}
+				
+				ctx.closePath();
+				ctx.stroke();
+				
+			}
+		</script>
+	</body>
+</html>

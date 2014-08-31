@@ -1,0 +1,44 @@
+@mixin title-font {
+    font-family: "proxima-nova", sans-serif;
+}
+
+@mixin subtitle-font {
+    font-family: "Open Sans", sans-serif;
+}
+
+@mixin body-font {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
+@mixin header-font {
+    font-family: "proxima-nova", sans-serif;
+}
+
+$color-a: #222;
+$color-b: #a4383b;
+$color-c: #a7393d;
+$color-d: #6ea0a7;
+$color-e: #e7e3e5;
+
+@mixin animation($name, $dur) {
+    -webkit-animation: $name $dur infinite;
+    -moz-animation:    $name $dur infinite;
+    -o-animation:      $name $dur infinite;
+    animation:         $name $dur infinite;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}

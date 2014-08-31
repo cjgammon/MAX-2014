@@ -1,0 +1,106 @@
+{
+ "name": "life",
+ "children": [
+  {
+   "name": "eukaryota",
+   "children": [
+    {
+     "children": [
+      {
+		"name": "Animals", 
+		"children": [
+      		{"name": "Mollusks", "size": 25812},
+      		{"name": "Arthopods", "size": 30812},
+      		{"name": "Annelids", "size": 13812},
+      		{"name": "Chordates", "size": 10812},
+      		{
+			 "name": "Chordate", 
+			 "children": [
+			 	{"name": "Amphibians", "size": 8812},
+      		 	{"name": "Reptiles", "size": 20812},
+			 	{"name": "Avians", 
+				 "children": [
+					{"name": "Passeriforme", "size": 1812},
+					{"name": "Psittaciforme", "size": 812},
+					{"name": "Falconiforme", "size": 2812},
+					{"name": "Galliforme", "size": 412},
+					{"name": "Anseforme", "size": 812},
+					{"name": "Strigiforme", "size": 1812},
+					{"name": "Sphenisciforme", "size": 2812}	
+				]},
+      		 	{"name": "Mammals", 
+				 "children": [
+					{"name": "Monotreme", "size": 12},
+			 		{"name": "Diprotodontian", "size": 42},
+					{"name": "Artiodactyl", "size": 812},
+			 		{"name": "Carnivore", "size": 2812},
+					{"name": "Cetacean", "size": 1812},
+			 		{"name": "Chiropteran", "size": 1412},
+					{"name": "Insectivore", "size": 3812},
+			 		{"name": "Lagomorph", "size": 512},
+					{"name": "Perissodactyl", "size": 1812},
+			 		{"name": "Primate", "size": 812},
+					{"name": "Proboscidean", "size": 312},
+			 		{"name": "Rodent", "size": 1812}
+				 ]
+				}
+			 ]
+			}
+		]
+	  },
+      {"name": "Slime Molds", "size": 10012},
+      {"name": "Entamoebae", "size": 9012},
+      {"name": "Ciliates", "size": 2312},
+      {"name": "Flagellates", "size": 3312},
+      {"name": "Trichomonads", "size": 50412},
+      {"name": "Microsporida", "size": 120412},
+      {"name": "Diplomonads", "size": 100412},
+      {"name": "Plants", 
+		"children": [
+			{"name": "Chlorophyta", "size": 8012},
+	      	{"name": "Byophyta", "size": 4012},
+		  	{"name": "Pterophyta", "size": 3012},
+	      	{"name": "Conifer", "size": 6012},
+		  	{"name": "Angiosperm", "size": 7012}
+		]}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "archaea",
+   "children": [
+    {
+     "children": [
+      {"name": "Halophiles", "size": 110800},
+      {"name": "Methanosarcina", "size": 2047},
+      {"name": "Methanobacterium", "size": 1375},
+      {"name": "Methanococcus", "size": 8746},
+      {"name": "T. Celer", "size": 90800},
+      {"name": "Thermoproteus", "size": 110800},
+      {"name": "Pyrodicticum", "size": 1629}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "bacteria",
+   "children": [
+    {
+     "children": [
+      {"name": "Green Filamentious Bacteria", "size": 110800},
+      {"name": "Gram Positives", "size": 100800},
+      {"name": "Sprirochetes", "size": 90800},
+      {"name": "Proteobacteria", "size": 80800},
+      {"name": "Cyanobacteria", "size": 110800},
+      {"name": "Bacteroides Cytophaga", "size": 9220},
+      {"name": "Thermotoga", "size": 2220},
+      {"name": "Aquifex", "size": 2220},
+      {"name": "Planctomyces", "size": 2220}
+
+     ]
+    }
+   ]
+  }
+ ]
+}

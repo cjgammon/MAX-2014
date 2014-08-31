@@ -118,8 +118,8 @@
 				<h2>flash</h2>
 			</section>
 
-			<section id="mobile" class="slide" data-class="basic" data-color="0x333333">
-				<h2>mobile</h2>
+			<section id="mobile" class="slide" data-class="iframe" data-color="0x333333" data-src="http://www.time.com">
+				<img src="assets/images/bg_iphone.png">
 			</section>
 
 			<section id="evolution" class="slide" data-class="basic">
@@ -132,13 +132,49 @@
 
 			<section id="css" class="slide" data-class="basic" data-color="0x333333">
 				<h2>CSS</h2>
+				<div class="button-holder"> 
+                    <div id="ui-button-css">
+                        <div class="ui-button-css-front ui-button-css-side">Hi.</div>
+                        <div class="ui-button-css-back ui-button-css-side">Hi.</div>
+                    </div>
+                    <div id="ui-button-css-mask"></div>
+                    <div id="ui-button-css-blend"></div>
+                </div>
 			</section>
 
+			<section id="css-demo" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/d-css/index.html">
+			</section>
+			
 			<section id="vector-graphics" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/e-vector">
 			</section>
 
 			<section id="svg" class="slide" data-class="basic" data-color="0x333333">
 				<h2>SVG</h2>
+				<div class="button-holder"> 
+                    <svg id="ui-button-svg">
+                        <circle class="ui-button-svg-bg" fill="#FFFFFF" cx="100" cy="100" r="100"/>
+                        <circle class="ui-button-svg-stroke" fill="none" stroke="#939393" stroke-width="14" stroke-miterlimit="10" cx="100" cy="100" r="79.291"/>
+                        <polygon class="ui-button-svg-icon" fill="#E96231" points="128.376,62.806 81.043,62.806 68.376,96.806 91.709,96.806 77.376,125.472 95.376,125.472 85.709,153.472 127.709,108.139 108.376,108.139 132.376,80.139 112.265,80.139 "/>
+                    </svg>
+                    <svg id="ui-button-svg-1">
+                        <circle class="ui-button-svg-bg" fill="#FFFFFF" cx="100" cy="100" r="100"/>
+                        <g class="ui-button-svg-group">
+                            <ellipse class="ui-button-svg-stroke" transform="matrix(0.8757 0.4829 -0.4829 0.8757 61.0532 -35.7691)" fill="none" stroke="#09A0B8" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="4.007,8.014" cx="100" cy="100.697" rx="68.765" ry="25.773"/>
+                            <ellipse class="ui-button-svg-stroke" transform="matrix(-0.8744 0.4851 -0.4851 -0.8744 236.2961 140.2369)" fill="none" stroke="#09A0B8" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="4.007,8.014" cx="100" cy="100.697" rx="68.765" ry="25.773"/>
+                            <ellipse class="ui-button-svg-stroke" fill="none" stroke="#09A0B8" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="4.007,8.014" cx="100" cy="100.697" rx="25.773" ry="68.765"/>
+                            <circle class="ui-button-svg-icon" fill="#E96231" cx="0" cy="0" r="5.639">
+                                <animateMotion path="M100,169.462c-14.234,0-25.773-30.787-25.773-68.765S85.766,31.933,100,31.933s25.773,30.787,25.773,68.765S114.234,169.462,100,169.462" dur="3s" repeatCount="indefinite" />
+                            </circle>
+                            <circle class="ui-button-svg-icon" fill="#E96231" cx="0" cy="0" r="5.639">
+                                <animateMotion path="M39.87,134.058c-6.905-12.447,14.418-37.473,47.627-55.897s65.728-23.27,72.634-10.824c6.906,12.447-14.418,37.473-47.627,55.897S46.775,146.505,39.87,134.058" dur="5s" repeatCount="indefinite" />
+                            </circle>
+                            <circle class="ui-button-svg-icon" fill="#E96231" cx="0" cy="0" r="5.639">
+                                <animateMotion path="M39.783,67.494c6.873-12.465,39.405-7.703,72.662,10.635s54.645,43.308,47.772,55.773c-6.873,12.465-39.405,7.703-72.662-10.635S32.91,79.958,39.783,67.494" dur="4s" repeatCount="indefinite" />
+                            </circle>
+                        </g>
+                    </svg>
+                    <div id="ui-button-svg-2"></div>
+                </div>
 			</section>
 
 			<section id="svg-frameworks" class="slide" data-class="basic" data-color="0xff9c00">
@@ -153,12 +189,10 @@
 			<section id="svg-ad" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/snap-ad/index.html">
 			</section>
 			
-			<section id="svg-data" class="slide" data-class="basic" data-color="0x333333">
-				<h2>SVG data visualization</h2>
+			<section id="svg-chart" class="slide slide--iframe" data-class="iframe" data-src="external/svg-chart/index.html">
 			</section>
 
-			<section id="svg-document" class="slide" data-class="basic" data-color="0x333333">
-				<h2>SVG animation scrolling like luca</h2>
+			<section id="svg-scroll" class="slide slide--iframe" data-class="iframe" data-src="external/svg-scroll/index.html">
 			</section>
 
 			<section id="svg-game" class="slide slide--iframe" data-class="iframe" data-src="external/svg-game/index.html">
@@ -166,6 +200,11 @@
 			
 			<section id="canvas" class="slide" data-class="basic" data-color="0x333333">
 				<h2>Canvas</h2>
+				<div class="button-holder"> 
+                    <canvas id="ui-button-canvas" width="200" height="200"></canvas>
+                    <canvas id="ui-button-canvas-blend" width="200" height="200"></canvas>
+                    <canvas id="ui-button-canvas-video" width="200" height="200"></canvas>
+                </div>
 			</section>
 
             <section id="canvas-frameworks" class="slide" data-class="basic" data-color="0xff9c00">
@@ -175,8 +214,7 @@
 				<h4>&amp; many more..</h4>
 			</section>
 
-			<section id="canvas-example" class="slide slide--black" data-class="basic">
-				<h2>Canvas Example</h2>
+			<section id="canvas-demo" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/d-canvas/index.html">
 			</section>
 
 			<section id="canvas-animation" class="slide slide--black" data-class="basic">
@@ -185,10 +223,25 @@
 
 			<section id="webgl" class="slide" data-class="basic" data-color="0x333333">
 				<h2>WebGL</h2>
+				<div class="button-holder">
+                    <canvas id="ui-button-webgl" width="200" height="200"></canvas>
+                    <canvas id="ui-button-webgl-light" width="200" height="200"></canvas>
+                    <canvas id="ui-button-webgl-shader" width="200" height="200"></canvas>
+                </div>
 			</section>
 
-			<section id="webgl-shaders" class="slide" data-class="basic" data-color="0x333333">
+			<section id="webgl-shader" class="slide" data-class="basic" data-color="0x333333">
 				<h2>Shaders</h2>
+				<div class="button-holder">
+					<div>
+						<h4>VERTEX SHADER</h4>
+                    	<canvas id="ui-button-vert-shader" width="200" height="200"></canvas>
+					</div>
+					<div>
+						<h4>FRAGMENT SHADER</h4>
+                    	<canvas id="ui-button-frag-shader" width="200" height="200"></canvas>
+					</div>
+                </div>
 			</section>
 
 			<section id="webgl-frameworks" class="slide" data-class="basic" data-color="0xff9c00">
@@ -198,28 +251,107 @@
 				<h4>&amp; many more..</h4>
 			</section>
 
-			<section id="webgl-example" class="slide slide--black" data-class="basic">
-				<h2>WebGL examples</h2>
+			<section id="webgl-game" class="slide slide--iframe" data-class="iframe" data-src="external/webgl-game/index.html">
 			</section>
 
-			<section id="masking" class="slide" data-class="basic" data-color="0x333333">
+			<section id="masking" class="slide slide--video" data-class="video" data-video="assets/videos/True Detective Opening Title Sequence 2014 Emmy Nominee-HD.mp4">
 				<h2>Masking</h2>
 			</section>
-			
-			<section id="masking-css" class="slide" data-class="basic" data-color="0x333333">
-				<h2>Masking CSS</h2>
+
+			<section id="masking-vector" class="slide" data-class="basic" data-color="0x333333">
+				<h2>Vector Masks</h2>
 			</section>
 			
-			<section id="masking-svg" class="slide" data-class="basic" data-color="0x333333">
-				<h2>Masking SVG</h2>
+			<section id="clip-css-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip/index.html">
+			</section>
+			
+			<section id="clip-css-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>CSS CLIP PATHS</h3>
+				<code><pre>clip-path: <span>ellipse(10% 10% at 50% 50%)</span>;
+clip-path: <span>polygon(0px 208px, 146.5px 207px, 147px 141.2px, ...)</span>;</pre></code>
+			</section>
+
+			<section id="clip-svg-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-svg/index.html">
+			</section>
+						
+			<section id="clip-svg-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>SVG Clip Path</h3>
+				<code><pre>&lt;svg&gt;
+  &lt;defs&gt;
+    <em>&lt;clipPath id="clipping"&gt;
+      <span>&lt;circle cx="284" cy="213" r="213"/&gt;</span>
+    &lt;/clipPath&gt;</em>
+  &lt;/defs&gt;
+  &lt;rect x="0" y="0" width="100" height="100" <em>clip-path="url(#clipping)"</em>/&gt;
+&lt;/svg&gt;</pre></code>
+			</section>			
+			
+			<section id="clip-canvas-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-canvas/index.html">
+			</section>
+			
+			<section id="clip-canvas-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>CANVAS CLIP PATHS</h3>
+				<code><pre><em><span>ctx.rect(50,20,200,120);</span>
+ctx.stroke();
+ctx.clip();</em>
+drawClouds();</pre></code>
+			</section>
+			
+			<section id="clip-webgl-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-webgl/index.html">
+			</section>
+			
+			<section id="clip-webgl-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>WebGL CLIP PATHS</h3>
+				<div>describe drawing geometry and using texture</div>
+			</section>
+			
+			<section id="masking-alpha" class="slide" data-class="basic" data-color="0x333333">
+				<h2>Alpha Masks</h2>
+			</section>
+
+			<section id="masking-svg-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-svg/index.html">
+			</section>
+			
+			<section id="masking-svg-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>SVG Masks</h3>
+				<code><pre>&lt;svg&gt;
+  &lt;defs&gt;
+    <em>&lt;mask id="mask"&gt;
+      <span>&lt;circle cx="284" cy="213" r="213"/&gt;</span>
+    &lt;/mask&gt;</em>
+  &lt;/defs&gt;
+  &lt;rect x="0" y="0" width="100" height="100" <em>mask="url(#mask)"</em>/&gt;
+&lt;/svg&gt;</pre></code>
+			</section>
+
+			<section id="masking-css-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-css/index.html">
+			</section>
+				
+			<section id="masking-css-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>CSS Masks</h3>
+				<code><pre>mask: <span>url(...)</span>;
+mask-image: url(...);
+mask-size: 100%;
+mask-position: center;
+mask-composite: source-over;</pre></code>
+			</section>
+
+			<section id="masking-css-composite" class="slide" data-class="basic" data-color="0x333333">
+				<h3>CSS COMPOSITING</h3>
+			</section>
+
+			<section id="masking-css-composite-1" class="slide slide--iframe" data-class="iframe" data-color="0x333333" data-src="external/d-mask-2/index.html">
+			</section>
+			
+			<section id="masking-css-composite-2" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask/index.html">
 			</section>
 			
 			<section id="masking-canvas" class="slide" data-class="basic" data-color="0x333333">
-				<h2>Masking Canvas</h2>
+				<h3>Masking Canvas</h3>
 			</section>
 			
 			<section id="masking-webgl" class="slide" data-class="basic" data-color="0x333333">
-				<h2>Masking WebGL</h2>
+				<h3>Masking WebGL</h3>
 			</section>
 			
 			<section id="video" class="slide" data-class="basic" data-color="0x333333">
@@ -248,7 +380,7 @@
 				<h2>Communication</h2>
 			</section>
 			
-			<section id="communication" class="slide" data-class="basic" data-pos="0.105">
+			<section id="webrtc" class="slide" data-class="basic" data-pos="0.105">
 				<h2>WebRTC</h2>
 			</section>
 

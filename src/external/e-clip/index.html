@@ -11,7 +11,6 @@
 				text-align: center;
 				font-family: 'Open Sans', sans-serif;
 				font-weight: 100;
-				background: #222;
 			}
 
 			h2, p{
@@ -58,25 +57,28 @@
 				background: #efefef;
 				color: #333;
 				font-family: 'Open Sans Condensed';
-
 			}
 
 			@-webkit-keyframes clip{
 				0%, 100%{
-					-webkit-clip-path: ellipse(50%, 50%, 10%, 10%);
-					-moz-clip-path: ellipse(50%, 50%, 10%, 10%);
+					clip-path: ellipse(10% 10% at 50% 50%);
+					-webkit-clip-path: ellipse(10% 10% at 50% 50%);
+					-moz-clip-path: ellipse(10% 10% at 50% 50%);
 				}
 
 				50%{
-					-webkit-clip-path: ellipse(50%, 50%, 50%, 50%);
-					-moz-clip-path: ellipse(50%, 50%, 50%, 50%);
+					clip-path: ellipse(50% 50% at 50% 50%);
+					-webkit-clip-path: ellipse(50% 50% at 50% 50%);
+					-moz-clip-path: ellipse(50% 50% at 50% 50%);
 				}
 			}
 
 			.clip{
-				-webkit-clip-path: ellipse(50%, 50%, 10%, 10%);
+				clip-path: ellipse(10% 10% at 50% 50%);
+				-webkit-clip-path: ellipse(10% 10% at 50% 50%);
+				-moz-clip-path: ellipse(10% 10% at 50% 50%);
+				
 				-webkit-animation: clip 2s infinite;
-				-moz-clip-path: ellipse(50%, 50%, 10%, 10%);
 				-moz-animation: clip 2s infinite;
 			}
 
@@ -126,8 +128,8 @@
 		<section>
 
 			<div>
-				<h3>RESULT</h3>
-				<div class="circle content clip">
+				<h3>HTML</h3>
+				<div class="circle content">
 					<h2>FINNIGAN'S IRISH PUB</h2>
 					<p>clip paths allow you to hide and animate areas</p>
 				</div>
@@ -140,9 +142,11 @@
 				</svg>
 			</div>
 			
+
+			
 			<div>
-				<h3>CONTENT</h3>
-				<div class="circle content">
+				<h3>RESULT</h3>
+				<div class="circle content clip">
 					<h2>FINNIGAN'S IRISH PUB</h2>
 					<p>clip paths allow you to hide and animate areas</p>
 				</div>
