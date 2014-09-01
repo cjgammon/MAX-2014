@@ -1138,40 +1138,48 @@ h2.top-left {
 }
 
 /* line 345, ../sass/screen.scss */
-#masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example {
+#masking-webgl-example, #masking-css-composite, #masking-canvas-css-example, #masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example {
   background: transparent;
 }
 /* line 348, ../sass/screen.scss */
-#masking-canvas-example iframe, #masking-css-example iframe, #masking-svg-example iframe, #clip-webgl-example iframe, #clip-canvas-example iframe, #clip-svg-example iframe, #masking-css-example iframe, #masking-css-composite-1 iframe, #masking-css-composite-2 iframe, #clip-css-example iframe {
+#masking-webgl-example iframe, #masking-css-composite iframe, #masking-canvas-css-example iframe, #masking-canvas-example iframe, #masking-css-example iframe, #masking-svg-example iframe, #clip-webgl-example iframe, #clip-canvas-example iframe, #clip-svg-example iframe, #masking-css-example iframe, #masking-css-composite-1 iframe, #masking-css-composite-2 iframe, #clip-css-example iframe {
   background: transparent;
 }
 
 /* line 353, ../sass/screen.scss */
+#masking-cupcakes {
+  background-image: url(../assets/images/logo-food-network.svg);
+  background-position: center 100px;
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+/* line 360, ../sass/screen.scss */
 #semantics {
   background-image: url(../assets/images/wes.png);
   background-size: cover;
   background-position: center;
 }
 
-/* line 359, ../sass/screen.scss */
+/* line 366, ../sass/screen.scss */
 #resources {
   font-size: 1rem;
 }
-/* line 362, ../sass/screen.scss */
+/* line 369, ../sass/screen.scss */
 #resources h2 {
   font-size: 3rem;
 }
-/* line 366, ../sass/screen.scss */
+/* line 373, ../sass/screen.scss */
 #resources h3 {
   font-size: 2rem;
 }
 
-/* line 371, ../sass/screen.scss */
+/* line 378, ../sass/screen.scss */
 #warning {
   display: none;
 }
 
-/* line 376, ../sass/screen.scss */
+/* line 383, ../sass/screen.scss */
 .no-flexbox #warning {
   position: absolute;
   display: block;
@@ -1184,7 +1192,7 @@ h2.top-left {
   text-align: center;
   z-index: 10000;
 }
-/* line 388, ../sass/screen.scss */
+/* line 395, ../sass/screen.scss */
 .no-flexbox #warning p {
   display: block;
   margin: 100px auto;
@@ -1192,17 +1200,17 @@ h2.top-left {
   line-height: 1.5;
 }
 
-/* line 398, ../sass/screen.scss */
+/* line 405, ../sass/screen.scss */
 .touch #preloader {
   display: none;
 }
-/* line 402, ../sass/screen.scss */
+/* line 409, ../sass/screen.scss */
 .touch #deck {
   position: static;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* line 408, ../sass/screen.scss */
+/* line 415, ../sass/screen.scss */
 .touch .slide {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -1222,26 +1230,26 @@ h2.top-left {
   opacity: 1;
   pointer-events: auto;
 }
-/* line 417, ../sass/screen.scss */
+/* line 424, ../sass/screen.scss */
 .touch .slide--iframe {
   display: none;
 }
-/* line 421, ../sass/screen.scss */
+/* line 428, ../sass/screen.scss */
 .touch #ui-button-css .ui-button-css-side, .touch #ui-button-css, .touch #ui-button-css-mask, .touch #ui-button-css-blend {
   width: 100px;
   height: 100px;
 }
-/* line 426, ../sass/screen.scss */
+/* line 433, ../sass/screen.scss */
 .touch #filter-list-image {
   width: 200px;
 }
-/* line 430, ../sass/screen.scss */
+/* line 437, ../sass/screen.scss */
 .touch .mask-item, .touch .mask-dynamic-item {
   height: 100px;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 436, ../sass/screen.scss */
+  /* line 443, ../sass/screen.scss */
   html {
     font-size: .3em;
   }

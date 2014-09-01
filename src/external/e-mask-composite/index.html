@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+			body{
+				margin: 0;
+				text-align: center;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 100;
+			}
+
+			h2{
+				font-size: 3rem;
+				color: #efefef;
+			}
+			
+			h3{
+				font-size: 1.5rem;
+				color: #efefef;
+			}
+
+			section{
+				
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;	
+				
+				display: -webkit-flex;
+				-webkit-flex-direction: column;
+				-webkit-align-items: center;
+				-webkit-justify-content: space-around;
+				
+				display: -moz-flex;
+				-moz-flex-direction: column;
+				-moz-align-items: center;
+				-moz-justify-content: space-around;			
+			}
+
+			.row{				
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				
+				display: -webkit-flex;
+				-webkit-flex-direction: row;
+				-webkit-align-items: center;
+				-webkit-justify-content: center;
+				
+				display: -moz-flex;
+				-moz-flex-direction: row;
+				-moz-align-items: center;
+				-moz-justify-content: center;
+			}
+			
+			.item{
+				margin: 10px;
+				width: 250px;
+				height: 200px;
+			}
+
+		</style>
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+	</head>
+	<body>
+		<h2>COMPOSITING</h2>
+		<section>
+			<div class="row">
+				<div class="item">
+					<h3>soruce-over</h3>
+					<div class="circle content">
+					</div>
+				</div>
+			
+				<div class="item">
+					<h3>source-in</h3>
+					<div class="circle img">
+					</div>
+				</div>
+			
+				<div class="item">
+					<h3>source-out</h3>
+					<div class="circle content clip">
+					</div>
+				</div>
+				
+				<div class="item">
+					<h3>source-atop</h3>
+					<div class="circle content clip">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="item">
+					<h3>destination-over</h3>
+					<div class="circle content">
+					</div>
+				</div>
+			
+				<div class="item">
+					<h3>destination-in</h3>
+					<div class="circle img">
+					</div>
+				</div>
+			
+				<div class="item">
+					<h3>destination-out</h3>
+					<div class="circle content clip">
+					</div>
+				</div>
+				
+				<div class="item">
+					<h3>destination-atop</h3>
+					<div class="circle content clip">
+					</div>
+				</div>
+			</div>
+			
+		</section>
+
+	</body>
+</html>

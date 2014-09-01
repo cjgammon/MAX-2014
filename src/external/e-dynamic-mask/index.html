@@ -9,36 +9,36 @@
 			body{
 				overflow: hidden;
 				margin: 0;
-				text-align: center;
 				font-family: 'Open Sans', sans-serif;
-				font-weight: 100;
-				background: #222;
 			}
 
 			h3{
-				position: absolute;
 				font-size: 2rem;
 				color: #efefef;
-				left: 120%;
-				top: 30%;
-				width: 500px;
-				text-align: left;
+				text-align: center;	
 				text-transform: uppercase;
 			}
-
+			
+			h2{
+				margin: 0;
+			}
+			
 			section{
 				width: 100vw;
 				height: 100vh;
 				display: flex;
-				flex-direction: column;
+				display: -webkit-flex;
+				display: -moz-flex;
+				justify-content: center;
+				-webkit-justify-content: center;
+				-moz-justify-content: center;
 				align-items: center;
-				justify-content: space-around;	
-
+				-webkit-align-items: center;
+				-moz-align-items: center;
 			}
-
+			
 			.holder{
-				position: relative;
-				perspective: 300px;
+				margin: 10px;
 			}
 
 			.button{
@@ -46,19 +46,31 @@
 				height: 200px;
 				background: white;
 				color: orange;
-				-webkit-transform: rotateX(40deg) rotateZ(20deg);
 			}
 
-			.pad{
-				padding: 2rem;
-				box-sizing: border-box;
+			.html{
 				background-color: #00efee;
+				display: flex;
+				display: -webkit-flex;
+				display: -moz-flex;
+				justify-content: center;
+				-webkit-justify-content: center;
+				-moz-justify-content: center;
+				align-items: center;
+				-webkit-align-items: center;
+				-moz-align-items: center;
+				flex-direction: column;
+				-webkit-flex-direction: column;
+				-moz-flex-direction: column;
 			}
 
 			#result{
 				-webkit-mask: -webkit-canvas(dynamic-canvas-mask);
 			}
-
+			
+			.padding{
+				padding-top: 5px;
+			}
 		</style>
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -67,28 +79,24 @@
 	<body>
 
 		<section>
-
 			<div class="holder">
 				<h3>element</h3>
-				<div id="slider" class="button pad">
+				<div class="button html">
 					<h2>BUBBLES</h2>
 					<p>Let's see how we can obfuscate this.</p>
 				</div>
 			</div>
-
-			<div class="holder">
+			<div class="holder padding">
 				<h3>canvas</h3>
-				<canvas id="mask-dynamic-canvas" class="button" width="300px" height="200px"></canvas>
+				<canvas id="mask-dynamic-canvas" class="button" width="300" height="200"></canvas>
 			</div>
-			
 			<div class="holder">
 				<h3>result</h3>
-				<div id="result" class="button pad">
+				<div id="result" class="button html">
 					<h2>BUBBLES</h2>
 					<p>Let's see how we can obfuscate this.</p>
 				</div>
 			</div>
-
 		</section>
 
 		<script src="three.js"></script>

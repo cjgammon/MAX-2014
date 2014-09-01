@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>no styling</title>
+		<style>
+		body{
+			margin: 0;
+			overflow: hidden;
+		}
+		
+		h3{
+			font-size: 2rem;
+			color: #efefef;
+			font-family: 'Open Sans', sans-serif;
+			text-align: center;	
+		}
+		
+		section{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			display: -webkit-flex;
+			display: -moz-flex;
+			justify-content: center;
+			-webkit-justify-content: center;
+			-moz-justify-content: center;
+			align-items: center;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+		}
+		
+		canvas{
+			width: 350px;
+			height: 250px;
+			image-rendering: -webkit-optimize-contrast;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<section>
+			
+		<div class="item">
+			<h3>TEXTURE</h3>
+			<canvas id="canvas-1" width="700" height="500"></canvas>
+		</div>
+			
+		<div class="item">
+			<h3>GEOMETRY</h3>
+			<canvas id="canvas-2" width="700" height="500"></canvas>
+		</div>
+		
+		<div class="item">
+			<h3>WEBGL</h3>
+			<canvas id="canvas-3" width="700" height="500"></canvas>
+		</div>
+		
+		</section>
+		<script src="three.js"></script>
+		<script>
+		
+		</script>		
+		
+	</body>
+</html>

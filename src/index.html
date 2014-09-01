@@ -297,7 +297,7 @@ ctx.clip();</em>
 drawClouds();</pre></code>
 			</section>
 			
-			<section id="clip-webgl-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-webgl/index.html">
+			<section id="clip-webgl-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-webgl-2/index.html">
 			</section>
 			
 			<section id="clip-webgl-code" class="slide" data-class="basic" data-color="0x333333">
@@ -336,9 +336,7 @@ mask-position: center;
 mask-composite: source-over;</pre></code>
 			</section>
 
-			<section id="masking-css-composite" class="slide" data-class="basic" data-color="0x333333">
-				<h3>CSS COMPOSITING</h3>
-				<p>list composite operations</p>
+			<section id="masking-css-composite" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-composite/index.html">
 			</section>
 
 			<section id="masking-css-composite-1" class="slide slide--iframe" data-class="iframe" data-color="0x333333" data-src="external/d-mask-2/index.html">
@@ -350,11 +348,29 @@ mask-composite: source-over;</pre></code>
 			<section id="masking-canvas-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-canvas/index.html">
 			</section>
 			
-			<section id="masking-canvas" class="slide" data-class="basic" data-color="0x333333">
+			<section id="masking-canvas-code" class="slide" data-class="basic" data-color="0x333333">
 				<h3>Masking Canvas</h3>
 				<code><pre>drawClouds();
 <em>ctx.globalCompositeOperation = "destination-in";
 <span>ctx.drawImage(maskImg, 0, 0);</span></em></pre></code>
+			</section>
+			
+			<section id="masking-canvas-css-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-dynamic-mask/index.html">
+			</section>
+			
+			<section id="masking-canvas-css-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>Masking CSS Canvas</h3>
+				<code><pre>var ctx = <em>document.getCSSCanvasContext(canvas, <span>'id'</span>);</em></pre></code>
+				<code><pre>mask: <em>-webkit-canvas(<span>id</span>);</em></pre></code>
+				<br/>
+				<h4><a href="http://bit.ly/csscanvas">http://bit.ly/csscanvas</a></h4>
+			</section>
+			
+			<section id="masking-cupcakes" class="slide" data-class="basic" data-color="0x333333">
+				<a href="http://adobe-webplatform.github.io/Demo-for-Food-Network-Cupcakes/src/" target="_blank"><h2>Cupcakes!</h2></a>
+			</section>
+			
+			<section id="masking-webgl-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-mask-webgl/index.html">
 			</section>
 			
 			<section id="masking-webgl" class="slide" data-class="basic" data-color="0x333333">
