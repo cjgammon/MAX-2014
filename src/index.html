@@ -217,10 +217,6 @@
 			<section id="canvas-demo" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/d-canvas/index.html">
 			</section>
 
-			<section id="canvas-animation" class="slide slide--black" data-class="basic">
-				<h2>2D Animation</h2>
-			</section>
-
 			<section id="webgl" class="slide" data-class="basic" data-color="0x333333">
 				<h2>WebGL</h2>
 				<div class="button-holder">
@@ -302,7 +298,7 @@ drawClouds();</pre></code>
 			
 			<section id="clip-webgl-code" class="slide" data-class="basic" data-color="0x333333">
 				<h3>WebGL CLIP PATHS</h3>
-				<div>describe drawing geometry and using texture</div>
+				<div>describe drawing geometry and using texture.. or stencil buffer</div>
 			</section>
 			
 			<section id="masking-alpha" class="slide" data-class="basic" data-color="0x333333">
@@ -375,6 +371,21 @@ mask-composite: source-over;</pre></code>
 			
 			<section id="masking-webgl" class="slide" data-class="basic" data-color="0x333333">
 				<h3>Masking WebGL</h3>
+				<code><pre>varying vec4 textureCoord;
+<em>uniform sampler2D mask;</em>
+<span>uniform sampler2D map;</span>
+
+void main() {
+	float x = (textureCoord.x / textureCoord.w);
+	float y = (textureCoord.y / textureCoord.w);
+	vec2 mapPosition = vec2(x, y);
+
+	<span>vec3 mapTexture = texture2D(map, mapPosition).xyz;</span>
+	<em>vec3 maskTexture = texture2D(mask, mapPosition).xyz;</em>
+
+	<em>float alpha = maskTexture.r;</em>
+	gl_FragColor = vec4(<span>mapTexture</span>, <em>alpha</em>);
+}</pre></code>
 			</section>
 			
 			<section id="video" class="slide" data-class="basic" data-color="0x333333">

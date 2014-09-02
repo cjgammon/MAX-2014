@@ -32,10 +32,17 @@
 			-moz-align-items: center;
 		}
 		
+		.item{
+			margin: 5px;
+		}
+		
 		canvas{
 			width: 350px;
 			height: 250px;
-			image-rendering: -webkit-optimize-contrast;
+		}
+		
+		small{
+			font-size: 1rem;
 		}
 		
 		</style>
@@ -45,24 +52,127 @@
 			
 		<div class="item">
 			<h3>TEXTURE</h3>
-			<canvas id="canvas-1" width="700" height="500"></canvas>
+			<canvas id="canvas-1" width="350" height="250"></canvas>
 		</div>
 			
 		<div class="item">
 			<h3>GEOMETRY</h3>
-			<canvas id="canvas-2" width="700" height="500"></canvas>
+			<canvas id="canvas-2" width="350" height="250"></canvas>
 		</div>
 		
 		<div class="item">
-			<h3>WEBGL</h3>
+			<h3>RESULT</h3>
 			<canvas id="canvas-3" width="700" height="500"></canvas>
 		</div>
 		
 		</section>
+
 		<script src="three.js"></script>
 		<script>
+		var tex,
+			scene1,
+			scene2,
+			scene3;
 		
-		</script>		
+		tex = THREE.ImageUtils.loadTexture("image.jpg");
+		tex.image.onload = function () {
+			scene1 = new setupScene1(document.getElementById('canvas-1'));
+			scene3 = new setupScene3(document.getElementById('canvas-3'));
+		}
 		
+		scene2 = new setupScene2(document.getElementById('canvas-2'));
+		
+		function setupScene1(c) {
+			var scene,
+				camera,
+				renderer,
+				geometry,
+				mesh,
+				w = 350,
+				h = 250;
+
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(35, w / h, 1, 1000);
+			renderer = new THREE.WebGLRenderer({antialias: true, canvas: c, alpha: true});
+			renderer.setSize(w, h);
+			
+			geometry = new THREE.PlaneGeometry(140, 140, 40, 40);
+			mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("image.jpg")}));
+			mesh.position.z = -300;
+			scene.add(mesh);
+
+			this.draw = function () {
+				renderer.render(scene, camera);
+			}
+		}
+		
+		function setupScene2(c, g) {
+			var scene,
+				camera,
+				renderer,
+				geometry,
+				mesh,
+				w = 350,
+				h = 250;
+				
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(35, w / h, 1, 1000);
+			renderer = new THREE.WebGLRenderer({antialias: true, canvas: c, alpha: true});
+			renderer.setSize(w, h);
+			
+			geometry = new THREE.CircleGeometry(70, 40, 40);
+			mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true}));
+			mesh.position.z = -300;
+			scene.add(mesh);
+
+			this.draw = function () {
+				renderer.render(scene, camera);
+			}	
+		}
+		
+		function setupScene3(c) {
+			var scene,
+				camera,
+				renderer,
+				geometry,
+				mesh,
+				w = 350,
+				h = 250;
+
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(35, w / h, 1, 1000);
+			renderer = new THREE.WebGLRenderer({antialias: true, canvas: c, alpha: true});
+			renderer.setSize(w, h);
+			
+			geometry = new THREE.CircleGeometry(70, 40, 40);
+			mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture("image.jpg")}));
+			
+			mesh.position.z = -300;
+			scene.add(mesh);
+
+			this.draw = function () {
+				renderer.render(scene, camera);
+			}
+		}
+		
+		function draw() {
+			if (scene1) {
+				scene1.draw();
+			}
+			
+			if (scene2) {
+				scene2.draw();
+			}
+			
+			if (scene3) {
+				scene3.draw();
+			}
+			
+			requestAnimationFrame(draw);
+		};
+		
+		requestAnimationFrame(draw);
+		
+		</script>
 	</body>
 </html>

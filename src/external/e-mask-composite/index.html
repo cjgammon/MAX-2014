@@ -75,55 +75,70 @@
 			<div class="row">
 				<div class="item">
 					<h3>soruce-over</h3>
-					<div class="circle content">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			
 				<div class="item">
 					<h3>source-in</h3>
-					<div class="circle img">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			
 				<div class="item">
 					<h3>source-out</h3>
-					<div class="circle content clip">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 				
 				<div class="item">
 					<h3>source-atop</h3>
-					<div class="circle content clip">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			</div>
 			<div class="row">
 				<div class="item">
 					<h3>destination-over</h3>
-					<div class="circle content">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			
 				<div class="item">
 					<h3>destination-in</h3>
-					<div class="circle img">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			
 				<div class="item">
 					<h3>destination-out</h3>
-					<div class="circle content clip">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 				
 				<div class="item">
 					<h3>destination-atop</h3>
-					<div class="circle content clip">
-					</div>
+					<canvas width="150" height="150"></canvas>
 				</div>
 			</div>
 			
 		</section>
-
+		<script>
+			
+			var h3 = document.getElementsByTagName('h3'),
+				canvases = document.getElementsByTagName('canvas');
+				
+			for (i = 0; i < h3.length; i += 1) {
+				ctx = canvases[i].getContext('2d');
+				
+				ctx.beginPath();
+				ctx.fillStyle = "#ff9999";
+				ctx.rect(0, 0, 80, 80);
+				ctx.fill();
+				ctx.closePath();
+				
+				ctx.globalCompositeOperation = h3[i].innerHTML;
+				
+				ctx.beginPath();
+				ctx.fillStyle = "#cc11cc";
+				ctx.arc(80, 80, 50, 0, 2 * Math.PI, false);
+		      	ctx.fill();
+				ctx.closePath();
+			}
+			
+		</script>
 	</body>
 </html>

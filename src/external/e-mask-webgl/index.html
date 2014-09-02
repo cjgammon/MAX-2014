@@ -41,6 +41,10 @@
 			height: 250px;
 		}
 		
+		small{
+			font-size: 1rem;
+		}
+		
 		</style>
 	</head>
 	<body>
@@ -48,12 +52,12 @@
 			
 		<div class="item">
 			<h3>WEBGL</h3>
-			<canvas id="canvas-1" width="700" height="500"></canvas>
+			<canvas id="canvas-1" width="350" height="250"></canvas>
 		</div>
 			
 		<div class="item">
 			<h3>MASK</h3>
-			<canvas id="canvas-2" width="700" height="500"></canvas>
+			<canvas id="canvas-2" width="350" height="250"></canvas>
 		</div>
 		
 		<div class="item">
@@ -62,8 +66,365 @@
 		</div>
 		
 		</section>
+		<script id="shader-fs" type="text">
+		varying vec4 textureCoord;
+
+		uniform sampler2D mask;
+		uniform sampler2D map;
+		uniform float time;
+
+		void main() {
+
+			float x = (textureCoord.x / textureCoord.w);
+			float y = (textureCoord.y / textureCoord.w);
+			vec2 mapPosition = vec2(x, y);
+
+			vec3 mapTexture = texture2D(map, mapPosition).xyz;
+			vec3 maskTexture = texture2D(mask, mapPosition).xyz;
+
+			float alpha = maskTexture.r;
+
+			gl_FragColor = vec4(mapTexture, alpha);
+		}
+		</script>
+		
+		<script id="shader-vs" type="text">
+		varying vec4 textureCoord;
+
+		void main() {
+			textureCoord = vec4(uv, 0.0, 1.0);
+
+			vec3 p = position;    
+			vec4 mvPosition = modelViewMatrix * vec4(p, 1.0);
+			gl_Position = projectionMatrix * mvPosition;
+		}
+		</script>
+		
 		<script src="three.js"></script>
 		<script>
+		var tex,
+			loader,
+			boneMap = [
+				[0, 1, 2],
+				[3, 4, 5, 6],
+				[7, 8, 9, 10],
+				[11, 12, 13, 14],
+				[15, 16, 17, 18]
+			],
+			scene1,
+			scene2,
+			scene3;
+		
+		tex = THREE.ImageUtils.loadTexture("../../assets/images/hexagon.png");
+		tex.image.onload = function () {
+			scene1 = new setupScene1(document.getElementById('canvas-1'));
+		}
+		
+		loader = new THREE.JSONLoader();
+		loader.load('hand.js', function (geometry) {			
+			scene2 = new setupScene2(document.getElementById('canvas-2'), geometry);
+			scene3 = new setupScene3(document.getElementById('canvas-3'));
+		});
+		
+		
+		function setupScene1(c) {
+			var scene,
+				renderer,
+				camera,
+				mesh,
+				geometry,
+				material,
+				colors = [],
+				i,
+				j,
+				a,
+				_x,
+				_y,
+				_z = -10,
+				r = 90,
+				radius,
+				num = 0,
+				vector,
+				delta = 0,
+				center = {x: 0, y: 0},
+				w = 350,
+				h = 250,
+				particles = [],
+				numpoints = 10,
+				numcircles = 30,
+				colorOffset = 0,
+				colorArray = [],
+				colors = [0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xff00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xff00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff,0xaa00ff];
+			
+			scene = new THREE.Scene();
+			renderer = new THREE.WebGLRenderer({canvas: c});
+			camera = new THREE.PerspectiveCamera(35, c.width / c.height, 1, 1000);
+			
+			renderer.setSize(w, h);
+			renderer.setClearColor(0x650097);
+			
+			geometry = new THREE.Geometry();
+			material = new THREE.ParticleBasicMaterial({
+				size: 30,
+				map: tex,
+				vertexColors: true,
+				opacity: 0.5,
+				transparent: true
+			});
+
+			for (i = 0; i < numcircles; i += 1) {
+				for (j = 0; j < numpoints; j += 1) {
+					a = 2 * Math.PI * j / numpoints;
+	
+					radius = r / (1 + i / 10);
+					_x = Math.sin(a) * radius;
+					_y = Math.cos(a) * radius;
+					colorArray[num] = new THREE.Color(0xffffff);
+					
+					vector = new THREE.Vector3(_x, _y, _z);
+					particles.push({x: _x, y: _y, z: _z});
+					geometry.vertices.push(vector);
+
+					num += 1;
+				}
+					
+				_z -= 30;
+			}
+
+			geometry.colors = colorArray;
+
+			mesh = new THREE.ParticleSystem(geometry, material);
+			mesh.sortParticles = true;
+
+			scene.add(mesh);
+			
+			function position () {
+				var k,
+					i,
+					j,
+					r,
+					_x,
+					_y,
+					_z = -10,
+					radius;
+
+				k = 0;
+
+				for (i = 0; i < numcircles; i += 1) {
+					for (j = 0; j < numpoints; j += 1) {
+						a = 2 * Math.PI * j / numpoints;
+						a = a + Math.sin(delta / 1000 + i) * 2; //rotation
+
+						r = 90 + Math.sin(delta / (10 * i)) * 30;
+						radius = r / (1 + i / 10);
+
+						_x = center.x + Math.sin(a) * radius;
+						_y = center.y + Math.cos(a) * radius;
+
+						geometry.vertices[k].x = _x;
+						geometry.vertices[k].y = _y;
+						geometry.vertices[k].z = _z;
+
+						k += 1;
+					}
+
+					_z -= 30;
+				}
+			}
+			
+			function animate() {
+				delta += 1;
+				
+				position();
+
+				if (delta % 2 !== 0) {
+					return;
+				}
+				
+				var i,
+					geoColors = geometry.colors,
+					offset = colorOffset * numpoints,
+					hexColor,
+					c;
+
+				for (i = 0; i < geoColors.length; i += 1) {
+					c = i + offset;
+					if (c > colors.length) {
+						c = c - (colors.length * Math.floor(c / colors.length));
+					}
+
+					hexColor = colors[c];
+					geoColors[i].setHex(hexColor);
+				}
+
+				colorOffset += 1;
+				
+			}
+
+			this.draw = function () {
+				renderer.render(scene, camera);
+			}
+
+			setInterval(animate, 10);			
+		}
+		
+		function setupScene2(c, g) {
+			var scene,
+				camera,
+				renderer,
+				ambientLight,
+				pointLight,
+				material,
+				hand,
+				delta = 0,
+				w = 350,
+				h = 250;
+				
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(35, w / h, 1, 1000);
+			renderer = new THREE.WebGLRenderer({antialias: true, canvas: c});
+			renderer.setSize(w, h);
+			
+			ambientLight = new THREE.AmbientLight(0x333333);
+			scene.add(ambientLight);
+			
+			pointLight = new THREE.PointLight(0xffffff);
+			scene.add(pointLight);
+			
+			
+			material = new THREE.MeshLambertMaterial({
+				shading: THREE.FlatShading,
+				skinning: true,
+				ambient: 0xc36410, 
+				color: 0xedb305
+			});
+			
+			hand = new THREE.SkinnedMesh(g, material);
+			hand.scale.set(100, 100, 100);
+			hand.position.set(0, 0, -600);
+			scene.add(hand);
+			
+			function automate (d) {
+				var angle = d / 100,
+					x,
+					y,
+					z,
+					rx,
+					ry,
+					rz;
+
+				x = Math.sin(angle) * 70;
+				y = -50 - Math.cos(angle) * 50;
+				z = -500 + Math.sin(angle / 2) * 50;
+				rx = 80 * (Math.PI / 180) + Math.sin(angle) * 0.2;
+				ry = -0.1 + Math.sin(angle) * 0.2;
+				rz = 0;
+
+				hand.position.set(x, y, z);
+				hand.rotation.set(rx, ry, rz);
+				
+				automateFingers(d, 0);
+			}
+
+			function automateFingers (d, num) {
+				var i,
+					j,
+					bones = hand.bones,
+					bone;
+
+				for (i = 0; i < boneMap.length; i += 1) {
+					bone = bones[boneMap[i][0]];
+
+					if (i === 0) { //thumb
+						bone.rotation.y = -0.2 + Math.sin(d / 20) * 0.4;
+						bone.rotation.y = num !== 0 ? bone.rotation.y * -1 : bone.rotation.y; //if right hand switch
+						bone.rotation.x = -0.2 + Math.sin(d / 10) * 0.2;
+					} else {
+						bone.rotation.x = -0.1 * i + Math.sin(d / 10) * 0.1 * i;
+						bone.rotation.y = Math.sin(d / 100) * 0.1;
+
+						for (j = 1; j < boneMap[i].length; j += 1) {
+							bone = bones[boneMap[i][j]];
+							bone.rotation.x = (-0.02 * j) + Math.sin(d / 10) * (0.02 * j);
+							bone.rotation.y = 0;
+						}
+					}
+				}
+			}
+			
+			this.draw = function () {
+				delta += 1;
+				automate(delta);
+				renderer.render(scene, camera);
+			}
+			
+		}
+		
+		function setupScene3(c) {
+			var scene,
+				camera,
+				renderer,
+				delta = 0,
+				w = 350,
+				h = 250;
+				
+			scene = new THREE.Scene();
+	        camera = new THREE.PerspectiveCamera(35, w / h, 1, 1000);
+			renderer = new THREE.WebGLRenderer({antialias: true, canvas: c});
+			renderer.setSize(w, h);
+			renderer.setClearColor(0x000000);
+			
+			attributes = {};
+			
+			mask = new THREE.Texture(document.getElementById('canvas-2'))
+			texture = new THREE.Texture(document.getElementById('canvas-1'))
+
+			uniforms = {
+				time: {type: "f", value: delta},
+				mask: {type: "t", value: mask},
+				map: {type: "t", value: texture}
+			};
+			
+			material = new THREE.ShaderMaterial({
+				uniforms: uniforms,
+				attributes: attributes,
+				vertexShader: document.getElementById('shader-vs').innerHTML,
+				fragmentShader: document.getElementById('shader-fs').innerHTML,
+				side: THREE.BackSide,
+				transparent: true
+			});
+			
+			geometry = new THREE.PlaneGeometry(w, h, 10, 10);
+			plane = new THREE.Mesh(geometry, material);
+			plane.position.z = -400;
+			plane.rotation.y = 180 * (Math.PI / 180);
+			plane.rotation.z = 180 * (Math.PI / 180);
+			scene.add(plane);
+			
+			this.draw = function () {
+				mask.needsUpdate = true;
+				texture.needsUpdate = true;
+				renderer.render(scene, camera);
+			}
+		}
+		
+		function draw() {
+			if (scene1) {
+				scene1.draw();
+			}
+			
+			if (scene2) {
+				scene2.draw();
+			}
+			
+			if (scene3) {
+				scene3.draw();
+			}
+			
+			requestAnimationFrame(draw);
+		};
+		
+		requestAnimationFrame(draw);
 		
 		</script>
 	</body>
