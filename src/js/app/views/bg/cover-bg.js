@@ -37,7 +37,6 @@ define(function (require) {
 			container.position.z = -1001;
 			instance.scene.add(container);
 			
-			
 			light = new THREE.PointLight(0xffffff, 10, 1000);
 			instance.scene.add(light);
 			

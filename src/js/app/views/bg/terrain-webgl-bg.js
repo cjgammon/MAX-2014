@@ -15,6 +15,7 @@ define(function (require) {
 			water,
 			waterNormals,
 			lights = [],
+			colors = [0xeeeeee, 0xe9e9e9, 0xf8f8f8],
 			materialObjs = [],
 			blenderModel = require('text!app/data/island1.js'),
 			cloudModel = require('text!app/data/cloud1.js');
@@ -104,15 +105,27 @@ define(function (require) {
 		instance.addSky = function () {
 			var sky,
 				geo,
-				mat;
+				mat,
+				i,
+				v;
 			
-			geo = new THREE.SphereGeometry(8000, 100, 100);
+			geo = new THREE.SphereGeometry(8000, 20, 20);
+			THREE.GeometryUtils.triangulateQuads(geo);
+			
+			for (i = 0; i < geo.faces.length; i += 1) {
+				face = geo.faces[i];
+				face.color.setHex(colors[Math.floor(Math.random() * colors.length)]);
+			}
+			
 			mat = new THREE.MeshBasicMaterial({
                 color: 0x3377ff, 
-				side: THREE.BackSide
+				side: THREE.BackSide,
+				shading: THREE.FlatShading,
+				vertexColors: THREE.FaceColors
 			});
 			
 			sky = new THREE.Mesh(geo, mat);
+			sky.rotation.x = 0.7;
 			instance.scene.add(sky);
 			materialObjs.push(sky);
 		};
@@ -138,7 +151,7 @@ define(function (require) {
             water = new THREE.Mirror(instance.renderer, instance.camera, {
                 textureWidth: 512, 
                 textureHeight: 512,
-                color: 0x0099cc
+                color: 0x3399cc
             });
 
             mirrorMesh = new THREE.Mesh(
@@ -174,7 +187,7 @@ define(function (require) {
 			for (i = 0; i < model.materials.length; i += 1) {
 				model.materials[i].shading = THREE.FlatShading;
 			}
-			
+						
 			for (i = 0; i < 50; i += 1) {
 				scale = 10 + Math.random() * 50;
 				rotation = Math.random() * 180;
@@ -229,6 +242,7 @@ define(function (require) {
 				materialObjs[i] = null;
 			}
 			
+			colors = null;
 			materialObjs = null;
 			
 			waterNormals.dispose();

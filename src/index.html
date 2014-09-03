@@ -114,6 +114,10 @@
 				<h2>web</h2>
 			</section>
 
+			<section id="presentation-layer" class="slide" data-class="basic" data-color="0x00828a">
+				<blockquote>create the best presentation layer for your content</blockquote>
+			</section>
+
 			<section id="flash" class="slide slide--iframe" data-class="iframe" data-src="http://www.reduniverse.com/">
 				<h2>flash</h2>
 			</section>
@@ -145,7 +149,7 @@
 			<section id="css-demo" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/d-css/index.html">
 			</section>
 			
-			<section id="vector-graphics" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/e-vector">
+			<section id="vector-graphics" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/e-vector" data-color="0x333333">
 			</section>
 
 			<section id="svg" class="slide" data-class="basic" data-color="0x333333">
@@ -293,14 +297,6 @@ ctx.clip();</em>
 drawClouds();</pre></code>
 			</section>
 			
-			<section id="clip-webgl-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-clip-webgl-2/index.html">
-			</section>
-			
-			<section id="clip-webgl-code" class="slide" data-class="basic" data-color="0x333333">
-				<h3>WebGL CLIP PATHS</h3>
-				<div>describe drawing geometry and using texture.. or stencil buffer</div>
-			</section>
-			
 			<section id="masking-alpha" class="slide" data-class="basic" data-color="0x333333">
 				<h2>Alpha Masks</h2>
 			</section>
@@ -380,20 +376,28 @@ void main() {
 	float y = (textureCoord.y / textureCoord.w);
 	vec2 mapPosition = vec2(x, y);
 
-	<span>vec3 mapTexture = texture2D(map, mapPosition).xyz;</span>
-	<em>vec3 maskTexture = texture2D(mask, mapPosition).xyz;</em>
+	vec3 mapT = texture2D(map, mapPosition).xyz;
+	vec3 maskT = texture2D(mask, mapPosition).xyz;
 
-	<em>float alpha = maskTexture.r;</em>
-	gl_FragColor = vec4(<span>mapTexture</span>, <em>alpha</em>);
+	<em>float alpha = maskT.r;</em>
+	gl_FragColor = vec4(<span>mapT</span>, <em>alpha</em>);
 }</pre></code>
 			</section>
 			
-			<section id="video" class="slide" data-class="basic" data-color="0x333333">
+			<section id="video" class="slide slide--video" data-class="video" data-color="0x333333" data-video="assets/videos/firegrid_(loop)_1280x720.mp4">
 				<h2>Video</h2>
 			</section>
 			
-			<section id="new-wave" class="slide" data-class="basic" data-color="0x333333">
-				<h2>3.0 Experiences</h2>
+			<section id="ok-go" class="slide slide--video" data-class="video" data-video="assets/videos/WTF.mp4">
+			</section>
+			
+			<section id="ok-go-interactive" class="slide slide--iframe" data-class="iframe" data-src="external/wtf2/index.html">
+			</section>
+			
+			<section id="new-wave-snow-fall" class="slide slide--iframe" data-class="iframe" data-src="http://www.nytimes.com/projects/2012/snow-fall/#/?part=tunnel-creek">
+			</section>
+			
+			<section id="new-wave-video" class="slide slide--iframe" data-class="iframe" data-src="https://defi-ingenieurs.sncf.com/index.html">
 			</section>
 
 			<section id="semantics" class="slide slide--black" data-class="basic">
@@ -406,36 +410,33 @@ void main() {
 			<section id="parallax-demo" class="slide slide--iframe" data-class="iframe" data-src="external/parallax-webgl/index.html">
 			</section>
 
-			<section id="together" class="slide" data-class="basic" data-pos="0.01">
-				<h2>Working Together</h2>
+			<section id="off-grid" class="slide" data-class="basic" data-pos="0.01">
+				<h2>Off the Grid</h2>
 			</section>
 
-			<section id="communication" class="slide" data-class="basic" data-pos="0.105">
+			<section id="together" class="slide" data-class="basic" data-pos="0.1">
+				<h2>WebGL + CSS</h2>
+			</section>
+			
+			<section id="communication" class="slide" data-class="basic" data-pos="0.23">
 				<h2>Communication</h2>
 			</section>
 			
-			<section id="webrtc" class="slide" data-class="basic" data-pos="0.105">
+			<section id="webrtc" class="slide" data-class="basic" data-pos="0.32">
 				<h2>WebRTC</h2>
+				<h4><a href="http://mechrtc.herokuapp.com/#game/hello">real live demo!</a></h4>
 			</section>
 
-			<section id="who" class="slide" data-class="basic" data-pos="0.23">
+			<section id="state" class="slide" data-class="basic" data-pos="0.4">
+				<h2>state of the web</h2>
+			</section>
+			
+			<section id="who" class="slide" data-class="basic" data-pos="0.54">
 				<h2>Who makes this kind of stuff?</h2>
 			</section>
 
-			<section id="unicorn" class="slide" data-class="basic" data-color="0x00828a">
+			<section id="unicorn" class="slide" data-class="basic" data-pos="0.7">
 				<blockquote>don't be a unicorn,<br/> be great at what you love</blockquote>
-			</section>
-
-			<section id="all-hands" class="slide" data-class="basic" data-pos="0.23">
-				<h2>All hands on deck</h2>
-			</section>
-
-			<section id="workflows" class="slide" data-class="basic" data-pos="0.6">
-				<h2>Workflows</h2>
-			</section>
-
-			<section id="generator" class="slide" data-class="basic" data-pos="0.7">
-				<h2>Generator</h2>
 			</section>
 			
 			<section id="rich-medium" class="slide" data-class="basic" data-pos="0.8">

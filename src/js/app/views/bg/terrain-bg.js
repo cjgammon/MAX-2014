@@ -17,7 +17,7 @@ define(function (require) {
 		};
 		
 		instance.setup = function () {
-			instance.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 11000);
+			instance.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 11000);
 		
 			instance.webglView = new WebglBg();
 			instance.webglView.init(instance.renderer, instance.camera);

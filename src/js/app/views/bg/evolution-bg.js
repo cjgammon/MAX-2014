@@ -39,7 +39,7 @@ define(function (require) {
 			light = new THREE.PointLight(color, 3, 700);
 			instance.scene.add(light);
 						
-			geometry = new THREE.PlaneGeometry(500, 400, 10, 10);
+			geometry = new THREE.PlaneGeometry(700, 400, 10, 10);
 			THREE.GeometryUtils.triangulateQuads(geometry);
 			
 			for (i = 0; i < geometry.faces.length; i += 1) {
