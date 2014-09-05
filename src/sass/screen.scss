@@ -275,6 +275,41 @@ h2.top-left{
 	}
 }
 
+#storytelling{
+	background-image: url(../assets/images/comm/comm-02.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#writing{
+	background-image: url(../assets/images/comm/comm-03.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#broadcast{
+	background-image: url(../assets/images/comm/comm-04.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#film{
+	background-image: url(../assets/images/comm/comm-05.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#digital{
+	background-image: url(../assets/images/comm/comm-06.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
 #digital-example-ff{
 	background-image: url(../assets/images/digital_ff.png);
 	background-size: cover;
@@ -282,6 +317,13 @@ h2.top-left{
 
 #digital-example-avatar{
 	background-image: url(../assets/images/digital_avatar.png);
+	background-size: cover;
+}
+
+#games{
+	background-image: url(../assets/images/comm/comm-07.svg);
+	background-repeat: no-repeat;
+	background-position: center;
 	background-size: cover;
 }
 

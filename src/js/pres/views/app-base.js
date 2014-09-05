@@ -78,6 +78,8 @@ define(function (require) {
 			
 			pos = slide.get('view').$el.data('pos');
 			
+			TweenMax.killAll();
+			
 			if (typeof(pos) !== 'undefined') {
 				
 				if (this.first === true) {

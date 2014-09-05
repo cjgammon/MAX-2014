@@ -1065,36 +1065,84 @@ h2.top-left {
 }
 
 /* line 278, ../sass/screen.scss */
+#storytelling {
+  background-image: url(../assets/images/comm/comm-02.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* line 285, ../sass/screen.scss */
+#writing {
+  background-image: url(../assets/images/comm/comm-03.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* line 292, ../sass/screen.scss */
+#broadcast {
+  background-image: url(../assets/images/comm/comm-04.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* line 299, ../sass/screen.scss */
+#film {
+  background-image: url(../assets/images/comm/comm-05.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* line 306, ../sass/screen.scss */
+#digital {
+  background-image: url(../assets/images/comm/comm-06.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* line 313, ../sass/screen.scss */
 #digital-example-ff {
   background-image: url(../assets/images/digital_ff.png);
   background-size: cover;
 }
 
-/* line 283, ../sass/screen.scss */
+/* line 318, ../sass/screen.scss */
 #digital-example-avatar {
   background-image: url(../assets/images/digital_avatar.png);
   background-size: cover;
 }
 
-/* line 288, ../sass/screen.scss */
+/* line 323, ../sass/screen.scss */
+#games {
+  background-image: url(../assets/images/comm/comm-07.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* line 330, ../sass/screen.scss */
 #games-2d {
   background-image: url(../assets/images/pacman.png);
   background-size: cover;
 }
 
-/* line 293, ../sass/screen.scss */
+/* line 335, ../sass/screen.scss */
 #myst {
   background-image: url(../assets/images/myst.png);
   background-size: cover;
 }
 
-/* line 298, ../sass/screen.scss */
+/* line 340, ../sass/screen.scss */
 #games-3d {
   background-image: url(../assets/images/game_3d.png);
   background-size: cover;
 }
 
-/* line 305, ../sass/screen.scss */
+/* line 347, ../sass/screen.scss */
 #mobile img {
   position: absolute;
   top: 0;
@@ -1103,7 +1151,7 @@ h2.top-left {
   margin-left: -250px;
   pointer-events: none;
 }
-/* line 314, ../sass/screen.scss */
+/* line 356, ../sass/screen.scss */
 #mobile iframe {
   position: absolute;
   top: 210px;
@@ -1116,7 +1164,7 @@ h2.top-left {
   outline: none;
 }
 
-/* line 327, ../sass/screen.scss */
+/* line 369, ../sass/screen.scss */
 #caniuse {
   background-image: url(../assets/images/caniuse.png);
   background-size: cover;
@@ -1125,28 +1173,28 @@ h2.top-left {
   padding: 100px;
 }
 
-/* line 335, ../sass/screen.scss */
+/* line 377, ../sass/screen.scss */
 #masking-vector {
   background-image: url(../assets/images/clippath.jpg);
   background-size: cover;
 }
 
-/* line 340, ../sass/screen.scss */
+/* line 382, ../sass/screen.scss */
 #masking-alpha {
   background-image: url(../assets/images/mask.jpg);
   background-size: cover;
 }
 
-/* line 345, ../sass/screen.scss */
+/* line 387, ../sass/screen.scss */
 #vector-graphics, #masking-webgl-example, #masking-css-composite, #masking-canvas-css-example, #masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example {
   background: transparent;
 }
-/* line 348, ../sass/screen.scss */
+/* line 390, ../sass/screen.scss */
 #vector-graphics iframe, #masking-webgl-example iframe, #masking-css-composite iframe, #masking-canvas-css-example iframe, #masking-canvas-example iframe, #masking-css-example iframe, #masking-svg-example iframe, #clip-webgl-example iframe, #clip-canvas-example iframe, #clip-svg-example iframe, #masking-css-example iframe, #masking-css-composite-1 iframe, #masking-css-composite-2 iframe, #clip-css-example iframe {
   background: transparent;
 }
 
-/* line 353, ../sass/screen.scss */
+/* line 395, ../sass/screen.scss */
 #masking-cupcakes {
   background-image: url(../assets/images/logo-food-network.svg);
   background-position: center 100px;
@@ -1154,37 +1202,37 @@ h2.top-left {
   background-size: 150px;
 }
 
-/* line 360, ../sass/screen.scss */
+/* line 402, ../sass/screen.scss */
 #video {
   color: #e81e6f;
 }
 
-/* line 364, ../sass/screen.scss */
+/* line 406, ../sass/screen.scss */
 #semantics {
   background-image: url(../assets/images/wes.png);
   background-size: cover;
   background-position: center;
 }
 
-/* line 370, ../sass/screen.scss */
+/* line 412, ../sass/screen.scss */
 #resources {
   font-size: 1rem;
 }
-/* line 373, ../sass/screen.scss */
+/* line 415, ../sass/screen.scss */
 #resources h2 {
   font-size: 3rem;
 }
-/* line 377, ../sass/screen.scss */
+/* line 419, ../sass/screen.scss */
 #resources h3 {
   font-size: 2rem;
 }
 
-/* line 382, ../sass/screen.scss */
+/* line 424, ../sass/screen.scss */
 #warning {
   display: none;
 }
 
-/* line 387, ../sass/screen.scss */
+/* line 429, ../sass/screen.scss */
 .no-flexbox #warning {
   position: absolute;
   display: block;
@@ -1197,7 +1245,7 @@ h2.top-left {
   text-align: center;
   z-index: 10000;
 }
-/* line 399, ../sass/screen.scss */
+/* line 441, ../sass/screen.scss */
 .no-flexbox #warning p {
   display: block;
   margin: 100px auto;
@@ -1205,17 +1253,17 @@ h2.top-left {
   line-height: 1.5;
 }
 
-/* line 409, ../sass/screen.scss */
+/* line 451, ../sass/screen.scss */
 .touch #preloader {
   display: none;
 }
-/* line 413, ../sass/screen.scss */
+/* line 455, ../sass/screen.scss */
 .touch #deck {
   position: static;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* line 419, ../sass/screen.scss */
+/* line 461, ../sass/screen.scss */
 .touch .slide {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -1235,26 +1283,26 @@ h2.top-left {
   opacity: 1;
   pointer-events: auto;
 }
-/* line 428, ../sass/screen.scss */
+/* line 470, ../sass/screen.scss */
 .touch .slide--iframe {
   display: none;
 }
-/* line 432, ../sass/screen.scss */
+/* line 474, ../sass/screen.scss */
 .touch #ui-button-css .ui-button-css-side, .touch #ui-button-css, .touch #ui-button-css-mask, .touch #ui-button-css-blend {
   width: 100px;
   height: 100px;
 }
-/* line 437, ../sass/screen.scss */
+/* line 479, ../sass/screen.scss */
 .touch #filter-list-image {
   width: 200px;
 }
-/* line 441, ../sass/screen.scss */
+/* line 483, ../sass/screen.scss */
 .touch .mask-item, .touch .mask-dynamic-item {
   height: 100px;
 }
 
 @media screen and (max-width: 600px) {
-  /* line 447, ../sass/screen.scss */
+  /* line 489, ../sass/screen.scss */
   html {
     font-size: .3em;
   }
