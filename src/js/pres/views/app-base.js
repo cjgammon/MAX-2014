@@ -107,6 +107,7 @@ define(function (require) {
         },
 
         handle_KEYDOWN: function (e) {
+			console.log(e.keyCode);
 			UserEvent.trigger('keydown', e);
 		},
 		
@@ -209,6 +210,7 @@ define(function (require) {
 				e.preventDefault();
 				break;
 			case 37: //left
+			case 33:
 				AppEvent.trigger('previous');
 				e.preventDefault();
 				break;
@@ -217,9 +219,12 @@ define(function (require) {
 				e.preventDefault();
 				break;
             case 32: //space
+			case 34:
                 AppEvent.trigger('trigger');
                 e.preventDefault();
                 break;
+			case 190: //fullscreen
+				break;
 			}
 		},
 

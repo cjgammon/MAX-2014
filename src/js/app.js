@@ -62,7 +62,6 @@ define(function (require) {
 	
             AppBase.prototype.render.call(this);
 
-			//TODO:: check if should be visible based on slide having position data
             if (this.bg) {
 			    this.bg.render();
             }
