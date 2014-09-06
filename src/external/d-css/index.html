@@ -453,7 +453,10 @@
 			function next() {
 				current = current < classes.length - 1 ? current += 1 : 0;
 				document.body.className = classes[current].name;
-				setTimeout(next, classes[current].time);
+				
+				if (current !== classes.length - 1) {
+					setTimeout(next, classes[current].time);
+				}
 			}
 			
 			setTimeout(next, classes[current].time);
