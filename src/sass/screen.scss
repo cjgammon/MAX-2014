@@ -417,10 +417,11 @@ h2.top-left{
 #word-girl{
 	background-image: url(../assets/images/wordgirl-psd.png);
 	background-size: contain;
-	background-position: center;
+	background-position: top left;
+	background-repeat: no-repeat;
 
 	a{
-		color: #333;
+		color: orange;
 	}
 }
 
