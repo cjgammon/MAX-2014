@@ -54,24 +54,6 @@
 				-Margaret Mead, 1935
 			</section>
 
-			<section id="storytelling" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-			
-			<section id="games" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-			
-			<section id="writing" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-
-			<section id="broadcast" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-
-			<section id="film" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-
-			<section id="digital" class="slide" data-class="basic" data-color="0xFF6678">
-			</section>
-
 			<section id="web" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/web-globe/index.html">
 				<h2>web</h2>
 			</section>
@@ -304,8 +286,8 @@ mask-composite: source-over;</pre></code>
 			<section id="masking-canvas-code" class="slide" data-class="basic" data-color="0x333333">
 				<h3>Masking Canvas</h3>
 				<code><pre>drawClouds();
-<em>ctx.globalCompositeOperation = "destination-in";
-<span>ctx.drawImage(maskImg, 0, 0);</span></em></pre></code>
+<em>ctx.globalCompositeOperation = <span>"destination-in"</span>;
+ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 			
 			<section id="masking-canvas-css-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/e-dynamic-mask/index.html">
@@ -345,6 +327,30 @@ void main() {
 }</pre></code>
 			</section>
 			
+			<section id="blending" class="slide" data-class="basic" data-color="0x333333">
+				<h2>Blend Modes</h2>
+			</section>
+
+			<section id="blending-css-example" class="slide slide--iframe" data-class="iframe" data-color="0x333333" data-src="external/d-blend/index.html">
+			</section>
+
+			<section id="blending-css-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>Blend Modes CSS</h3>
+				<code><pre>background-image: url(...), url(...);
+<em>background-blend-mode: <span>multiply, screen</span>;</em></pre></code>
+				<code><pre><em>mix-blend-mode: <span>difference</span>;</em></pre></code>
+			</section>
+
+			<section id="blending-canvas-example" class="slide slide--iframe slide--full" data-class="iframe-full" data-color="0x333333" data-src="external/d-canvas-blend/index.html">
+			</section>
+
+			<section id="blending-canvas-code" class="slide" data-class="basic" data-color="0x333333">
+				<h3>Blend Modes Canvas</h3>
+				<code><pre>drawClouds();
+<em>ctx.globalCompositeOperation = <span>"multiply"</span>;
+ctx.drawImage(maskImg, 0, 0);</em></pre></code>
+			</section>
+
 			<section id="video" class="slide slide--video" data-class="video" data-color="0x333333" data-video="assets/videos/firegrid_(loop)_1280x720.mp4">
 				<h2>Video</h2>
 			</section>
@@ -424,11 +430,11 @@ void main() {
 				<h2>state of<br/> the web</h2>
 			</section>
 			
-			<section id="who" class="slide" data-class="basic" data-pos="0.54">
+			<section id="who" class="slide" data-class="basic" data-pos="0.42">
 				<h2>Who makes this kind of stuff?</h2>
 			</section>
 
-			<section id="makers" class="slide" data-class="basic" data-pos="0.6">
+			<section id="makers" class="slide" data-class="basic" data-pos="0.45">
 				<h4>Web Designers</h4>
 				<h4>UI Designers</h4>
 				<h4>Experience Designers</h4>
@@ -442,10 +448,28 @@ void main() {
 				<h4>Santa Claus</h4>
 			</section>
 					
-			<section id="unicorn" class="slide" data-class="basic" data-pos="0.7">
+			<section id="unicorn" class="slide" data-class="basic" data-pos="0.54">
 				<blockquote>don't try be a unicorn,<br/> try to be amazing<br/> at what you are</blockquote>
 			</section>
-			
+
+			<section id="workflows" class="slide" data-class="basic" data-pos="0.62">
+				<h2>workflows</h2>
+			</section>
+
+			<section id="camera-tool" class="slide" data-class="basic" data-pos="0.62">
+				<h2>Camera Tool</h2>
+				<b><a href="http://bit.ly/cameratool" target="_blank">HTTP://BIT.LY/CAMERATOOL</a></b>
+			</section>
+
+			<section id="generator" class="slide" data-class="basic" data-pos="0.65">
+				<h2>Generator</h2>
+				<h4>for photoshop</h4>
+			</section>
+
+			<section id="word-girl" class="slide" data-class="basic" data-pos="0.73">
+				<h2><a href="http://webplatform.adobe.com/Demo-for-PBS-Kids-Word-Girl/src/#frame/0">Word Girl</a></h2>
+			</section>
+
 			<section id="rich-medium" class="slide" data-class="basic" data-pos="0.8">
 				<blockquote>if we are going to express the richness of human experience we need a medium that is equally as rich</blockquote>
 			</section>

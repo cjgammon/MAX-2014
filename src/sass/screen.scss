@@ -399,6 +399,11 @@ h2.top-left{
 	background-size: 150px;
 }
 
+#blending{
+	background-image: url(../assets/images/blend.jpg);
+	background-size: cover;
+}
+
 #video{
 	color: #e81e6f;;
 }
@@ -407,6 +412,16 @@ h2.top-left{
 	background-image: url(../assets/images/wes.png);
 	background-size: cover;
 	background-position: center;
+}
+
+#word-girl{
+	background-image: url(../assets/images/wordgirl-psd.png);
+	background-size: contain;
+	background-position: center;
+
+	a{
+		color: #333;
+	}
 }
 
 #resources{
