@@ -44,7 +44,6 @@ stage.addChild(world);
 loader = new PIXI.AssetLoader(assets);
 loader.load();
 
-console.log(loader);
 if (loader.loadCount) {
 	loader.addEventListener('onComplete', handle_loader_COMPLETE);
 } else {
@@ -250,7 +249,7 @@ var Game = function () {
 		
 		this.addPlanets(world);
 		this.addGems(world);
-		this.addSuns(world);
+		//this.addSuns(world);
 		hero = new Hero(stage);
 		
 		//document.body.addEventListener('mousedown', this.handle_MOUSE_DOWN.bind(this));
@@ -263,11 +262,11 @@ var Game = function () {
 		var i;
 		
 		speed = 5;
-		
+		/*
 		for (i = 0; i < 100; i += 1) {
 			suns[i].update();
 		}
-		
+		*/
 		_position.x -= speed;
 		_position.y = VIEW_HEIGHT / 2 + Math.sin(_position.x / 200) * VIEW_HEIGHT / 4;
 		

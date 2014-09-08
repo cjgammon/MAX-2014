@@ -219,7 +219,7 @@ clip-path: <span>polygon(0px 208px, 146.5px 207px, 147px 141.2px, ...)</span>;</
 				<code><pre>&lt;svg&gt;
   &lt;defs&gt;
     <em>&lt;clipPath id="clipping"&gt;
-      <span>&lt;circle cx="284" cy="213" r="213"/&gt;</span>
+      <span>&lt;circle cx="50" cy="50" r="50"/&gt;</span>
     &lt;/clipPath&gt;</em>
   &lt;/defs&gt;
   &lt;rect x="0" y="0" width="100" height="100" <em>clip-path="url(#clipping)"</em>/&gt;
@@ -249,7 +249,7 @@ drawClouds();</pre></code>
 				<code><pre>&lt;svg&gt;
   &lt;defs&gt;
     <em>&lt;mask id="mask"&gt;
-      <span>&lt;circle cx="284" cy="213" r="213"/&gt;</span>
+      <span>&lt;circle cx="0" cy="0" r="100" opacity="0.5" /&gt;</span>
     &lt;/mask&gt;</em>
   &lt;/defs&gt;
   &lt;rect x="0" y="0" width="100" height="100" <em>mask="url(#mask)"</em>/&gt;
@@ -309,18 +309,18 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 				<h3>Masking WebGL</h3>
 				<code><pre>varying vec4 textureCoord;
 <em>uniform sampler2D mask;</em>
-<span>uniform sampler2D map;</span>
+<span>uniform sampler2D image;</span>
 
 void main() {
 	float x = (textureCoord.x / textureCoord.w);
 	float y = (textureCoord.y / textureCoord.w);
 	vec2 mapPosition = vec2(x, y);
 
-	vec3 mapT = texture2D(map, mapPosition).xyz;
+	vec3 imageT = texture2D(image, mapPosition).xyz;
 	vec3 maskT = texture2D(mask, mapPosition).xyz;
 
 	<em>float alpha = maskT.r;</em>
-	gl_FragColor = vec4(<span>mapT</span>, <em>alpha</em>);
+	gl_FragColor = vec4(<span>imageT</span>, <em>alpha</em>);
 }</pre></code>
 			</section>
 			
@@ -365,7 +365,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 
 			<section id="trends" class="slide" data-class="basic" data-color="0x00828a">
-				<blockquote>beware gimmicks,<br/> it's only over time we learn the value of new trends</blockquote>
+				<blockquote>gimmicks are cool,<br/>but it's only over time we learn the value of new trends</blockquote>
 			</section>
 
 			<section id="games-2d" class="slide" data-class="basic">
@@ -406,7 +406,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 			
 			<section id="communication" class="slide" data-class="basic" data-pos="0.23">
-				<blockquote>ultimately the web is all about communication</blockquote>
+				<blockquote>ultimately the web is<br/> all about communication</blockquote>
 			</section>
 			
 			<section id="webrtc" class="slide" data-class="basic" data-pos="0.32">
@@ -418,8 +418,8 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 				<h2>state of<br/> the web</h2>
 			</section>
 			
-			<section id="who" class="slide" data-class="basic" data-pos="0.42">
-				<h2>Who makes this kind of stuff?</h2>
+			<section id="who" class="slide" data-class="basic" data-pos="0.43">
+				<h2>Who makes<br/> this stuff?</h2>
 			</section>
 
 			<section id="makers" class="slide" data-class="basic" data-pos="0.45">
