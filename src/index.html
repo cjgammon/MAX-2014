@@ -88,9 +88,6 @@
                     <div id="ui-button-css-blend"></div>
                 </div>
 			</section>
-
-			<section id="css-demo" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/d-css/index.html">
-			</section>
 			
 			<section id="vector-graphics" class="slide slide--iframe slide--full" data-class="iframe-full" data-src="external/e-vector" data-color="0x333333">
 			</section>
@@ -186,7 +183,7 @@
 
 			<section id="webgl-frameworks" class="slide" data-class="basic" data-color="0xff9c00">
 				<h3>three.js</h3>
-				<h3>babylon</h3>
+				<h3>babylon.js</h3>
 				<h3>pixi.js</h3>
 				<h4>&amp; many more..</h4>
 			</section>
@@ -249,7 +246,7 @@ drawClouds();</pre></code>
 				<code><pre>&lt;svg&gt;
   &lt;defs&gt;
     <em>&lt;mask id="mask"&gt;
-      <span>&lt;circle cx="0" cy="0" r="100" opacity="0.5" /&gt;</span>
+      <span>&lt;image xlink:href="texture.png" width="414" height="250"&gt;&lt;/image&gt;</span>
     &lt;/mask&gt;</em>
   &lt;/defs&gt;
   &lt;rect x="0" y="0" width="100" height="100" <em>mask="url(#mask)"</em>/&gt;
@@ -345,7 +342,7 @@ void main() {
 				<h3>Blend Modes Canvas</h3>
 				<code><pre>drawClouds();
 <em>ctx.globalCompositeOperation = <span>"multiply"</span>;
-ctx.drawImage(maskImg, 0, 0);</em></pre></code>
+ctx.drawImage(blendImg, 0, 0);</em></pre></code>
 			</section>
 
 			<section id="video" class="slide slide--video" data-class="video" data-color="0x333333" data-video="assets/videos/firegrid_(loop)_1280x720.mp4">
@@ -365,7 +362,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 
 			<section id="trends" class="slide" data-class="basic" data-color="0x00828a">
-				<blockquote>gimmicks are cool,<br/>but it's only over time we learn the value of new trends</blockquote>
+				<blockquote>it can take time to learn to use features tastefully</blockquote>
 			</section>
 
 			<section id="games-2d" class="slide" data-class="basic">
@@ -406,7 +403,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 			
 			<section id="communication" class="slide" data-class="basic" data-pos="0.23">
-				<blockquote>ultimately the web is<br/> all about communication</blockquote>
+				<blockquote>the web is about<br/> communication</blockquote>
 			</section>
 			
 			<section id="webrtc" class="slide" data-class="basic" data-pos="0.32">
@@ -439,7 +436,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			<section id="unicorn" class="slide" data-class="basic" data-pos="0.54">
 				<blockquote>don't try be a unicorn,<br/> try to be amazing<br/> at what you are</blockquote>
 			</section>
-<!--
+
 			<section id="workflows" class="slide" data-class="basic" data-pos="0.62">
 				<h2>workflows</h2>
 			</section>
@@ -457,7 +454,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			<section id="word-girl" class="slide" data-class="basic" data-pos="0.73">
 				<h2><a href="http://webplatform.adobe.com/Demo-for-PBS-Kids-Word-Girl/src/#frame/0" target="_blank">Word Girl</a></h2>
 			</section>
--->
+
 			<section id="rich-medium" class="slide" data-class="basic" data-pos="0.8">
 				<blockquote>if we are going to express the richness of human experience we need a medium that is equally as rich</blockquote>
 			</section>
@@ -472,15 +469,15 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 				<h2>resources</h2>
 				<div>
 					<b>SVG</b>
-					<a href="#">Raphaël.js</a>
-					<a href="#">D3.js</a>
+					<a href="http://raphaeljs.com/">Raphaël.js</a>
+					<a href="http://d3js.org/">D3.js</a>
 					<a href="http://snapsvg.io/">Snap.svg</a>
 				</div>
 				<br/>
 				<div>
 					<b>2d Canvas</b>
-					<a href="#">Easel.js</a>
-					<a href="#">Processing.js</a>
+					<a href="http://www.createjs.com/#!/EaselJS">Easel.js</a>
+					<a href="http://processingjs.org/">Processing.js</a>
 					<a href="http://www.pixijs.com/">Pixi.js</a>
 				</div>
 				<br/>
@@ -495,6 +492,7 @@ ctx.drawImage(maskImg, 0, 0);</em></pre></code>
 			</section>
 			
 			<section id="credits" class="slide" data-class="basic">
+				<a href="http://www.beeple-crap.com/">beeple - cool videos</a>
 			</section>
 		</div>
 
