@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>no styling</title>
+		<style>
+			body{
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="three.min.js"></script>
+		<script>
+			var renderer,
+				scene,
+				camera,
+				delta = 100,
+				light,
+				globe,
+				nodes = [];
+
+			scene = new THREE.Scene();
+			camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.01, 10000);
+			camera.position.z = -200;
+			
+			renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			
+			ambientLight = new THREE.AmbientLight(0x333333);
+			scene.add(ambientLight);
+			
+			light = new THREE.PointLight(0xffffff, 1.4, 2000);
+			scene.add(light);
+			
+			addNode(0);
+			addNode(0);
+			addNode(0);
+			addNode(0);
+			addNode(0);
+			
+			addPlanet();
+			
+			addStars();
+			
+			function addStars() {
+				var count = 1000,
+					i,
+					x,
+					y,
+					z,
+					geometry = new THREE.Geometry(),
+					material = new THREE.ParticleBasicMaterial({
+						color: 0xffffff,
+						size: Math.random() * 3
+					});
+					
+				for (i = 0; i < count; i += 1) {
+					x = Math.random() * 1000 - 500;
+					y = Math.random() * 500 - 250;
+					z = -Math.random() * 500 - 250;
+					particle = new THREE.Vector3(x, y, z);
+					
+					geometry.vertices.push(particle);
+				}
+				
+				stars = new THREE.ParticleSystem(geometry, material);
+				stars.position.z = -700;
+				scene.add(stars);
+			}
+			
+			function addPlanet() {
+				var geometry,
+					material,
+					mesh,
+					container;
+				
+				container = new THREE.Object3D();
+				container.scale.set(100, 100, 100);
+				container.position.z = -700;
+				container.rotation.z = -0.3;
+				scene.add(container);
+				
+				globe = new THREE.Object3D();
+				container.add(globe);
+				
+				//planet
+				geometry = new THREE.SphereGeometry(0.5, 32, 32);
+				material = new THREE.MeshPhongMaterial({
+					map: THREE.ImageUtils.loadTexture('earthmap1k.jpg'),
+					bumpMap: THREE.ImageUtils.loadTexture('earthbump1k.jpg'),
+					bumpScale: 0.05,
+					specularMap: THREE.ImageUtils.loadTexture('earthspec1k.jpg'),
+					specular: new THREE.Color('white'),
+					shininess: 2
+					});
+				
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.rotation.y = 1;
+				mesh.rotation.x = 0.3;
+				globe.add(mesh);				
+				
+				//clouds
+				geometry = new THREE.SphereGeometry(0.52, 32, 32);
+				material = new THREE.MeshPhongMaterial({
+					map: THREE.ImageUtils.loadTexture('earthcloudmap.png'),
+					side: THREE.DoubleSide,
+				  	opacity: 0.8,
+					transparent: true,
+					depthWrite: false
+				});
+				
+				mesh = new THREE.Mesh(geometry, material);
+				globe.add(mesh);
+				
+				//lights
+				geometry = new THREE.SphereGeometry(0.52, 32, 32);
+				material = new THREE.MeshBasicMaterial({
+					map: THREE.ImageUtils.loadTexture('earthlights1k.jpg'),
+					blending: THREE.AdditiveBlending,
+					transparent: true,
+					depthWrite: false
+				});
+				
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.rotation.y = 1;
+				mesh.rotation.x = 0.3;
+				
+				globe.add(mesh);				
+			}
+			
+			function addNode(orbit) {
+				var geometry,
+					material,
+					mesh;
+					
+				//geometry = new THREE.IcosahedronGeometry(120 + Math.random() * 40, 0);
+				geometry = new THREE.SphereGeometry(56 + Math.random(), 10, 10);
+				material = new THREE.MeshBasicMaterial({
+					color: 0x00a5fb, 
+					wireframe: true, 
+					//wireframeLinewidth: 3, 
+					blending: THREE.AdditiveBlending, 
+					transparent: true, 
+					opacity: 0.1});
+				
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.position.z = -700;
+				mesh.rotation.y = delta;
+				mesh.speed = 0.01 + Math.random() * 0.05;
+				mesh.orbit = orbit;
+				scene.add(mesh);
+				nodes.push(mesh);				
+			}
+			
+			requestAnimationFrame(animate);
+			
+			function animate() {
+				delta += 0.06;
+				
+				light.position.x = Math.cos(delta / 10) * 300;
+				light.position.z = -700 + Math.sin(delta / 10) * 300;
+				
+				globe.rotation.y += 0.001;
+				
+				for (i = 0; i < nodes.length; i += 1) {
+					nodes[i].rotation.y += nodes[i].speed;
+					nodes[i].rotation.z += nodes[i].speed;
+					
+					if (nodes[i].orbit !== 0) {
+						nodes[i].position.x = Math.sin(delta / (nodes[i].orbit / 100)) * nodes[i].orbit;
+						nodes[i].position.y = Math.cos(delta / (nodes[i].orbit / 100)) * nodes[i].orbit;
+					}
+				}
+				
+				renderer.render(scene, camera);
+				requestAnimationFrame(animate);
+			}
+			
+			
+		</script>
+	</body>
+</html>

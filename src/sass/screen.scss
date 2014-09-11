@@ -3,10 +3,9 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-$yellowish: #f1bc04;
-$orangeish:  #d77604;
-$yellow: #eed932;
-$teal: #0cb4a8;
+$orange: #ff9c00;
+$red: #ff4800;
+$teal: #00a4ae;
 $navy: #020d17;
 
 
@@ -16,9 +15,9 @@ $menu-item-primed-color: darken($teal, 15%);
 $menu-item-color: darken($teal, 30%);
 $menu-input-text-color: $teal;
 $menu-input-bg-color: white;
-$progress-holder-color: $navy;
-$progress-bar-color: lighten($navy, 20%);
-$hud-bg-color: $navy;
+$progress-holder-color: black;
+$progress-bar-color: #444;
+$hud-bg-color: #222;
 $spinner-color: $teal;
 
 @mixin flexbox{
@@ -51,7 +50,7 @@ body{
 	color: white;
 }
 
-h2, h3, h4{
+b, h2, h3, h4{
 	position: relative;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -126,16 +125,17 @@ footer{
 }
 
 blockquote{
-	padding: 1em;
+	padding: 100px;
 	font-size: 4rem;
-	color: #ccc;
-	line-height: 1.5;
+	font-weight: bold;
+	color: white;
+	font-style: italic;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 em{
 	font-weight: bold;
-	font-style: italic;
-	color: #fff;
 }
 
 code{
@@ -146,13 +146,18 @@ code{
 	max-width: 100%;
 	color: black;
 	line-height: 1.5;
-	font-family: courier, monospace;
+	font-size: 1.3rem;
+	font-family: 'source code pro', courier, monospace;
 	white-space: pre;
-}
-
-.code-red{
-	font-weight: bold;
-	color: #cc0000;
+	
+	em{
+		color: #cc0000;
+	}
+	
+	span{
+		font-weight: bold;
+		color: #660066;
+	}
 }
 
 .slide{
@@ -160,17 +165,15 @@ code{
 	padding: 1rem;
 }
 
-.slide--orange{
-	background: #F1953C; //#f0a964;
-}
-
-.slide--orange-swirl{
-	background-image: url(../assets/images/patterns/wild-sea.png);
-}
-
 .slide--black{
 	color: white;
-	background: #222;
+	background: #333;
+}
+
+.slide--video{
+	video{
+		position: absolute;
+	}
 }
 
 .slide--iframe{
@@ -232,19 +235,13 @@ code{
 }
 
 #cover{
-	background-image: url(../assets/images/cover.jpg);
+	background-color: transparent;
     background-size: cover;
 	background-position: center;
-	
-    // *{
-    //     mix-blend-mode: difference;
-    // }
 }
 
 #hi{
-    background-image: url(../assets/images/yosemite.jpg);
-	// background-image: url(../assets/images/point-reyes.jpg);
-	// background-position: 30%;
+    background-image: url(../assets/images/yosemite.png);
 	background-size: cover;
 	background-position: center;
 	text-transform: uppercase;
@@ -255,256 +252,8 @@ code{
 	width: 200px;
 	margin-bottom: 1em;
 	border-radius: 50%;
+	border: 10px solid white;
 	-webkit-clip-path: ellipse(50%, 50%, 50%, 50%);
-}
-
-#rich{
-    background-image: url(../assets/images/invaders.png);
-	background-size: cover;
-	background-position: center;
-}
-
-#definition{
-    background-color: #394466;
-}
-
-#video-games{
-    background-image: url(../assets/images/pacman.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#myst{
-	background-image: url(../assets/images/myst.jpeg);
-	background-size: cover;
-	background-position: center;
-}
-
-#achievement{
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-top: 1em;
-    margin-left: -150px;
-    padding: 1em 1.5em;
-    padding-bottom: 0;
-    border-radius: 3em;
-    font-size: 1rem;
-    font-weight: normal;
-    font-family: helvetica, sans-serif;
-    background: rgba(0, 0, 0, 0.8);
-    @include transition(-webkit-transform 0.2s ease-out 1s);
-    @include transform(translateY(-100px));
-    
-    svg{
-        display: inline-block;
-        float: left;
-        margin-top: -0.75em;
-        margin-left: -1em;
-    }
-
-    .achievement-text{
-        float: left;
-    }
-
-    em{
-        display: block;
-        margin-bottom: 0.5em;
-        font-weight: 100;
-        font-style: normal;
-    }   
-
-    &.in{
-        @include transform(translateY(0px));
-    }
-}
-
-#gamification{
-    background-image: url(../assets/images/game.jpg);
-	background-size: cover;
-	background-position: center;	
-}
-
-#history{
-	background-image: url(../assets/images/patterns/wallpaper_orange.jpg);
-	background-position: center;
-}
-
-#web{
-    h2{
-        color: black;
-        font-family: serif;
-    }
-
-    background: white;
-}
-
-#mobile{
-    background-image: url(../assets/images/mobile.jpg);
-	background-size: cover;
-	background-position: center;
-	
-	h2{
-		color: white;
-	}
-}
-
-#html5{
-	background-image: url(../assets/images/patterns/wallpaper_purple.jpg);
-	background-position: center;
-	
-	h2, h4 {
-		text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);	
-	}
-}
-
-#caniuse{
-    background-image: url(../assets/images/caniuse.jpg);
-	background-size: cover;
-	background-position: center;
-	box-sizing: border-box;	
-}
-
-#filters{
-    background-image: url(../assets/images/filters.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#masks{
-    background-image: url(../assets/images/mask.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#clip{
-    background-image: url(../assets/images/clippath.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#blend{
-    background-image: url(../assets/images/blend.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#snap{
-    background-color: white;
-    background-image: url(../assets/images/snap-croc.svg);
-	background-size: auto 100%;
-    background-position: bottom left;
-    background-repeat: no-repeat;
-
-    h2{
-        color: #333;
-    }
-}
-
-#generative{
-    background-color: white;
-    background-image: url(../assets/images/patterns/square-pattern.svg);
-    background-repeat: repeat;
-    
-    h2{
-        color: #333;
-    }
-}
-
-#pixi{
-    background: #101228;
-}
-
-#canvas-blend{
-    background-image: url(../assets/images/blend.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#dynamic-mask{
-    background-image: url(../assets/images/maskdynamic.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#dynamic-mask-demo{
-    background-image: url(../assets/images/cupcakes.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#video{
-	video{
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	
-	h2{
-		color: #e81e6f;
-		@include transform(translateZ(0));
-	}
-}
-
-#semantics{
-    background-image: url(../assets/images/wes2.jpg);
-	background-size: cover;
-	background-position: center bottom;
-
-    h2{
-    	padding: .25em;
-    	width: 100%;
-        color: white;
-        background: rgba(0, 0, 0, 0.25);
-    }
-}
-
-#workflows{
-    background-image: url(../assets/images/workflows.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#camera-tool{
-    background-image: url(../assets/images/cameratool.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#generator{
-    background-image: url(../assets/images/creativecloud.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-#unicorn-chart{
-	background: white;
-
-	iframe{
-		background: white;
-	}
-}
-
-#word-girl{
-    background-image: url(../assets/images/wordgirl.jpg);
-	background-size: cover;
-	background-position: center;
-
-    a, h2{
-        color: black;
-    }
-}
-
-#word-girl-psd{
-    background-color: #ccc;
-    background-image: url(../assets/images/wordgirl-psd.png);
-    background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-
-    a, h2{
-        color: black;
-    }
 }
 
 h2.top-left{
@@ -516,6 +265,164 @@ h2.top-left{
     max-width: 50%;
     text-align: left;
     font-size: 4rem;
+}
+
+#quote{
+	blockquote{
+		font-size: 2.5rem;
+		line-height: 1.2;
+		padding: 20px;
+	}
+}
+
+#storytelling{
+	background-image: url(../assets/images/comm/comm-02.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#writing{
+	background-image: url(../assets/images/comm/comm-03.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#broadcast{
+	background-image: url(../assets/images/comm/comm-04.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#film{
+	background-image: url(../assets/images/comm/comm-05.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#digital{
+	background-image: url(../assets/images/comm/comm-06.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#digital-example-ff{
+	background-image: url(../assets/images/digital_ff.png);
+	background-size: cover;
+}
+
+#digital-example-avatar{
+	background-image: url(../assets/images/digital_avatar.png);
+	background-size: cover;
+}
+
+#games{
+	background-image: url(../assets/images/comm/comm-07.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#games-2d{
+	background-image: url(../assets/images/pacman.png);
+	background-size: cover;
+}
+
+#myst{
+	background-image: url(../assets/images/myst.png);
+	background-size: cover;	
+}
+
+#games-3d{
+	background-image: url(../assets/images/game_3d.png);
+	background-size: cover;
+}
+
+#mobile{
+	
+	img{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 500px;
+		margin-left: -250px;
+		pointer-events: none;
+	}
+	
+	iframe{
+		position: absolute;
+		top: 210px;
+		left: 50%;
+		margin-left: -150px;
+		width: 300px;
+		height: 425px;
+		z-index: -1;
+		pointer-events: auto;
+		outline: none;
+	}
+}
+
+#caniuse{
+	background-image: url(../assets/images/caniuse.png);
+	background-size: cover;
+	background-position: center;
+	justify-content: flex-end;
+	padding: 100px;
+}
+
+#masking-vector{
+	background-image: url(../assets/images/clippath.jpg);
+	background-size: cover;
+}
+
+#masking-alpha{
+	background-image: url(../assets/images/mask.jpg);
+	background-size: cover;
+}
+
+#vector-graphics, #masking-webgl-example, #masking-css-composite, #masking-canvas-css-example, #masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example{
+	background: transparent;
+	
+	iframe{
+		background: transparent;
+	}
+}
+
+#masking-cupcakes{
+	background-image: url(../assets/images/logo-food-network.svg);
+	background-position: center 100px;
+	background-repeat: no-repeat;
+	background-size: 150px;
+}
+
+#blending{
+	background-image: url(../assets/images/blend.jpg);
+	background-size: cover;
+}
+
+#video{
+	color: #e81e6f;;
+}
+
+#semantics{
+	background-image: url(../assets/images/wes.png);
+	background-size: cover;
+	background-position: center;
+}
+
+#word-girl{
+	background-image: url(../assets/images/wordgirl-psd.png);
+	background-size: contain;
+	background-position: top left;
+	background-repeat: no-repeat;
+
+	a{
+		color: orange;
+	}
 }
 
 #resources{

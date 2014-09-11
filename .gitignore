@@ -3,6 +3,7 @@ node_modules
 site
 src/.sass-cache
 src/external/wtf/wtf_greenscreen_combined.mov
+src/external/wtf2/wtf_greenscreen_combined.mov
 src/js/vendor/underscore-amd/
 src/js/vendor/backbone-amd/
 src/js/vendor/jquery/

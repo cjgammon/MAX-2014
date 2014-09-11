@@ -18,8 +18,9 @@ define(function (require) {
 			
 			if (view == this) {	
 				this.active = true;
-				this.iframe = this.$el.find('iframe');
-				this.iframe.attr('src', this.iframe.data('src'));
+				this.iframe = $('<iframe>');
+				view.$el.append(this.iframe);
+				this.iframe.attr('src', view.$el.data('src'));
 
 				$('.iframe-clickarea').remove();
 				this.clickarea = $('<div>');
@@ -53,11 +54,13 @@ define(function (require) {
 				this.active = false;
 				this.clickarea.removeClass('focus');
 				this.clickarea.remove();
+				
 				this.iframe.removeClass('focus');
+				
 				this.$el.unbind('click', this.handle_el_CLICK.bind(this));
 				this.clickarea.remove();
-				this.iframe.attr('src', 'about:blank');
-				//AppEvent.trigger('startanimation');
+				
+				this.iframe.remove();
 			}
 		}
 		

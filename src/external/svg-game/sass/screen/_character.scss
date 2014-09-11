@@ -1,0 +1,49 @@
+@-webkit-keyframes mouthmove{
+	from{
+		-webkit-transform: scaleY(1);
+	}
+
+	to{
+		-webkit-transform: scaleY(.5);
+	}
+}
+
+@-webkit-keyframes blink{
+	43%   { -webkit-transform: scaleY(1.0); }
+	50% { -webkit-transform: scaleY(0.0); }
+	57% { -webkit-transform: scaleY(1.0); }
+}
+
+@-webkit-keyframes retina{
+	0%   { -webkit-transform: translateX(0px); }
+	30% { -webkit-transform: translateX(1px) translateY(.5px); }
+	50% { -webkit-transform: translateX(0px) translateY(-.5px); }
+	80% { -webkit-transform: translateX(1px); }
+	100% { -webkit-transform: translateX(0px); }
+}
+
+.mouth{
+	@include transform-origin(center, center);
+	@include transform(scaleY(.5));
+
+	/*
+	-webkit-animation-duration: 3s;
+	-webkit-animation-name: mouthmove;
+  	-webkit-animation-iteration-count: infinite;
+ 	-webkit-animation-direction: alternate;
+	*/
+}
+
+.eye{
+	@include transform-origin(center, bottom);
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: blink;
+  	-webkit-animation-iteration-count: infinite;
+}
+
+.retina{
+	@include transform-origin(center, center);
+	-webkit-animation-duration: 10s;
+	-webkit-animation-name: retina;
+  	-webkit-animation-iteration-count: infinite;
+}

@@ -1,0 +1,210 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+body{
+	-webkit-perspective-origin: center center;
+	-webkit-perspective: 100;
+	-webkit-transform-style: preserve-3d;
+	font-family: 'open-sans', sans-serif;
+	font-size: 1.5rem;
+}
+
+h2{
+	font-family: 'open-sans-condensed', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 800;
+	font-size: 6rem;
+	margin-bottom: 1rem;
+	max-width: 80%;
+}
+
+a{
+	color: rgb(115, 159, 189);
+	text-decoration: none;
+	font-weight: 800;
+	@include transition(color .2s ease-out);
+	
+	&:hover{
+		color: rgb(115, 159, 189);	
+	};
+}
+
+#progressHolder{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: #111;
+}
+
+#progressBar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background: #333;
+}
+
+#dust, #sky{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#ground{
+	position: fixed;
+	z-index: 0;
+}
+
+#deck{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	-webkit-perspective-origin: center center;
+	-webkit-transform-style: preserve-3d;
+}
+
+#hud{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+}
+
+#preloader{
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #efefef;
+}
+
+.spinner{
+	width: 50px;
+	height: 50px;
+	background: #333;
+	border-radius: 50px;
+	-webkit-animation: rotate 0.5s infinite linear;
+}
+
+.slide{
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #efefef;
+	text-shadow: 0px 10px 50px rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	
+	/*
+	&:after{
+		content: " ";
+		position: relative;
+		top: 40%;
+		width: 50%;
+		height: 20px;
+		background: rgba(1, 1, 1, 0.75);
+		pointer-events: none;
+		@include filter(blur(20px));
+	};
+	*/
+}
+
+.hud-input{
+	position: absolute;
+	top: 0;
+	height: 5rem;
+	width: 100%;
+	padding: .5rem;
+	font-size: 4rem;
+	font-weight: 800;
+	line-height: 5rem;
+	color: #333;
+	background-color: #efefef;
+	z-index: 20;
+	@include transition(all .2s ease-out);
+	@include transform(translateZ(0) rotateX(-90deg));
+	@include transform-origin(top, center);
+	
+	&.in{
+		@include transform(translateZ(0));
+	}
+}
+
+.hud-list{
+	position: relative;
+	-webkit-perspective: 10000;
+	z-index: 0;
+}
+
+.hud-list-item{
+	position: relative;
+	
+	padding: 1rem;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 4rem;
+	font-weight: 100;
+	color: white;
+	font-family: 'open-sans-condensed', sans-serif;
+	
+	background-color: rgba(0, 0, 0, 0.5);
+	@include transform(scale(.9));
+	@include transition(all .2s linear);
+	z-index: 1;
+	
+	&.prev{
+		@include transform(scale(1) rotateX(60deg));
+	}
+	
+	&.next{
+		@include transform(scale(1) rotateX(-60deg));
+	}
+	
+	&.primed{
+		background-color: rgba(155, 0, 0, 0.5);
+		z-index: 5;
+	}
+	
+	&.selected{
+		@include transform(scale(1.2));
+		background-color: rgba(255, 0, 0, 0.6);
+		z-index: 10;
+	}
+}
+
+.addthis_toolbox{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	z-index: 1000;
+}

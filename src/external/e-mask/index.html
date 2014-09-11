@@ -12,17 +12,12 @@
 				text-align: center;
 				font-family: 'Open Sans', sans-serif;
 				font-weight: 100;
-				background: #222;
 			}
 
 			h3{
-				position: absolute;
 				font-size: 2rem;
 				color: #efefef;
-				left: 300%;
-				top: -100%;
-				width: 500px;
-				text-align: left;
+				text-align: center;
 				text-transform: uppercase;
 			}
 
@@ -30,87 +25,91 @@
 				width: 100vw;
 				height: 100vh;
 				display: flex;
-				flex-direction: column;
+				flex-direction: row;
 				align-items: center;
 				justify-content: space-around;	
 
 			}
-
-			section div{
-				position: relative;
-				perspective: 300px;
+			
+			.item{
+				height: 150px;
+				width: 250px;
 			}
-
-
-			@-webkit-keyframes slide2{
-				0%, 100%{
-				-webkit-mask-position: 0 0, -81px 0;
-				}
-
-				50%{
-					-webkit-mask-position: 0 0, -62px 0;
-				}
-			}
-
-			.slider{
-				-webkit-mask-image: url(slider.svg), url(slider.svg);
-				-webkit-mask-size: 100px, 100px;
-				-webkit-mask-position: 0 0, -81px 0;
-				-webkit-mask-repeat: no-repeat;
-				-webkit-mask-composite: source-out;
-				
-				-webkit-transition: background .2s, -webkit-mask .2s;
-				-webkit-transform-origin: center top;
-				-webkit-transform: scale(2.5);
-				background-image: 
-					-webkit-radial-gradient( 10px 9px, 12px 12px, rgba(0, 0, 40, 1) 20%, rgba(0, 0, 100, 0.1) 80%, rgba(0, 0, 100, 0.0) 90%),
-					-webkit-radial-gradient( 20px 10px, 50px 30px, rgba(0, 0, 40, 0), rgba(0, 0, 100, 0.2) 30%, rgba(0, 0, 100, 0.7) 40%), 
-					-webkit-linear-gradient(left, #d3ebff -1%,#9ed3ff 14%,#479dff 41%,#3294e5 61%,#9ed3ff 82%,#d3ebff 97%);
-				background-position: 0 0, 0 0, 0 0;
-				cursor: pointer;
-				-webkit-animation: slide2 1s infinite;
-			}
-
-
-			.slider:hover{
-				background-position: 18px 0px, 0 0, 62px 0px;
-				-webkit-mask-position: 0 0, -62px 0;
-			}
-
-			.mask-1{
-				-webkit-mask-image: url(slider.svg);
-				-webkit-mask-size: 100px, 100px;
-				-webkit-mask-position: 0 0;
-				-webkit-mask-composite: source-over;
-				-webkit-mask-repeat: no-repeat;
-			}
-
-			@-webkit-keyframes slide1{
-				0%, 100%{
-					-webkit-mask-position: -81px 0;
-				}
-
-				50%{
-					-webkit-mask-position: -62px 0;
-
-				}
-			}
-
-			.mask-2{
-				-webkit-mask-image: url(slider.svg);
-				-webkit-mask-size: 100px, 100px;
-				-webkit-mask-position: -81px 0;
-				-webkit-mask-repeat: no-repeat;
-				-webkit-mask-composite: source-out;
-				-webkit-animation: slide1 1s infinite;
-			}
-
-
-			.button{
+			
+			#gradient{
 				width: 50px;
-				height: 30px;
+				height: 50px;
 				background: white;
-				-webkit-transform: scale(3) rotateX(40deg) rotateZ(20deg);
+				background-image: -webkit-radial-gradient( 22px 29px, 100px 20px, 
+                          hsla(0,0%,100%,1), hsla(0,0%,100%,0) 20%, hsla(0,0%,100%,0)),
+                          -webkit-radial-gradient(22px 29px, 100px 20px, #b7deed 0%,#71ceef 50%,#21b4e2 51%,#b7deed 100%);
+				-webkit-transform-origin: top left;
+				-webkit-transform: translateX(20px) scale(4);
+			}
+			
+			#cloud{
+				width: 50px;
+				height: 50px;
+				background: white;
+				-webkit-mask-image: url(cloud.svg);
+				-webkit-mask-size: 100px;
+				-webkit-mask-position: 0 0;
+				-webkit-mask-repeat: no-repeat;
+				-webkit-transform-origin: top left;
+				-webkit-transform: translateX(50px) scale(4);
+			}
+			
+			#arrows{
+				width: 50px;
+				height: 50px;
+				background: white;
+				-webkit-mask-image: url(cloud.svg);
+				-webkit-mask-size: 100px;
+				-webkit-mask-position: -62px 0;
+				-webkit-mask-repeat: no-repeat;
+				-webkit-transform-origin: top left;
+				-webkit-transform: translateX(50px) scale(4);
+				-webkit-animation: move2 1s infinite;	
+			}
+			
+			#mix{
+				width: 50px;
+				height: 50px;
+				background: white;
+				background-image: -webkit-radial-gradient( 22px 29px, 100px 20px, 
+                          hsla(0,0%,100%,1), hsla(0,0%,100%,0) 20%, hsla(0,0%,100%,0)),
+                          -webkit-radial-gradient(22px 29px, 100px 20px, #b7deed 0%,#71ceef 50%,#21b4e2 51%,#b7deed 100%);
+
+				-webkit-mask-image: url(cloud.svg), url(cloud.svg);
+				-webkit-mask-size: 100px, 100px;
+				-webkit-mask-position: 0 0, -62px 0;
+				-webkit-mask-repeat: no-repeat;
+				-webkit-transform-origin: top left;
+				-webkit-transform: translateX(50px) scale(4);
+				-webkit-mask-composite: source-out;	
+				-webkit-animation: move 1s infinite;
+			}
+			
+			@-webkit-keyframes move{
+				0%{
+					-webkit-mask-position: 0 0, -62px 0;
+					background-position: 0px 0px;
+				}
+				
+				50%{
+					-webkit-mask-position: 0 0, -62px 24px;
+					background-position: 0px 6px;
+				}
+			}
+			
+			@-webkit-keyframes move2{
+				0%{
+					-webkit-mask-position: -62px 0;
+				}
+				
+				50%{
+					-webkit-mask-position: -62px 24px;
+				}
 			}
 
 		</style>
@@ -124,22 +123,29 @@
 
 			<div>
 				<h3>element</h3>
-				<div id="slider" class="button"></div>
+				<div class="item">
+					<div id="gradient"></div>
+				</div>
 			</div>
-
 			<div>
 				<h3>source-over</h3>
-				<div id="slider" class="button mask-1"></div>
+				<div class="item">
+					<div id="cloud"></div>
+				</div>
 			</div>
 
 			<div>
 				<h3>source-out</h3>
-				<div id="slider" class="button mask-2"></div>
+				<div class="item">
+					<div id="arrows"></div>
+				</div>
 			</div>
 			
 			<div>
 				<h3>result</h3>
-				<div id="slider" class="button slider"></div>
+				<div class="item">
+					<div id="mix"></div>
+				</div>
 			</div>
 
 		</section>
