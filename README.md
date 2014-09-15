@@ -3,10 +3,6 @@ Web-Art
 
 presentation on web, design, and art
 
-to install dependencies:
+to run you must first install dependencies:
 
 `bower install`
-
-to build:
-
-`npm install`
