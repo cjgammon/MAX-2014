@@ -5,8 +5,8 @@ presentation on web, design, and art
 
 to install dependencies:
 
-`bower install
+`bower install`
 
 to build:
 
-`npm install
+`npm install`
