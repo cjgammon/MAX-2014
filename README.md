@@ -1,10 +1,13 @@
-Web-Art
-=======
+#Rich Web Experiences 
+and The Future of The Web
+____________
 
-Presentation on web, design, and art
+Presentation on Rich Web experiences and future web techniques and technologies presented at CAMP Festival 2014
 
-To run you must first install dependencies, on command line run:
+##Instructions
 
-`bower install`
+To run you must do the following:
 
-Must be run on a server for browser security reasons.
+* Ensure you have [bower](http://bower.io/) installed
+* In the command line navigate to the root of the repository and run `bower install`
+* For browser security restrictions the site must be run on a server either locally or remotely.
