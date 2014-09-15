@@ -1,8 +1,10 @@
 Web-Art
 =======
 
-presentation on web, design, and art
+Presentation on web, design, and art
 
-to run you must first install dependencies, on command line run:
+To run you must first install dependencies, on command line run:
 
 `bower install`
+
+Must be run on a server for browser security reasons.
