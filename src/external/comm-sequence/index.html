@@ -176,6 +176,57 @@
 				computer,
 				game;
 			
+			window.step = 0;
+			window.stepcount = 13;
+			
+			window.trigger = function () {
+				window.step += 1;
+
+				console.log(window.step);
+				switch (window.step) {
+					case 1:
+						guysIn();
+					break;
+					case 2:
+						speech();
+					break;
+					case 3:
+						speechOut();
+					break;
+					case 4:
+						writing();
+					break;
+					case 5:
+						writingOut();
+					break;
+					case 6:
+						broadcast();
+					break;
+					case 7:
+						broadcastOut();
+					break;
+					case 8:
+						film();
+					break;
+					case 9:
+						filmOut();
+					break;
+					case 10:
+						digital();
+					break;
+					case 11:
+						digitalOut();
+					break;
+					case 12:
+						game();
+					break;
+					case 13:
+						gameOut();
+					break;
+				}
+			}
+			
+			
 			guy1 = new PurpleGuy();
 			guy1.el.transform('translate(-300, 350)');
 			
@@ -201,28 +252,21 @@
 			mic = s.select('#mic');
 			computer = s.select('#computer');
 			gameboard = s.select('#game');
-			
-			setTimeout(guysIn, 500);
-			
+						
 			function guysIn() {
 				transition0();
-				setTimeout(speech, 1000);
 			}
 			
 			function speech() {
 				transition1();
 				setTimeout(transition2, 700);
 				setTimeout(transition3, 1400);
-				setTimeout(transition4, 5100);
-				setTimeout(writing, 5500);
 			}
 			
 			function writing() {
 				transition5();
 				setTimeout(transition6, 700);
 				setTimeout(transition7, 1400);
-				setTimeout(transition8, 5100);
-				setTimeout(broadcast, 5500);
 			}
 			
 			function broadcast() {
@@ -230,31 +274,24 @@
 				setTimeout(transition10, 700);
 				setTimeout(transition11, 1400);
 				setTimeout(transition12, 2100);
-				setTimeout(transition13, 5100);
-				setTimeout(film, 5500);
 			}
 			
 			function film() {
 				transition14();
 				setTimeout(transition15, 700);
 				setTimeout(transition16, 1400);
-				setTimeout(transition17, 5100);
-				setTimeout(digital, 5500);
 			}
 			
 			function digital() {
 				transition18();
 				setTimeout(transition19, 700);
-				setTimeout(transition20, 1400);	
-				setTimeout(transition21, 5100);	
-				setTimeout(game, 5500);		
+				setTimeout(transition20, 1400);			
 			}
 			
 			function game() {
 				transition22();
 				setTimeout(transition23, 700);
 				setTimeout(transition24, 1400);	
-				setTimeout(transition25, 5100);	
 			}
 			
 			//transitions
@@ -283,7 +320,7 @@
 				ex2.el.animate({transform: 'translate(790, 120) rotate(20deg) scale(1)'}, 300, mina.bounce);
 			}
 			
-			function transition4() {
+			function speechOut() {
 				guy1.stopTalking();
 
 				ex2.el.animate({opacity: 0}, 200, mina.easein);
@@ -308,7 +345,7 @@
 				ex2.el.animate({transform: 'translate(790, 120) rotate(20deg) scale(1)'}, 300, mina.bounce);
 			}
 			
-			function transition8() {
+			function writingOut() {
 				guy1.lowerArm();
 				ex2.el.animate({opacity: 0}, 200, mina.easein);
 				paper.el.animate({opacity: 0}, 200, mina.easein);
@@ -357,7 +394,7 @@
 				ex2.el.animate({transform: 'translate(790, 120) rotate(20deg) scale(1)'}, 300, mina.bounce);
 			}
 			
-			function transition13() {
+			function broadcastOut() {
 
 				mic.animate({opacity: 0}, 200);
 				bgCircle.animate({opacity: 0}, 200);
@@ -427,7 +464,7 @@
 				ex2.el.animate({transform: 'translate(650, 500) rotate(20deg) scale(1)'}, 300, mina.bounce);
 			}
 			
-			function transition17() {
+			function filmOut() {
 				ex1.el.animate({opacity: 0}, 200, mina.easein);
 				ex2.el.animate({opacity: 0}, 200, mina.easein);
 				bgRect.animate({opacity: 0}, 300, mina.easein);
@@ -482,7 +519,7 @@
 				ex2.el.animate({transform: 'translate(650, 400) rotate(20deg) scale(1)'}, 300, mina.bounce);
 			}
 			
-			function transition21() {
+			function digitalOut() {
 				screenRect.animate({opacity: 0}, 300);
 				computer.animate({opacity: 0}, 300);
 				ex1.el.animate({opacity: 0}, 200, mina.easein);
@@ -516,7 +553,7 @@
 				ex2.el.animate({transform: 'translate(650, 150) rotate(10deg) scale(1)'}, 300, mina.bounce);
 			}
 
-			function transition25() {
+			function gameOut() {
 				gameboard.animate({opacity: 0}, 300);
 				ex1.el.animate({opacity: 0}, 200, mina.easein);
 				ex2.el.animate({opacity: 0}, 200, mina.easein);
@@ -648,7 +685,6 @@
 				this.talk = function () {
 					talkState = talkState < talkPaths.length - 1 ? talkState + 1 : 0;
 
-					console.log('talk', talkState);
 					mouth.el.animate({'d': talkPaths[talkState]}, 200);
 				}
 
