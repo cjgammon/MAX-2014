@@ -1186,11 +1186,11 @@ h2.top-left {
 }
 
 /* line 387, ../sass/screen.scss */
-#vector-graphics, #masking-webgl-example, #masking-css-composite, #masking-canvas-css-example, #masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example {
+#communicating, #vector-graphics, #masking-webgl-example, #masking-css-composite, #masking-canvas-css-example, #masking-canvas-example, #masking-css-example, #masking-svg-example, #clip-webgl-example, #clip-canvas-example, #clip-svg-example, #masking-css-example, #masking-css-composite-1, #masking-css-composite-2, #clip-css-example {
   background: transparent;
 }
 /* line 390, ../sass/screen.scss */
-#vector-graphics iframe, #masking-webgl-example iframe, #masking-css-composite iframe, #masking-canvas-css-example iframe, #masking-canvas-example iframe, #masking-css-example iframe, #masking-svg-example iframe, #clip-webgl-example iframe, #clip-canvas-example iframe, #clip-svg-example iframe, #masking-css-example iframe, #masking-css-composite-1 iframe, #masking-css-composite-2 iframe, #clip-css-example iframe {
+#communicating iframe, #vector-graphics iframe, #masking-webgl-example iframe, #masking-css-composite iframe, #masking-canvas-css-example iframe, #masking-canvas-example iframe, #masking-css-example iframe, #masking-svg-example iframe, #clip-webgl-example iframe, #clip-canvas-example iframe, #clip-svg-example iframe, #masking-css-example iframe, #masking-css-composite-1 iframe, #masking-css-composite-2 iframe, #clip-css-example iframe {
   background: transparent;
 }
 
