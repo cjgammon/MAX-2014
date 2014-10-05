@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>generator demo</title>
+		<style>
+			body{
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="1000" height="700"></canvas>
+		
+		<script src="preloadjs-0.4.1.min.js"></script>
+		<script src="easeljs-0.7.1.min.js"></script>
+		<script src="greensock/TweenMax.js"></script>
+		<script>
+			var stage,
+				psd,
+				preloader,
+				canvas = document.getElementById('myCanvas'),
+				folders = [],
+				json,
+				child;
+			
+			window.step = 0;
+			window.stepcount = 6;
+			
+			window.trigger = function () {
+				window.step += 1;
+				
+				switch (window.step) {
+					case 1:
+						TweenMax.to(content, 1, {scaleX: 0.5, scaleY: 0.5, ease: Quad.easeIn});
+					break;
+					case 2:
+						TweenMax.to(folders[0].getChildAt(0), 1, {rotation: 20, yoyo: true, repeat: 1});
+						TweenMax.to(folders[0].getChildAt(1), 1, {rotation: -20, yoyo: true, repeat: 1});
+						TweenMax.to(folders[0].getChildAt(2), 1, {rotation: 20, yoyo: true, repeat: 1});
+					break;
+					case 3:
+						var tl = new TimelineMax();
+					
+						child = folders[0].getChildAt(0).clone();					
+						child.scaleY = child.scaleX = content.scaleX;
+						child.x = photoshop.x + folders[0].getChildAt(0).x + 2;
+						child.y = photoshop.y + folders[0].getChildAt(0).y - 32;
+						stage.addChild(child);
+
+						folders[0].getChildAt(0).alpha = 0;
+						tl.add(TweenMax.to(child, 1, {scaleX: 1, scaleY: 1}));
+
+						tl.add(TweenMax.to(photoshop, 1, {x: '-=2000'}), '-=1');
+						tl.add(TweenMax.to(browser, 1, {x: '-=2000'}));
+
+						tl.addCallback(function () {
+							photoshop.removeChild(content);
+							browser.addChild(content);
+
+							psdMask = new createjs.Shape();
+							psdMask.graphics.beginFill("#ff0000").drawRect(0, 0, 1150, 700);
+							content.mask = psdMask;
+						});
+
+						tl.add(TweenMax.to(child, 1, {scaleX: 0.5, scaleY: 0.5}));
+						
+						tl.addCallback(function () {
+							folders[0].getChildAt(0).alpha = 1;
+							stage.removeChild(child);
+						});
+					break;
+					case 4:
+						var i;
+						
+						for (i = 0; i < folders.length; i += 1) {
+							folders[i].mask = folders[i].mymask;					
+						}
+					break;
+					case 5:
+						TweenMax.to(content, 1, {scaleX: 0.1, scaleY: 0.1, ease: Quad.easeIn});
+					break;
+				}
+			}
+			
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+			
+			preloader = new createjs.LoadQueue();
+			preloader.addEventListener("complete", handleComplete);
+			preloader.loadFile({id:"doc", src:"document.json"});			
+			preloader.loadFile({id:"ps", src:"photoshop.png"});			
+			preloader.loadFile({id:"browse", src:"browser.png"});			
+			
+			preloader2 = new createjs.LoadQueue();
+			preloader2.addEventListener("complete", buildDocument);
+			
+			function handleComplete() {
+				var i,
+					folder;
+				
+				console.log('load 1');
+				json = preloader.getResult('doc');
+				
+				for (i = 0; i < json.layers.length; i += 1) {
+					folder = json.layers[i];
+					for (j = folder.layers.length - 1; j > -1; j -= 1) {
+						layer = folder.layers[j];
+
+						if (layer.name.search('.png') > -1) {
+							preloader2.loadFile({id:"file-" + i + '-' + j, src:'comp-assets/' + layer.name});			
+						}
+					}
+				}
+			}
+			
+			function buildDocument() {
+				var i,
+					folder;
+				
+				console.log('load 2');
+				for (i = 0; i < json.layers.length; i += 1) {
+					folder = json.layers[i];
+					addGroup(folder)
+				}
+				
+				addStage();
+			}
+			
+			function addGroup(folder) {
+				var j,
+					group,
+					bitmap,
+					layer,
+					mymask;
+				
+				group = new createjs.Container();
+				group.x = 0;
+				group.y = 0;
+				
+				for (j = folder.layers.length - 1; j > -1; j -= 1) {
+					layer = folder.layers[j];
+					
+					if (layer.name.search('.png') > -1) {
+						bitmap = new createjs.Bitmap('comp-assets/' + layer.name);
+						bitmap.x = layer.bounds.left;
+						bitmap.y = layer.bounds.top;
+						group.addChild(bitmap);
+					}
+				}
+				
+				if (typeof(folder.vectorMask) !== 'undefined') {
+					mymask = new createjs.Shape();
+					mymask.graphics.beginFill("#ff0000")
+					.mt(folder.vectorMask[0].anchor.x, folder.vectorMask[0].anchor.y)
+					.lt(folder.vectorMask[1].anchor.x, folder.vectorMask[1].anchor.y)
+					.lt(folder.vectorMask[2].anchor.x, folder.vectorMask[2].anchor.y)
+					.lt(folder.vectorMask[3].anchor.x, folder.vectorMask[3].anchor.y).cp().endFill();
+					group.mymask = mymask;
+				}
+				
+				folders.push(group);
+			}
+			
+			function addStage() {
+				var i;
+				
+				stage = new createjs.Stage("myCanvas");
+				
+				photoshop = new createjs.Container();
+				stage.addChild(photoshop);
+				
+				browser = new createjs.Container();
+				stage.addChild(browser);
+				
+				content = new createjs.Container();
+				
+				for (i = 0; i < folders.length; i += 1) {
+					content.addChild(folders[i]);					
+				}
+				
+				photoshop.addChild(content);
+				content.x = 50;
+				content.y = 90;
+				content.scaleX = content.scaleY = 0.05;
+				
+				psdMask = new createjs.Shape();
+				psdMask.graphics.beginFill("#ff0000").drawRect(0, 0, 912, 563);
+				content.mask = psdMask;
+				
+				bg = new createjs.Bitmap('photoshop.png');
+				bg.scaleX = bg.scaleY = 0.4;
+				photoshop.addChild(bg);
+				photoshop.setChildIndex(bg, 0);
+				
+				browserbg = new createjs.Bitmap('browser.png');
+				browserbg.scaleX = browserbg.scaleY = 0.4;
+				browser.addChild(browserbg);
+				
+				photoshop.x = window.innerWidth / 2 - photoshop.getBounds().width / 2;
+				photoshop.y = window.innerHeight / 2 - photoshop.getBounds().height / 2;
+
+				browser.x = photoshop.x + 2000;
+				browser.y = photoshop.y;
+
+				console.log('add stage')
+
+				requestAnimationFrame(update);
+			}
+
+			function update() {
+				stage.update();
+				requestAnimationFrame(update);
+			}
+			
+		</script>
+	</body>
+</html>
