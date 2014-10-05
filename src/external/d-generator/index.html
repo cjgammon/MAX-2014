@@ -45,8 +45,8 @@
 					
 						child = folders[0].getChildAt(0).clone();					
 						child.scaleY = child.scaleX = content.scaleX;
-						child.x = photoshop.x + folders[0].getChildAt(0).x + 2;
-						child.y = photoshop.y + folders[0].getChildAt(0).y - 32;
+						child.x = photoshop.x + folders[0].getChildAt(0).x - 10;
+						child.y = photoshop.y + folders[0].getChildAt(0).y - 35;
 						stage.addChild(child);
 
 						folders[0].getChildAt(0).alpha = 0;
@@ -203,8 +203,6 @@
 
 				browser.x = photoshop.x + 2000;
 				browser.y = photoshop.y;
-
-				console.log('add stage')
 
 				requestAnimationFrame(update);
 			}
