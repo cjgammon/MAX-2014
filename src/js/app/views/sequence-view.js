@@ -15,11 +15,12 @@ define(function (require) {
 				view = slides.get(currentSlide).get('view');
 			
 			if (view == this) {	
+				this.step = 0;
 				this.active = true;
-                this.step = 0;
-				this.iframe = this.$el.find('iframe');
-                this.iframe.css('pointer-events', 'none');
-				this.iframe.attr('src', this.iframe.data('src'));
+				this.iframe = $('<iframe>');
+				view.$el.append(this.iframe);
+				this.iframe.attr('src', view.$el.data('src'));
+
 				AppEvent.trigger('stopanimation');
 			}
 		},
@@ -27,7 +28,7 @@ define(function (require) {
 		desolve: function () {
 			if (this.active) {
 				this.active = false;
-				this.iframe.attr('src', 'about:blank');
+				this.iframe.remove();
 				AppEvent.trigger('startanimation');
 			}
 		},
@@ -35,7 +36,7 @@ define(function (require) {
         trigger: function () {
             this.step += 1;
             
-            if (this.step < this.$el.data('steps')) {
+            if (this.step < this.iframe[0].contentWindow.stepcount) {
                 this.iframe[0].contentWindow.trigger();
             } else {
 		        AppEvent.trigger('next');
